@@ -11,7 +11,7 @@ class RootRepository {
 
   Future<List<Category>> getCategories() async {
     await Future.delayed(Duration(seconds: 2));
-print('dcfasdfc');
+print('dcfasdfc111111');
     return _categories;
   }
 
