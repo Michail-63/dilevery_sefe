@@ -21,6 +21,14 @@ class RootRepository {
     Category(title: "Рекомендуемое", dishes: [
       Dish(
           title: "Сет Королевский",
+          price: 12,
+          image: ImagePass.sushi,
+          text:
+          'Филадельфия, Карелия, Фиdfbdfbdладельфия с тунцом, Калифорния со снежным крабом, '
+              'запеченные спайси с лососем, темпура угорь, темпура Филадельфия, запеченные с креветкой'),
+
+      Dish(
+          title: "Сет Королевский",
           price: 1280,
           image: ImagePass.sushi,
           text:
