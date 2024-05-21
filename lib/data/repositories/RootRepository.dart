@@ -19,6 +19,7 @@ class RootRepository {
 
   List<Category> _categories = [
     Category(title: "Рекомендуемое", dishes: [
+     
       Dish(
           title: "Сет Королевский",
           price: 1280,
