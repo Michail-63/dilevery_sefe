@@ -1,4 +1,4 @@
-import 'package:delivery/data/MenuData.dart';
+import 'package:delivery/data/models/MenuData.dart';
 import 'package:delivery/pages/menu/widget/Menu.dart';
 import 'package:flutter/material.dart';
 

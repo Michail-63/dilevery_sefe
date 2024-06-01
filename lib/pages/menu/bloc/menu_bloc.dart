@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/MenuData.dart';
-import 'package:delivery/lists/ListMenu.dart';
+import 'package:delivery/data/models/MenuData.dart';
+import 'package:delivery/data/models/lists/ListMenu.dart';
 import 'package:meta/meta.dart';
 
 part 'menu_event.dart';

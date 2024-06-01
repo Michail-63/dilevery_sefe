@@ -1,6 +1,6 @@
 import 'package:delivery/config/icon_path.dart';
-import 'package:delivery/data/CategoryData.dart';
-import 'package:delivery/data/DishData.dart';
+import 'package:delivery/data/models/CategoryData.dart';
+import 'package:delivery/data/models/DishData.dart';
 
 class RootRepository {
 

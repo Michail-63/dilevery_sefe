@@ -1,6 +1,6 @@
 import 'package:delivery/Utils/String.dart';
 import 'package:delivery/config/icon_path.dart';
-import 'package:delivery/data/DrawerMenuData.dart';
+import 'package:delivery/data/models/DrawerMenuData.dart';
 import 'package:delivery/pages/cart/CartPage.dart';
 import 'package:delivery/pages/main/MainPage.dart';
 import 'package:delivery/pages/menu/MenuPage%20.dart';

@@ -1,5 +1,5 @@
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/DishData.dart';
+import 'package:delivery/data/models/DishData.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:delivery/pages/dish/widget/AddDishToCart.dart';
 import 'package:delivery/pages/dish/widget/AddReviews.dart';

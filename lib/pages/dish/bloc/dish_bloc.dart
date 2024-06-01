@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/Review.dart';
+import 'package:delivery/data/models/Review.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
