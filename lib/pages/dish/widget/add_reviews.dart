@@ -167,7 +167,7 @@ class _ReviewModalState extends State<ReviewModal> {
               width: double.infinity,
               child: TextButton(
                 onPressed: () {
-                  widget.onSend(star, review);
+                  // widget.onSend(star, review);
                   Navigator.of(context).pop();
                 },
                 child: Text("Отправить",
