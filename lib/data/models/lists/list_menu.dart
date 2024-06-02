@@ -1,6 +1,6 @@
 import 'package:delivery/Utils/String.dart';
 import 'package:delivery/config/icon_path.dart';
-import 'package:delivery/data/models/MenuData.dart';
+import 'package:delivery/data/models/menu_data.dart';
 import 'package:delivery/pages/profile/ProfilePage.dart';
 
 

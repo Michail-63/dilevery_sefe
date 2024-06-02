@@ -1,5 +1,5 @@
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/pages/main/MainPage.dart';
+import 'package:delivery/pages/main/main_page.dart';
 import 'package:delivery/pages/welcome/widget/InputTextField.dart';
 import 'package:delivery/pages/welcome/widget/OrangeBatton.dart';
 import 'package:delivery/pages/welcome/widget/PasvordTextField.dart';

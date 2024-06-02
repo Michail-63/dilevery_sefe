@@ -1,11 +1,11 @@
 import 'package:delivery/Utils/String.dart';
 import 'package:delivery/pages/cart/bloc/cart_bloc.dart';
-import 'package:delivery/pages/drawer/DrawerPage.dart';
+import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'widget_cart/BodyCartScreen.dart';
-import 'widget_cart/BottomBattom.dart';
-import 'widget_cart/Promocod.dart';
+import 'widget_cart/body_cart_screen.dart';
+import 'widget_cart/bottom_battom.dart';
+import 'widget_cart/promocod.dart';
 
 
 class CartPage extends StatelessWidget {

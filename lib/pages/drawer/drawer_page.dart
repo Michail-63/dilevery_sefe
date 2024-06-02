@@ -1,5 +1,5 @@
-import 'package:delivery/data/models/lists/ListDrawer.dart';
-import 'package:delivery/pages/drawer/widget/DrawerBuild.dart';
+import 'package:delivery/data/models/lists/list_drawer.dart';
+import 'package:delivery/pages/drawer/widget/drawer_view.dart';
 import 'package:flutter/material.dart';
 
 class DrawerPage extends StatelessWidget {
@@ -39,7 +39,7 @@ class DrawerPage extends StatelessWidget {
             ),
           ),
           for (var item in menuDrawer)
-            DrawerBuild(
+            DrawerView(
               title: item.title,
               icon: item.icon,
               onClick: () {

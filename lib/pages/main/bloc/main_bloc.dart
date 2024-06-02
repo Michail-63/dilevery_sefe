@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/models/CategoryData.dart';
-import 'package:delivery/data/repositories/RootRepository.dart';
+import 'package:delivery/data/models/category_data.dart';
+import 'package:delivery/data/repositories/root_repository.dart';
 
 
 part 'main_event.dart';

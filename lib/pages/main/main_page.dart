@@ -1,9 +1,9 @@
-import 'package:delivery/data/repositories/RootRepository.dart';
-import 'package:delivery/pages/drawer/DrawerPage.dart';
+import 'package:delivery/data/repositories/root_repository.dart';
+import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'widget/CategoryWidget.dart';
+import 'widget/scroll_home_screen.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({
@@ -30,7 +30,7 @@ class MainPage extends StatelessWidget {
           ]),
           body: BlocBuilder<MainBloc, MainState>(
             builder: (context, state) {
-              return CategoryWidget(categories: state.categories, isloading:state.isloading);
+              return ScrollHomeScreen(categories: state.categories, isloading:state.isloading);
             },
           )),
     );

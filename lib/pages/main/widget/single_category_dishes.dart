@@ -1,7 +1,7 @@
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/models/DishData.dart';
-import 'package:delivery/pages/dish/DishPage.dart';
+import 'package:delivery/data/models/dish_data.dart';
+import 'package:delivery/pages/dish/dish_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

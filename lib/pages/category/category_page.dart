@@ -1,7 +1,7 @@
-import 'package:delivery/data/repositories/RootRepository.dart';
+import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:delivery/pages/category/bloc/category_bloc.dart';
 import 'package:delivery/pages/category/widget/GridCategoryDishes.dart';
-import 'package:delivery/pages/drawer/DrawerPage.dart';
+import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

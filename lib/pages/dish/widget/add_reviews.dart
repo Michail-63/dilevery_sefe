@@ -1,7 +1,7 @@
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
-import 'package:delivery/pages/dish/widget/RateStar.dart';
+import 'package:delivery/pages/dish/widget/rate_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';

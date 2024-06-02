@@ -1,5 +1,5 @@
-import 'package:delivery/data/models/MenuData.dart';
-import 'package:delivery/pages/menu/widget/Menu.dart';
+import 'package:delivery/data/models/menu_data.dart';
+import 'package:delivery/pages/menu/widget/menu.dart';
 import 'package:flutter/material.dart';
 
 class MenuSelection extends StatelessWidget {

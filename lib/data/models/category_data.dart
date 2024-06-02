@@ -1,4 +1,4 @@
-import 'package:delivery/data/models/DishData.dart';
+import 'package:delivery/data/models/dish_data.dart';
 class Category  {
      String title;
      List<Dish>dishes;

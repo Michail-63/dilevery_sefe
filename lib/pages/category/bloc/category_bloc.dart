@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/models/DishData.dart';
-import 'package:delivery/data/repositories/RootRepository.dart';
+import 'package:delivery/data/models/dish_data.dart';
+import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:equatable/equatable.dart';
 
 part 'category_event.dart';

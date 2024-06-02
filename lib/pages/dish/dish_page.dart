@@ -1,9 +1,9 @@
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/models/DishData.dart';
+import 'package:delivery/data/models/dish_data.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
-import 'package:delivery/pages/dish/widget/AddDishToCart.dart';
-import 'package:delivery/pages/dish/widget/AddReviews.dart';
-import 'package:delivery/pages/dish/widget/NewReview.dart';
+import 'package:delivery/pages/dish/widget/add_dish_to_cart.dart';
+import 'package:delivery/pages/dish/widget/add_reviews.dart';
+import 'package:delivery/pages/dish/widget/new_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -2,7 +2,7 @@
 
 
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/pages/main/MainPage.dart';
+import 'package:delivery/pages/main/main_page.dart';
 import 'package:delivery/pages/splash/SplashPage.dart';
 import 'package:delivery/pages/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';

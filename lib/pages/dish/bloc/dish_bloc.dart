@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/models/Review.dart';
+import 'package:delivery/data/models/review.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 
 part 'dish_event.dart';
 

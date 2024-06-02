@@ -1,16 +1,16 @@
 import 'package:delivery/config/icon_path.dart';
-import 'package:delivery/data/models/CategoryData.dart';
-import 'package:delivery/pages/category/CategoryPage.dart';
-import 'package:delivery/pages/main/widget/SingleCategoryDishes.dart';
+import 'package:delivery/data/models/category_data.dart';
+import 'package:delivery/pages/category/category_page.dart';
+import 'package:delivery/pages/main/widget/single_category_dishes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CategoryWidget extends StatelessWidget {
+class ScrollHomeScreen extends StatelessWidget {
   final List<Category> categories;
 
   final bool isloading;
 
-  CategoryWidget({
+  ScrollHomeScreen({
     super.key,
     required this.categories,
     required this.isloading,
