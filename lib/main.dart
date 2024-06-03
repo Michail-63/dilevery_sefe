@@ -7,7 +7,9 @@ import 'package:delivery/pages/splash/SplashPage.dart';
 import 'package:delivery/pages/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+
+
   runApp(const MyApp());
 }
 

@@ -39,11 +39,7 @@ Future<void> _showReviewModal(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           child: ReviewModal(
-            onSend: (i, s) {
-              onSend(i, s);
-              // context
-              // .read<DishBloc>()
-              // .add(NewReviewDishEvent(review: s, star: i));
+            onSend: (i, s) {onSend(i, s);
               Navigator.of(context).pop();
             },
           ),

@@ -16,9 +16,9 @@ class ReviewModal extends StatefulWidget {
 class _ReviewModalState extends State<ReviewModal> {
   int star = 0;
   String review = '';
-
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
     return Container(
       height: 500,
       child: Stack(children: [
@@ -27,13 +27,7 @@ class _ReviewModalState extends State<ReviewModal> {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 15, bottom: 10),
-              child: Text(
-                'Оставить отзыв',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                ),
-              ),
+              child: Text('Оставить отзыв', style: theme.headlineSmall),
             ),
             RateStar(
               star: star,
@@ -62,7 +56,7 @@ class _ReviewModalState extends State<ReviewModal> {
                         borderSide: BorderSide(color: Colors.grey),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      hintStyle: TextStyle(color: Colors.black26, fontSize: 20),
+                      hintStyle: theme.displaySmall,
                       hintText: "Введите отзыв",
                     ),
                   )),
@@ -80,21 +74,17 @@ class _ReviewModalState extends State<ReviewModal> {
                   // widget.onSend(star, review);
                   Navigator.of(context).pop();
                 },
-                child: Text("Отправить",
-                    style: Theme.of(context).textTheme.bodyLarge),
+                child: Text("Отправить", style: theme.bodyLarge),
               ),
             ),
           ],
         ),
-
         Positioned(
           right: 0,
           top: 0,
           child: IconButton(
             onPressed: () {
               Navigator.of(context).pop();
-              //
-              // print(textController.text);
             },
             icon: SvgPicture.asset(
               color: Colors.black26,
@@ -104,8 +94,6 @@ class _ReviewModalState extends State<ReviewModal> {
             ),
           ),
         ),
-
-        // ])
       ]),
     );
   }

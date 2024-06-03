@@ -24,11 +24,9 @@ final ThemeData lightTheme = ThemeData(
   //
   //
   textTheme: TextTheme(
-
     headlineLarge: TextStyle(fontSize: 30, color: Colors.white),
     headlineMedium: TextStyle(fontSize: 25, color: Colors.white),
-    headlineSmall: TextStyle(),
-
+    headlineSmall: TextStyle(color: Colors.black, fontSize: 25),
 
     displayMedium: TextStyle(
       color: Colors.white70,
@@ -38,19 +36,13 @@ final ThemeData lightTheme = ThemeData(
       decorationThickness: 1,
     ),
     displayLarge: TextStyle(fontSize: 28, color: Color(0xFFFF6F14)),
-    displaySmall: TextStyle(),
-
-
+    displaySmall: TextStyle(color: Colors.black26, fontSize: 20),
     titleLarge: TextStyle(fontSize: 25, color: Color(0xFFFF6F14)),
     titleMedium: TextStyle(fontSize: 20, color: Color(0xFFFF6F14)),
     titleSmall: TextStyle(fontSize: 15, color: Color(0xFFFF6F14)),
-
-
     bodyLarge: TextStyle(fontSize: 25, color: Colors.white),
     bodyMedium: TextStyle(fontSize: 18, color: Colors.white),
     bodySmall: TextStyle(fontSize: 15, color: Colors.white),
-
-
     labelLarge: TextStyle(fontSize: 25, color: Colors.white30),
     labelMedium: TextStyle(fontSize: 20, color: Colors.white30),
     labelSmall: TextStyle(fontSize: 15, color: Colors.white30),
