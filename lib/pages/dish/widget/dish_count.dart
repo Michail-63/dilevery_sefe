@@ -4,8 +4,8 @@ import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddDishToCart extends StatelessWidget {
-  const AddDishToCart({
+class DishCount extends StatelessWidget {
+  const DishCount({
 
     required this.count,
   });

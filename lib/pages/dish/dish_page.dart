@@ -1,9 +1,11 @@
-import 'package:delivery/config/theme.dart';
 import 'package:delivery/data/models/dish_data.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
-import 'package:delivery/pages/dish/widget/add_dish_to_cart.dart';
-import 'package:delivery/pages/dish/widget/add_reviews.dart';
-import 'package:delivery/pages/dish/widget/new_review.dart';
+import 'package:delivery/pages/dish/widget/dish_count.dart';
+import 'package:delivery/pages/dish/widget/batton_add_reviews.dart';
+import 'package:delivery/pages/dish/widget/batton_add_ to_cart.dart';
+import 'package:delivery/pages/dish/widget/dish_price.dart';
+import 'package:delivery/pages/dish/widget/dish_view.dart';
+import 'package:delivery/pages/dish/widget/review_statistics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,115 +16,42 @@ class DishPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final price = this.dishPage.price;
-    final newprice = price ~/ 1.05;
-    final theme = Theme.of(context).textTheme;
     return BlocProvider(
-      create: (context) => DishBloc(),
-      child: DishView(dishPage: dishPage, theme: theme, price: price, newprice: newprice),
-    );
-  }
-}
-
-class DishView extends StatelessWidget {
-  const DishView({
-    super.key,
-    required this.dishPage,
-    required this.theme,
-    required this.price,
-    required this.newprice,
-  });
-
-  final Dish dishPage;
-  final TextTheme theme;
-  final int price;
-  final int newprice;
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<DishBloc, DishState>(
-      builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(this.dishPage.title),
-          ),
-          body: ListView(
-            children: [
-              Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                        height: 250,
-                        width: double.infinity,
-                        child: Image.asset(
-                            fit: BoxFit.fitWidth, this.dishPage.image)),
-                    Container(
-                      margin: EdgeInsets.only(
-                          top: 10, right: 20, bottom: 10, left: 10),
-                      child: Text(this.dishPage.title,
-                          style: theme.headlineLarge),
-                    ),
-                    Container(
-                      margin:
-                          EdgeInsets.only(left: 10, right: 10, bottom: 20),
-                      child:
-                          Text(this.dishPage.text, style: theme.labelMedium),
-                    ),
-                  ]),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        create: (context) => DishBloc(),
+        child: BlocBuilder<DishBloc, DishState>(
+          builder: (context, state) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text(this.dishPage.title),
+              ),
+              body: ListView(
                 children: [
+                  DishView(dishPage: dishPage),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Stack(
-                        children: [
-                          Row(children: [
-                            Container(
-                              margin: EdgeInsets.only(right: 10, left: 10),
-                              child: Text("$price \u20BD",
-                                  style: theme.displayMedium),
-                            ),
-                          ]),
-                        ],
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(right: 10, left: 15),
-                        child: Text("$newprice \u20BD",
-                            style: theme.displayLarge),
-                      ),
+                      DishPrice(dishPage: dishPage),
+                      DishCount(count: state.count),
                     ],
                   ),
-                  AddDishToCart(count: state.count),
+                  SizedBox(height: 15),
+                  BattonAddToCart(),
+                  SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ReviewStatistics(),
+                      BattonAddReviews(),
+                    ],
+                  ),
+
+                  // ListView(child: NewReviews(review: state.reviews, star: state.star)),
                 ],
               ),
-              SizedBox(
-                height: 25,
-              ),
-              //  Кнопка добавить в корзину.
-              Container(
-                decoration: BoxDecoration(
-                  color: color2,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                margin: EdgeInsets.only(right: 10, left: 10),
-                height: 65,
-                width: double.infinity,
-                child: TextButton(
-                  onPressed: () {
-                    print("e");
-                  },
-                  child: Text("Добавить в корзину", style: theme.bodyLarge),
-                ),
-              ),
-
-              Expanded(child: AddReviews()),
-
-              // ListView(child: NewReviews(review: state.reviews, star: state.star)),
-            ],
-          ),
-        );
-      },
-    );
+            );
+          },
+        ));
   }
 }
