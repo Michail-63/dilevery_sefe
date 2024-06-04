@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/models/category_data.dart';
+import 'package:delivery/data/models/category.dart';
 import 'package:delivery/data/repositories/root_repository.dart';
 
 

@@ -1,16 +1,22 @@
-
-
-
 import 'package:delivery/config/theme.dart';
+import 'package:delivery/data/models/review.dart';
+import 'package:delivery/data/services/cart_service.dart';
 import 'package:delivery/pages/main/main_page.dart';
-import 'package:delivery/pages/splash/SplashPage.dart';
-import 'package:delivery/pages/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
 
 void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(ReviewAdapter());
+  final reviewBox = await Hive.openBox<Review>('review_box');
 
 
-  runApp(const MyApp());
+  runApp(const MyApp(
+
+
+
+  ));
 }
 
 class MyApp extends StatelessWidget {

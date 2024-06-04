@@ -1,5 +1,5 @@
 import 'package:delivery/config/icon_path.dart';
-import 'package:delivery/data/models/category_data.dart';
+import 'package:delivery/data/models/category.dart';
 import 'package:delivery/pages/category/category_page.dart';
 import 'package:delivery/pages/main/widget/single_category_dishes.dart';
 import 'package:flutter/material.dart';

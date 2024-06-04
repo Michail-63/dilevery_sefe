@@ -1,4 +1,4 @@
-import 'package:delivery/data/models/dish_data.dart';
+import 'package:delivery/data/models/dish.dart';
 import 'package:flutter/material.dart';
 
 class DishView extends StatelessWidget {

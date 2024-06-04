@@ -1,5 +1,5 @@
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/models/menu_data.dart';
+import 'package:delivery/data/models/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

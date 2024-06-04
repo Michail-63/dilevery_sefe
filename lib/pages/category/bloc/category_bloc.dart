@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/models/dish_data.dart';
+import 'package:delivery/data/models/dish.dart';
 import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:equatable/equatable.dart';
 

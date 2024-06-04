@@ -1,4 +1,4 @@
-import 'package:delivery/data/models/dish_data.dart';
+import 'package:delivery/data/models/dish.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:delivery/pages/dish/widget/dish_count.dart';
 import 'package:delivery/pages/dish/widget/batton_add_reviews.dart';

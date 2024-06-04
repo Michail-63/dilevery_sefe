@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/models/menu_data.dart';
+import 'package:delivery/data/models/menu.dart';
 import 'package:delivery/data/models/lists/list_menu.dart';
 import 'package:meta/meta.dart';
 
