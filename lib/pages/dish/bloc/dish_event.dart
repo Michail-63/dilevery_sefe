@@ -16,6 +16,7 @@ class NewReviewDishEvent extends DishEvent {
   final String review;
   final int star;
 
+
   NewReviewDishEvent({required this.review, required this.star});
 
   @override

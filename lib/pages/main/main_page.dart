@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widget/scroll_home_screen.dart';
+
 
 class MainPage extends StatelessWidget {
   MainPage({
@@ -24,7 +27,8 @@ class MainPage extends StatelessWidget {
                 Icons.search,
               ),
               onPressed: () {
-                print("ON TAP 2");
+
+                print("jjfasf");
               },
             ),
           ]),
