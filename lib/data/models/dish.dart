@@ -13,9 +13,4 @@ class Dish {
 }
 
 
-class DishToBasket extends Dish{
-  DishToBasket( {required super.text, required super.title, required super.price, required super.image,required this.countToBasket,});
 
-  final int countToBasket;
-
-}
