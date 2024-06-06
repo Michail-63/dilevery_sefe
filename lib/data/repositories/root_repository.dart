@@ -4,11 +4,13 @@ import 'package:delivery/data/models/lists/list_categories.dart';
 
 class RootRepository {
 
-  // Future<Dish>getDish() async {
-  //   await Future.delayed(Duration(seconds: 2));
-  //   final list
-  //   return categories.
-  // }
+
+  Future <List<Category<List<Dish>>>> getDish(name) async {
+    await Future.delayed(const Duration(seconds: 2));
+    return name;
+  }
+
+
 
   Future<Category> getCategory(name) async {
     await Future.delayed(Duration(seconds: 2));
@@ -20,6 +22,7 @@ class RootRepository {
     print('dcfasdfc111111');
     return categories;
   }
+
 
 
 }

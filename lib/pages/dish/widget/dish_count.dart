@@ -28,10 +28,10 @@ class DishCount extends StatelessWidget {
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10)),
                 onTap: () {
-
+                  box.put('counter', box.get('counter',defaultValue: 0)!-1);
                   if (count >= 1) {
                     context.read<DishBloc>().add(DecrementCountDishEvent());
-                    box.put('counter', box.get('counter',defaultValue: 0)!-1);
+
                   }
                   print('count = $count');
                 },
@@ -62,7 +62,9 @@ class DishCount extends StatelessWidget {
                 )),
                 child: Center(
                   child: Text(
-                    "$count",
+                    "${box.get('counter', defaultValue: 0)}"
+                    // "$count"
+                    ,
                     style: theme.titleLarge,
                   ),
                 ),

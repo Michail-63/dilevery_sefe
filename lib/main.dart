@@ -14,9 +14,8 @@ void main() async {
   Hive.registerAdapter(ReviewAdapter());
   Hive.registerAdapter(DishToBaketAdapter());
   Hive.openBox<int>('myBox');
-
-  final reviewBox = await Hive.openBox<Review>('review_box');
-  final dishToBaketBox = await Hive.openBox<DishToBaket>('dishToBaket_box');
+  await Hive.openBox<Review>('review_box');
+  await Hive.openBox<DishToBaket>('dishToBaket_box');
 
 
   runApp(const MyApp(
