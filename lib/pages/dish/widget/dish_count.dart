@@ -1,5 +1,4 @@
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/models/dish_to_baket.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +27,7 @@ class DishCount extends StatelessWidget {
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10)),
                 onTap: () {
-                  box.put('counter', box.get('counter',defaultValue: 0)!-1);
+                   box.put('counter', box.get('counter',defaultValue: count)!-1);
                   if (count >= 1) {
                     context.read<DishBloc>().add(DecrementCountDishEvent());
 
@@ -62,7 +61,7 @@ class DishCount extends StatelessWidget {
                 )),
                 child: Center(
                   child: Text(
-                    "${box.get('counter', defaultValue: 0)}"
+                    "$count"
                     // "$count"
                     ,
                     style: theme.titleLarge,
@@ -74,7 +73,7 @@ class DishCount extends StatelessWidget {
                     topRight: Radius.circular(10),
                     bottomRight: Radius.circular(10)),
                 onTap: () {
-                  box.put('counter', box.get('counter',defaultValue: 0)!+1);
+                   box.put('counter', box.get('counter',defaultValue:count )!+1);
                   context.read<DishBloc>().add(IncrementCountDishEvent());
                   print('count = $count');
                 },
@@ -99,7 +98,7 @@ class DishCount extends StatelessWidget {
             ],
           ),
           Text(
-            "${box.get('counter', defaultValue: 0)}",
+            "${box.get('counter', defaultValue: count)}",
             style: theme.titleLarge,
           )
         ],

@@ -1,21 +1,46 @@
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
+import 'package:delivery/data/models/review.dart';
+import 'package:delivery/pages/dish/widget/new_review.dart';
 import 'package:delivery/pages/dish/widget/rate_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class ReviewModal extends StatefulWidget {
+  final formKey = GlobalKey<FormState>();
   final void Function(int, String) onSend;
 
-  const ReviewModal({super.key, required this.onSend});
+   ReviewModal({super.key, required this.onSend});
 
   @override
   State<ReviewModal> createState() => _ReviewModalState();
 }
 
+
+
 class _ReviewModalState extends State<ReviewModal> {
-  int star = 0;
-  String review = '';
+  late String name;
+  late int raiting;
+ late String review;
+  late DateTime createdAt;
+
+
+  void onFormSubmit() {
+    if (widget.formKey.currentState!.validate()) {
+      Box<Review> reviewBox = Hive.box<Review>(reviewsBoxName);
+      reviewBox.add(Review(
+        name:'',
+        review:'',
+        raiting:0,
+        createdAt: DateTime.now(),
+
+      ));
+      Navigator.of(context).pop();
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
@@ -30,10 +55,10 @@ class _ReviewModalState extends State<ReviewModal> {
               child: Text('Оставить отзыв', style: theme.headlineSmall),
             ),
             RateStar(
-              star: star,
+              raiting: raiting,
               onClick: (s) {
                 setState(() {
-                  star = s;
+                  raiting = s;
                 });
               },
             ),
@@ -71,8 +96,9 @@ class _ReviewModalState extends State<ReviewModal> {
               width: double.infinity,
               child: TextButton(
                 onPressed: () {
+                  onFormSubmit;
                   // widget.onSend(star, review);
-                  Navigator.of(context).pop();
+                  // Navigator.of(context).pop();
                 },
                 child: Text("Отправить", style: theme.bodyLarge),
               ),

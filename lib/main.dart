@@ -12,11 +12,10 @@ void main() async {
   await Hive.initFlutter();
 
   Hive.registerAdapter(ReviewAdapter());
-  Hive.registerAdapter(DishToBaketAdapter());
-  Hive.openBox<int>('myBox');
-  await Hive.openBox<Review>('review_box');
-  await Hive.openBox<DishToBaket>('dishToBaket_box');
-
+  // Hive.registerAdapter(DishToBaketAdapter());
+  await Hive.openBox<int>('myBox');
+  await Hive.openBox<Review>("review_box");
+  // await Hive.openBox<DishToBaket>('dishToBaket_box');
 
   runApp(const MyApp(
 

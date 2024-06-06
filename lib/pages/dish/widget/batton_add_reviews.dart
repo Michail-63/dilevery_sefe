@@ -20,7 +20,7 @@ class BattonAddReviews extends StatelessWidget {
           _showReviewModal(context, (i, s) {
             context
                 .read<DishBloc>()
-                .add(NewReviewDishEvent(review: s, star: i));
+                .add(NewReviewDishEvent(review: s, raiting: i));
           });
         },
         child: Text("Добавить отзыв", style: theme.bodySmall),

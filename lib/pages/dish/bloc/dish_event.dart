@@ -14,11 +14,11 @@ class DecrementCountDishEvent extends DishEvent {
 
 class NewReviewDishEvent extends DishEvent {
   final String review;
-  final int star;
+  final int raiting;
 
 
-  NewReviewDishEvent({required this.review, required this.star});
+  NewReviewDishEvent({required this.review, required this.raiting});
 
   @override
-  List<Object?> get props => [review, star];
+  List<Object?> get props => [review, raiting];
 }

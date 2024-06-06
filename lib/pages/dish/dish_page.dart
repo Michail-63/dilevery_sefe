@@ -9,6 +9,8 @@ import 'package:delivery/pages/dish/widget/review_statistics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'widget/new_review.dart';
+
 class DishPage extends StatelessWidget {
   Dish dishPage;
 
@@ -46,6 +48,8 @@ class DishPage extends StatelessWidget {
                       BattonAddReviews(),
                     ],
                   ),
+                  NewReview(),
+
 
                   // ListView(child: NewReviews(review: state.reviews, star: state.star)),
                 ],
@@ -55,3 +59,5 @@ class DishPage extends StatelessWidget {
         ));
   }
 }
+
+

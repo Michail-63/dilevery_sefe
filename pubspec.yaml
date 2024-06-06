@@ -16,7 +16,6 @@ dependencies:
   http: ^1.2.1
   cupertino_icons: ^1.0.6
   equatable: ^2.0.5
-  mask_text_input_formatter: ^2.9.0
   hive_flutter: ^1.1.0
 
 

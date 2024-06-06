@@ -1,4 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
+
 part 'review.g.dart';
 
 @HiveType(typeId: 1)
@@ -13,8 +14,11 @@ class Review {
   final DateTime createdAt;
 
   Review(
-      {required this.review,
-      required this.name,
-      required this.raiting,
-      required this.createdAt});
+   {
+    required this.review,
+    required this.name,
+    required this.raiting,
+    required this.createdAt
+
+  });
 }

@@ -9,25 +9,26 @@ part 'dish_state.dart';
 
 class DishBloc extends Bloc<DishEvent, DishState> {
   DishBloc() : super(DishInitialState()) {
-    on<IncrementCountDishEvent>((event, emit) async{
-      var box = await Hive.openBox('dishBox');
+    on<IncrementCountDishEvent>((event, emit) async {
+      // var box = await Hive.openBox('dishBox');
       emit(state.copyWith(count: state.count + 1));
-      box.put('count', state.count);
-
+      // box.put('counter', box.get('counter',defaultValue: state.count));
     });
 
-    on<DecrementCountDishEvent>((event, emit) {
+    on<DecrementCountDishEvent>((event, emit) async {
+      // var box = await Hive.openBox('dishBox');
       emit(state.copyWith(count: state.count - 1));
-
+      // box.put('counter', box.get('counter',defaultValue: state.count));
     });
 
     on<NewReviewDishEvent>((event, emit) async {
       print('reviews1 = ${state.reviews.length}');
       final Review newReview = Review(
-          review: event.review,
-          name: 'Галя',
-          raiting: event.star,
-          createdAt: DateTime.now());
+        review: event.review,
+        name: 'Галя',
+        raiting: event.raiting,
+        createdAt: DateTime.now(),
+      );
       final List<Review> newReviews = state.reviews;
       newReviews.add(newReview);
       emit(state.copyWith(reviews: newReviews));
