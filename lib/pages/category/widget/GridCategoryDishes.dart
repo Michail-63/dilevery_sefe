@@ -1,6 +1,5 @@
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/models/category.dart';
 import 'package:delivery/data/models/dish.dart';
 import 'package:delivery/pages/dish/dish_page.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +10,11 @@ class GridCategoryDishes extends StatelessWidget {
   final bool isloading;
 
 
+
   GridCategoryDishes({
     required this.dishes,
     required this.isloading,
+
 
   });
 
@@ -45,12 +46,11 @@ class GridCategoryDishes extends StatelessWidget {
                     child: Stack(children: [
                       InkWell(
                         onTap: () {
-
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      DishPage(dishPage: dishes[index])));
+                                      DishPage(dishId:dishes[index].id)));
 
                           print('1');
                         },

@@ -31,7 +31,7 @@ class SingleCategoryDishes extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          DishPage(dishPage: dish)));
+                          DishPage(dishId: dish.id)));
             },
             child: Column(
               crossAxisAlignment:

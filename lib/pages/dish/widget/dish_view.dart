@@ -2,9 +2,15 @@ import 'package:delivery/data/models/dish.dart';
 import 'package:flutter/material.dart';
 
 class DishView extends StatelessWidget {
-  final Dish dishPage;
+  final String image;
+  final String title;
+  final String text;
 
-  const DishView({required this.dishPage});
+  const DishView({
+    required this.image,
+    required this.title,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +22,14 @@ class DishView extends StatelessWidget {
           Container(
               height: 250,
               width: double.infinity,
-              child: Image.asset(fit: BoxFit.fitWidth, this.dishPage.image)),
+              child: Image.asset(fit: BoxFit.fitWidth, this.image)),
           Container(
             margin: EdgeInsets.only(top: 10, right: 20, bottom: 10, left: 10),
-            child: Text(this.dishPage.title, style: theme.headlineLarge),
+            child: Text(this.title, style: theme.headlineLarge),
           ),
           Container(
             margin: EdgeInsets.only(left: 10, right: 10, bottom: 20),
-            child: Text(this.dishPage.text, style: theme.labelMedium),
+            child: Text(this.text, style: theme.labelMedium),
           ),
         ]);
   }

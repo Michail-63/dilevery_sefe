@@ -2,15 +2,15 @@ import 'package:delivery/data/models/dish.dart';
 import 'package:flutter/material.dart';
 
 class DishPrice extends StatelessWidget {
-  final Dish dishPage;
+  final int price;
 
-  const DishPrice({required this.dishPage});
+  const DishPrice({required this.price});
 
 
 
   @override
   Widget build(BuildContext context) {
-    final price = this.dishPage.price;
+    final price = this.price;
     final newprice = price ~/ 1.05;
     final theme = Theme.of(context).textTheme;
     return Row(

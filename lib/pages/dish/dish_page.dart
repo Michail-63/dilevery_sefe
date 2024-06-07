@@ -9,32 +9,54 @@ import 'package:delivery/pages/dish/widget/dish_view.dart';
 import 'package:delivery/pages/dish/widget/review_statistics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'widget/new_review.dart';
 
 class DishPage extends StatelessWidget {
-  Dish dishPage;
+  String dishId;
 
-  DishPage({super.key, required this.dishPage});
+
+  DishPage({super.key, required this.dishId,});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => DishBloc(RootRepository())..add(DishFetchEvent(dish:'')),
+        create: (context) =>
+            DishBloc(RootRepository())..add(DishFetchEvent(dish: dishId)),
         child: BlocBuilder<DishBloc, DishState>(
           builder: (context, state) {
-            return Scaffold(
+            return
+            //   isloading
+            //     ? Container(
+            //   width: double.infinity,
+            //   child: Expanded(
+            //     child: Center(
+            //       child: CircularProgressIndicator(),
+            //     ),
+            //   ),
+            // )
+            //     :
+
+
+              Scaffold(
               appBar: AppBar(
-                title: Text(this.dishPage.title),
+                title: Text(
+                  state.title,
+                ),
               ),
               body: ListView(
                 children: [
-                  DishView(dishPage: dishPage),
+                  DishView(
+                    title: state.title,
+                    image: state.image,
+                    text: state.text,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      DishPrice(dishPage: dishPage),
+                      DishPrice(
+                        price: state.price,
+                      ),
                       DishCount(count: state.count),
                     ],
                   ),
@@ -51,7 +73,6 @@ class DishPage extends StatelessWidget {
                   ),
                   NewReview(),
 
-
                   // ListView(child: NewReviews(review: state.reviews, star: state.star)),
                 ],
               ),
@@ -60,5 +81,3 @@ class DishPage extends StatelessWidget {
         ));
   }
 }
-
-

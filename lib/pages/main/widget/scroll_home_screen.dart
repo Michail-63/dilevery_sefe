@@ -8,11 +8,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 class ScrollHomeScreen extends StatelessWidget {
   final List<Category> categories;
 
+
   final bool isloading;
 
   ScrollHomeScreen({
     super.key,
     required this.categories,
+
     required this.isloading,
   });
 
@@ -63,7 +65,7 @@ class ScrollHomeScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => CategoryPage(
-                                          category: categories[index].title)));
+                                          category: categories[index].title,)));
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(6.0),

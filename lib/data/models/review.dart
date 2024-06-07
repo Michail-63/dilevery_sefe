@@ -5,16 +5,21 @@ part 'review.g.dart';
 @HiveType(typeId: 1)
 class Review {
   @HiveField(0)
-  final String review;
+  final String dishId;
   @HiveField(1)
-  final String name;
+  final String review;
   @HiveField(2)
-  final int raiting;
+  final String name;
   @HiveField(3)
+  final int raiting;
+  @HiveField(4)
   final DateTime createdAt;
 
+
+
+
   Review(
-   {
+   {required this.dishId,
     required this.review,
     required this.name,
     required this.raiting,

@@ -1,3 +1,4 @@
+import 'package:delivery/data/models/dish.dart';
 import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:delivery/pages/category/bloc/category_bloc.dart';
 import 'package:delivery/pages/category/widget/GridCategoryDishes.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryPage extends StatelessWidget {
   final String category;
+
 
 
   CategoryPage({

@@ -30,6 +30,7 @@ class _ReviewModalState extends State<ReviewModal> {
     if (widget.formKey.currentState!.validate()) {
       Box<Review> reviewBox = Hive.box<Review>(reviewsBoxName);
       reviewBox.add(Review(
+        dishId: '',
         name:'',
         review:'',
         raiting:0,

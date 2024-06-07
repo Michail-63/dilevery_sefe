@@ -18,8 +18,10 @@ class DishBloc extends Bloc<DishEvent, DishState> {
     on<DishFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
 
-      final dish = await repository.getDish();
-      emit(state.copyWith(isloading: false));
+      final dish = await repository.getDish(event.dish);
+      print('dishId ${event.dish} dish $dish   ' );
+      emit(state.copyWith(isloading: false,dish: dish));
+
     });
 
 
@@ -43,6 +45,7 @@ class DishBloc extends Bloc<DishEvent, DishState> {
         name: 'Галя',
         raiting: event.raiting,
         createdAt: DateTime.now(),
+        dishId: '',
       );
       final List<Review> newReviews = state.reviews;
       newReviews.add(newReview);

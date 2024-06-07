@@ -27,6 +27,8 @@ class DishState {
       reviews: reviews ?? this.reviews,
       isloading: isloading ?? this.isloading,
 
+
+
     );
   }
 
@@ -40,7 +42,7 @@ final class DishInitialState extends DishState {
       : super(
     count: 0,
     reviews: [],
-    dish: Dish(text: '', title: '', price: 0, image: ''),
+    dish: Dish(text: '', title: '', price: 0, image: '',id: ''),
     isloading: false,
 
 
