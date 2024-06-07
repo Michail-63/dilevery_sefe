@@ -1,4 +1,5 @@
 import 'package:delivery/data/models/dish.dart';
+import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:delivery/pages/dish/widget/dish_count.dart';
 import 'package:delivery/pages/dish/widget/batton_add_reviews.dart';
@@ -19,7 +20,7 @@ class DishPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => DishBloc(),
+        create: (context) => DishBloc(RootRepository())..add(DishFetchEvent(dish:'')),
         child: BlocBuilder<DishBloc, DishState>(
           builder: (context, state) {
             return Scaffold(
