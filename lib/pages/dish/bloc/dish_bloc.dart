@@ -27,9 +27,9 @@ class DishBloc extends Bloc<DishEvent, DishState> {
 
 
     on<IncrementCountDishEvent>((event, emit) async {
-      // var box = await Hive.openBox('dishBox');
+       var box = await Hive.openBox('dishBox');
       emit(state.copyWith(count: state.count + 1));
-      // box.put('counter', box.get('counter',defaultValue: state.count));
+       box.put('counter', box.get('counter',defaultValue: state.count));
     });
 
     on<DecrementCountDishEvent>((event, emit) async {

@@ -1,4 +1,3 @@
-import 'package:delivery/data/models/dish.dart';
 import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:delivery/pages/dish/widget/dish_count.dart';
@@ -40,22 +39,22 @@ class DishPage extends StatelessWidget {
               Scaffold(
               appBar: AppBar(
                 title: Text(
-                  state.title,
+                  state.dish.title,
                 ),
               ),
               body: ListView(
                 children: [
                   DishView(
-                    title: state.title,
-                    image: state.image,
-                    text: state.text,
+                    title: state.dish.title,
+                    image: state.dish.image,
+                    text: state.dish.text,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       DishPrice(
-                        price: state.price,
+                        price: state.dish.price,
                       ),
                       DishCount(count: state.count),
                     ],

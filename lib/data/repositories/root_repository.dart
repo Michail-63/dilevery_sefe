@@ -1,9 +1,17 @@
 import 'package:delivery/data/models/category.dart';
 import 'package:delivery/data/models/dish.dart';
 import 'package:delivery/data/models/lists/list_categories.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class RootRepository {
 
+  late  Box<int> box ;
+
+Future init() async{
+
+  await Hive.openBox('dishBox');
+
+}
 
 
 
