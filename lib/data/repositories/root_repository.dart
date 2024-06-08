@@ -1,9 +1,12 @@
 import 'package:delivery/data/models/category.dart';
 import 'package:delivery/data/models/dish.dart';
 import 'package:delivery/data/models/lists/list_categories.dart';
+import 'package:delivery/data/models/lists/list_new_dishes.dart';
+import 'package:delivery/data/models/new_dish.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class RootRepository {
+
 
   late  Box<int> box ;
 
@@ -12,6 +15,17 @@ Future init() async{
   await Hive.openBox('dishBox');
 
 }
+
+
+
+  Future<NewDish?> getFavoritDish(bool isFavorites) async {
+    await Future.delayed(Duration(seconds: 2));
+       try {
+      return listDish.singleWhere((element) => element.isFavorites == true);
+    } catch (e) {
+      return null;
+    }
+  }
 
 
 

@@ -15,6 +15,9 @@ class DishBloc extends Bloc<DishEvent, DishState> {
 
   DishBloc(this.repository) : super(DishInitialState()) {
 
+
+
+
     on<DishFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
 
