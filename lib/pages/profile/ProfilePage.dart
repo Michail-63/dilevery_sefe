@@ -1,4 +1,3 @@
-import 'package:delivery/Utils/String.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -11,7 +10,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       drawer: DrawerPage(),
       appBar: AppBar(
-          title: Text(screen3)
+          title: Text('Профиль')
       ),
       body:TextButton(
         onPressed: () {  },

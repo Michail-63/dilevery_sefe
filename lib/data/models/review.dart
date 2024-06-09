@@ -15,9 +15,6 @@ class Review {
   @HiveField(4)
   final DateTime createdAt;
 
-
-
-
   Review(
    {required this.dishId,
     required this.review,

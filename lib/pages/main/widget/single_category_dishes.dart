@@ -1,12 +1,11 @@
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/models/dish.dart';
-import 'package:delivery/pages/dish/dish_page.dart';
+import 'package:delivery/data/models/new_dish.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SingleCategoryDishes extends StatelessWidget {
-  final Dish dish;
+  final NewDish dish;
   const SingleCategoryDishes({
     super.key,
     required this.dish,
@@ -26,12 +25,12 @@ class SingleCategoryDishes extends StatelessWidget {
         child: Stack(children: [
           InkWell(
             onTap: () {
-
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          DishPage(dishId: dish.id)));
+              //
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) =>
+              //             DishPage(dishId: dish.id)));
             },
             child: Column(
               crossAxisAlignment:

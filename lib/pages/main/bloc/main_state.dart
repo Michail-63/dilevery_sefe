@@ -1,21 +1,32 @@
 part of 'main_bloc.dart';
- class MainState {
 
-   final List<Category> categories;
-   final bool isloading;
-  MainState(  {required this.categories, required this.isloading});
+class MainState {
+  final List<NewDish> recommendedDishes;
+  final bool isloading;
 
-   MainState copyWith({ List<Category>? categories,bool? isloading }) {
-     return MainState(
-         categories: categories ?? this.categories,
-         isloading: isloading ?? this.isloading,
+  MainState({
+    required this.recommendedDishes,
+    required this.isloading,
+  });
 
+  MainState copyWith({
+    List<NewDish>? recommendedDishes,
+    bool? isloading,
+  }) {
+    return MainState(
+      recommendedDishes: recommendedDishes ?? this.recommendedDishes,
+      isloading: isloading ?? this.isloading,
+    );
+  }
 
-     );
-   }
- }
+  @override
+  List<Object?> get props => [recommendedDishes, isloading];
+}
+
 final class MainInitial extends MainState {
-
-  MainInitial() : super(categories: [],isloading: false);
-
+  MainInitial()
+      : super(
+          recommendedDishes: [],
+          isloading: false,
+        );
 }

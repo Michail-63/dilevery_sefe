@@ -1,4 +1,3 @@
-import 'package:delivery/Utils/String.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/menu/bloc/menu_bloc.dart';
 import 'package:delivery/pages/menu/widget/menu_selection.dart';
@@ -15,7 +14,7 @@ class MenuPage extends StatelessWidget {
       create: (context) => MenuBloc(),
       child: Scaffold(
         drawer: DrawerPage(),
-        appBar: AppBar(title: Text(screen2), actions: [
+        appBar: AppBar(title: Text('Меню'), actions: [
           IconButton(
             icon: const Icon(
               Icons.search,

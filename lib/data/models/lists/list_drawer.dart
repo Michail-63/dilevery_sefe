@@ -1,4 +1,4 @@
-import 'package:delivery/Utils/String.dart';
+
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/data/models/drawer_menu.dart';
 import 'package:delivery/pages/cart/cart_page.dart';
@@ -10,11 +10,11 @@ import 'package:delivery/pages/profile/ProfilePage.dart';
 
 final List<DrawerMenuData> menuDrawer = [
   DrawerMenuData(
-      title: screen1,
+      title: 'Главная',
       icon: IconPath.home,
       dst: MainPage()),
   DrawerMenuData(
-      title: screen2,
+      title: 'Меню',
       icon: IconPath.group,
       dst: MenuPage()),
   // DrawerMenuData(
@@ -22,19 +22,19 @@ final List<DrawerMenuData> menuDrawer = [
   //     icon: IconPath.home,
   //     dst: CategoryPage(selectedCategory: null,)),
   DrawerMenuData(
-      title: screen4,
+      title: 'Карзина',
       icon: IconPath.cart,
       dst: CartPage()),
   DrawerMenuData(
-      title: screen5,
+      title: 'Профиль',
       icon: IconPath.user,
       dst: ProfilePage()),
   DrawerMenuData(
-      title: screen6,
+      title: 'Заказы',
       icon: IconPath.list,
       dst: OrderPage()),
   DrawerMenuData(
-      title: screen7,
+      title: 'Уведомления',
       icon: IconPath.bell,
       dst: NotificationPage()),
 ];

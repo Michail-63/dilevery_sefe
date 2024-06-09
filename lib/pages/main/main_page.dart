@@ -1,12 +1,9 @@
-import 'dart:developer';
-
 import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'widget/scroll_home_screen.dart';
-
+import 'widget/body_home_page.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({
@@ -16,9 +13,10 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-      MainBloc(RootRepository())
-         ..add(MainFetchEvent()),
+      create: (context) => MainBloc(RootRepository())
+        ..add(
+          MainFetchEvent(),
+        ),
       child: Scaffold(
           drawer: DrawerPage(),
           appBar: AppBar(title: Text('Главная'), actions: [
@@ -27,14 +25,16 @@ class MainPage extends StatelessWidget {
                 Icons.search,
               ),
               onPressed: () {
-
                 print("jjfasf");
               },
             ),
           ]),
           body: BlocBuilder<MainBloc, MainState>(
             builder: (context, state) {
-              return ScrollHomeScreen(categories: state.categories, isloading:state.isloading);
+              return BodyHomePage(
+                recommendedDish: state.recommendedDishes,
+                isloading: state.isloading,
+              );
             },
           )),
     );

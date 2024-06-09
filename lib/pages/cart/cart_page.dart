@@ -1,4 +1,3 @@
-import 'package:delivery/Utils/String.dart';
 import 'package:delivery/pages/cart/bloc/cart_bloc.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ class CartPage extends StatelessWidget {
       create: (context) => CartBloc(),
       child: Scaffold(
           drawer: DrawerPage(),
-          appBar: AppBar(title: Text(screen4), actions: [
+          appBar: AppBar(title: Text('Корзина'), actions: [
             IconButton(
               icon: const Icon(
                 Icons.search,

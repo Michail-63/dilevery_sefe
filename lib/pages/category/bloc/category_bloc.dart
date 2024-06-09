@@ -12,6 +12,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
   CategoryBloc(this.repository) : super(CategoryInitialState()) {
     on<CategoryFetchEvent>((event, emit) async {
+
       emit(state.copyWith(isloading: true));
 
       final category = await repository.getCategory(event.category);

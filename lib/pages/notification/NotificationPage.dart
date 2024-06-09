@@ -1,4 +1,3 @@
-import 'package:delivery/Utils/String.dart';
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
@@ -19,7 +18,7 @@ class NotificationPage extends StatelessWidget {
     return Scaffold(
       drawer: DrawerPage(),
       appBar: AppBar(
-          title: Text(screen7),
+          title: Text('Уведомления'),
           actions: [
             IconButton(
               icon: const Icon(

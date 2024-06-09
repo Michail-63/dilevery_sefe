@@ -6,6 +6,7 @@ class NewDish {
  final bool isPopular;
   final String title;
   final int price;
+  final int count;
   final String image;
   final String text;
 
@@ -20,6 +21,8 @@ class NewDish {
     required this.title,
     required this.price,
     required this.image,
+    required this.count,
+
 
   });
 

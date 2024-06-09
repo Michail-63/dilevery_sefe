@@ -17,15 +17,25 @@ Future init() async{
 }
 
 
-
-  Future<NewDish?> getFavoritDish(bool isFavorites) async {
-    await Future.delayed(Duration(seconds: 2));
-       try {
-      return listDish.singleWhere((element) => element.isFavorites == true);
+  Future<List<NewDish>?>getRecommendedDish() async {
+    await Future.delayed(Duration(seconds: 5));
+    try {
+      return listDish.where((element) => element.isRecommended == true).toList();
     } catch (e) {
       return null;
     }
   }
+
+
+
+  // Future<NewDish?> getFavoritDish() async {
+  //   await Future.delayed(Duration(seconds: 2));
+  //      try {
+  //     return listDish.singleWhere((element) => element.isFavorites == true);
+  //   } catch (e) {
+  //     return null;
+  //   }
+  // }
 
 
 

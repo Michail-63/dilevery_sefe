@@ -1,7 +1,9 @@
-import 'package:bloc/bloc.dart';
-import 'package:delivery/data/models/category.dart';
-import 'package:delivery/data/repositories/root_repository.dart';
 
+
+
+import 'package:delivery/data/models/new_dish.dart';
+import 'package:delivery/data/repositories/root_repository.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'main_event.dart';
 part 'main_state.dart';
@@ -16,8 +18,8 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       emit(state.copyWith(isloading: true));
 
 
-      final categories = await repository.getCategories();
-      emit(state.copyWith(categories: categories,isloading: false));
+      final listDish = await repository.getRecommendedDish();
+      emit(state.copyWith(recommendedDishes: listDish,isloading: false));
 
     });
   }
