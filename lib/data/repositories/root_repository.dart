@@ -12,12 +12,43 @@ class RootRepository {
     await Hive.openBox('dishBox');
   }
 
-  Future<List<NewDish>> getRecommendedDish() async {
-    // await Future.delayed(Duration(seconds: 3));
+
+  Future<List<NewDish>?> getRecommendedDish() async {
     var list =
         listDish.where((element) => element.isRecommended == true).toList();
-    print('List $list');
-    return list;
+    try {
+      return list;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<List<NewDish>?> getPopularDish() async {
+    var list = listDish.where((element) => element.isPopular == true).toList();
+    try {
+      return list;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<List<NewDish>?> getFavoritesDish() async {
+    var list =
+        listDish.where((element) => element.isFavorites == true).toList();
+    try {
+      return list;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<List<NewDish>?> getTheBestDish() async {
+    var list = listDish.where((element) => element.isTheBest == true).toList();
+    try {
+      return list;
+    } catch (e) {
+      return null;
+    }
   }
 
   Future<Dish?> getDish(String id) async {

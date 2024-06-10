@@ -3,8 +3,9 @@ import 'package:delivery/pages/main/widget/row_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RecommendedView extends StatelessWidget {
-  const RecommendedView({
+class Popular extends StatelessWidget {
+
+  const Popular({
     super.key,
   });
 
@@ -14,7 +15,7 @@ class RecommendedView extends StatelessWidget {
       return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(children: [
-            for (var item in state.recommendedDishes) RowCategory(item: item)
+            for (var item in state.popularDishes) RowCategory(item: item)
           ]));
     });
   }

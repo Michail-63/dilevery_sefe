@@ -23,6 +23,8 @@ class RowCategory extends StatelessWidget {
      clipBehavior: Clip.hardEdge,
      color: color1,
      child: Container(
+       width: 190,
+       height: 290,
        child: Stack(children: [
          InkWell(
            onTap: () {
@@ -40,14 +42,14 @@ class RowCategory extends StatelessWidget {
                Image.asset(
                  width: 190,
                  height: 190,
-                 fit: BoxFit.cover,
+                 fit: BoxFit.fitWidth,
                  item.image,
                ),
                Row(
                  children: [
                    Padding(
                      padding:
-                     const EdgeInsets.only(left: 10.0, top: 10),
+                     const EdgeInsets.only(left: 10.0, top: 5),
                      child: Text(
                        "${item.price} \u20BD ",
                        style: theme.titleMedium,
@@ -57,7 +59,7 @@ class RowCategory extends StatelessWidget {
                ),
                Padding(
                  padding:
-                 const EdgeInsets.only(left: 10.0, bottom: 10),
+                 const EdgeInsets.only(left: 10.0),
                  child: Text(item.title, style: theme.bodyMedium),
                ),
              ],
@@ -65,7 +67,7 @@ class RowCategory extends StatelessWidget {
          ),
          Positioned(
            right: 10,
-           bottom: 60,
+           bottom: 80,
            child: InkWell(
                borderRadius: BorderRadius.circular(20),
                onTap: () {

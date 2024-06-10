@@ -1,8 +1,12 @@
 import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
+import 'package:delivery/pages/main/widget/favorites.dart';
 import 'package:delivery/pages/main/widget/logotyp.dart';
-import 'package:delivery/pages/main/widget/recommended_view.dart';
+import 'package:delivery/pages/main/widget/name_category.dart';
+import 'package:delivery/pages/main/widget/popular.dart';
+import 'package:delivery/pages/main/widget/recommended.dart';
+import 'package:delivery/pages/main/widget/the_best.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,7 +36,14 @@ class MainPage extends StatelessWidget {
             children: [
               Logotyp(),
               NameCategory(name:'Рекомендуемое'),
-              RecommendedView(),
+              Recommended(),
+              NameCategory(name:'Популярное'),
+              Popular(),
+              NameCategory(name:'Лучшее'),
+              TheBest(),
+              NameCategory(name:'Избранное'),
+              Favorites(),
+
 
 
 
@@ -40,38 +51,6 @@ class MainPage extends StatelessWidget {
             ],
           )
       ),
-    );
-  }
-}
-
-class NameCategory extends StatelessWidget {
-  const NameCategory({
-    super.key,
-    required this.name,
-
-  });
-
-  final String name;
-
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: Text('$name'),
-        ),
-        TextButton(
-          onPressed: () {},
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Text('См.все', style: theme.titleSmall),
-          ),
-        )
-      ],
     );
   }
 }
