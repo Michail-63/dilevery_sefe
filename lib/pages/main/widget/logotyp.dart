@@ -12,7 +12,6 @@ class Logotyp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 200,
-        margin: EdgeInsets.all(15),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/wallpaper.png"),

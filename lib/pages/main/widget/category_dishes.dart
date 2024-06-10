@@ -4,9 +4,9 @@ import 'package:delivery/data/models/new_dish.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SingleCategoryDishes extends StatelessWidget {
+class CategoryDishes extends StatelessWidget {
   final NewDish dish;
-  const SingleCategoryDishes({
+  const CategoryDishes({
     super.key,
     required this.dish,
   });

@@ -26,7 +26,15 @@ class MainState {
 final class MainInitial extends MainState {
   MainInitial()
       : super(
-          recommendedDishes: [],
-          isloading: false,
-        );
+    recommendedDishes: [],
+    isloading: false,
+  );
 }
+
+
+
+
+
+
+
+

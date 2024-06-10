@@ -158,7 +158,7 @@ List<NewDish> listDish = [
           'насыщенными вкусами, которые оставят вас в восторге.'),
   NewDish(
       id: '11',
-      isRecommended: false,
+      isRecommended: true,
       isFavorites: false,
       isTheBest: false,
       isPopular: true,
