@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:delivery/data/models/dish.dart';
+import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';
 import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:equatable/equatable.dart';
@@ -12,27 +12,18 @@ part 'dish_state.dart';
 class DishBloc extends Bloc<DishEvent, DishState> {
   final RootRepository repository;
 
-
   DishBloc(this.repository) : super(DishInitialState()) {
-
-
-
-
     on<DishFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
-
       final dish = await repository.getDish(event.dish);
-      print('dishId ${event.dish} dish $dish   ' );
-      emit(state.copyWith(isloading: false,dish: dish));
-
+      emit(state.copyWith(isloading: false, dish: dish));
     });
 
 
-
     on<IncrementCountDishEvent>((event, emit) async {
-       var box = await Hive.openBox('dishBox');
+      // var box = await Hive.openBox('dishBox');
       emit(state.copyWith(count: state.count + 1));
-       box.put('counter', box.get('counter',defaultValue: state.count));
+      // box.put('counter', box.get('counter', defaultValue: state.count));
     });
 
     on<DecrementCountDishEvent>((event, emit) async {

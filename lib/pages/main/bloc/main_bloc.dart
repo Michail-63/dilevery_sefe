@@ -1,5 +1,4 @@
 import 'package:delivery/data/models/new_dish.dart';
-import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'main_event.dart';
@@ -22,7 +21,6 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         popularDishes: listPopularDish,
         favoritesDishes: listFavoritesDish,
         theBestDishes: listTheBestDish,
-
         isloading: false,
       ));
     });

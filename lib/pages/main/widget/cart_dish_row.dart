@@ -2,18 +2,19 @@
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
 import 'package:delivery/data/models/new_dish.dart';
+import 'package:delivery/pages/dish/dish_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class RowCategory extends StatelessWidget {
-  const RowCategory({
-    super.key,
-    required this.item,
-
-  });
+class CartDishRow extends StatelessWidget {
 
   final NewDish item;
 
+
+  const CartDishRow({
+    super.key,
+    required this.item,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +29,11 @@ class RowCategory extends StatelessWidget {
        child: Stack(children: [
          InkWell(
            onTap: () {
-             // Navigator.push(
-             //     context,
-             //     MaterialPageRoute(
-             //         builder: (context) =>
-             //             DishPage(item.id)));
+             Navigator.push(
+                 context,
+                 MaterialPageRoute(
+                     builder: (context) =>
+                         DishPage(dishId:item.id)));
 
              print('1');
            },

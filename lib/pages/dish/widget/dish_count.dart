@@ -2,7 +2,6 @@ import 'package:delivery/config/theme.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class DishCount extends StatelessWidget {
   const DishCount({
@@ -14,8 +13,6 @@ class DishCount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
-    late Box<int> box;
-    box = Hive.box<int>('myBox');
     return Container(
       margin: EdgeInsets.only(right: 15),
       child: Column(
@@ -27,10 +24,8 @@ class DishCount extends StatelessWidget {
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10)),
                 onTap: () {
-                   box.put('counter', box.get('counter',defaultValue: count)!-1);
                   if (count >= 1) {
                     context.read<DishBloc>().add(DecrementCountDishEvent());
-
                   }
                   print('count = $count');
                 },
@@ -61,10 +56,7 @@ class DishCount extends StatelessWidget {
                 )),
                 child: Center(
                   child: Text(
-                    "$count"
-                    // "$count"
-                    ,
-                    style: theme.titleLarge,
+                    "$count" ,style: theme.titleLarge,
                   ),
                 ),
               ),
@@ -73,7 +65,6 @@ class DishCount extends StatelessWidget {
                     topRight: Radius.circular(10),
                     bottomRight: Radius.circular(10)),
                 onTap: () {
-                   box.put('counter', box.get('counter',defaultValue:count )!+1);
                   context.read<DishBloc>().add(IncrementCountDishEvent());
                   print('count = $count');
                 },
@@ -97,10 +88,6 @@ class DishCount extends StatelessWidget {
               ),
             ],
           ),
-          Text(
-            "${box.get('counter', defaultValue: count)}",
-            style: theme.titleLarge,
-          )
         ],
       ),
     );
