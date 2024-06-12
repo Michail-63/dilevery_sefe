@@ -15,16 +15,22 @@ class DishBloc extends Bloc<DishEvent, DishState> {
   DishBloc(this.repository) : super(DishInitialState()) {
     on<DishFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
-      final dish = await repository.getDish(event.dish);
+      final dish = await repository.getDish(event.dishId );
       emit(state.copyWith(isloading: false, dish: dish));
     });
 
 
-    on<IncrementCountDishEvent>((event, emit) async {
-      // var box = await Hive.openBox('dishBox');
-      emit(state.copyWith(count: state.count + 1));
-      // box.put('counter', box.get('counter', defaultValue: state.count));
-    });
+    // on<IncrementCountDishEvent>((event, emit) async {
+    //        emit(state.copyWith(count: state.count + 1));
+    // final dish = await repository.getDish(event.dishId );
+    // emit(state.copyWith(isloading: false, dish: dish));
+    //
+    //
+    //
+    //        // _box.put('counter', _box.get('counter', defaultValue: 0)!+ 1);
+    //
+    //   // newDishBox.put('count',state.count);
+    // });
 
     on<DecrementCountDishEvent>((event, emit) async {
       // var box = await Hive.openBox('dishBox');

@@ -8,7 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class ReviewModal extends StatefulWidget {
-  final formKey = GlobalKey<FormState>();
+  // final formKey = GlobalKey<FormState>();
   final void Function(int, String) onSend;
 
    ReviewModal({super.key, required this.onSend});
@@ -21,25 +21,25 @@ class ReviewModal extends StatefulWidget {
 
 class _ReviewModalState extends State<ReviewModal> {
   late String name;
-  late int raiting;
- late String review;
-  late DateTime createdAt;
+   int raiting = 0 ;
+  late String review;
+  late  DateTime createdAt;
 
 
-  void onFormSubmit() {
-    if (widget.formKey.currentState!.validate()) {
-      Box<Review> reviewBox = Hive.box<Review>(reviewsBoxName);
-      reviewBox.add(Review(
-        dishId: '',
-        name:'',
-        review:'',
-        raiting:0,
-        createdAt: DateTime.now(),
-
-      ));
-      Navigator.of(context).pop();
-    }
-  }
+  // void onFormSubmit() {
+  //   if (widget.formKey.currentState!.validate()) {
+  //     Box<Review> reviewBox = Hive.box<Review>(reviewsBoxName);
+  //     reviewBox.add(Review(
+  //       dishId: '',
+  //       name:'',
+  //       review:'',
+  //       raiting:0,
+  //       createdAt: DateTime.now(),
+  //
+  //     ));
+  //     Navigator.of(context).pop();
+  //   }
+  // }
 
 
   @override
@@ -57,10 +57,7 @@ class _ReviewModalState extends State<ReviewModal> {
             ),
             RateStar(
               raiting: raiting,
-              onClick: (s) {
-                setState(() {
-                  raiting = s;
-                });
+              onClick: (s) {setState(() {raiting = s;});
               },
             ),
             SizedBox(height: 15),
@@ -97,9 +94,9 @@ class _ReviewModalState extends State<ReviewModal> {
               width: double.infinity,
               child: TextButton(
                 onPressed: () {
-                  onFormSubmit;
+                  // onFormSubmit;
                   // widget.onSend(star, review);
-                  // Navigator.of(context).pop();
+                  Navigator.of(context).pop();
                 },
                 child: Text("Отправить", style: theme.bodyLarge),
               ),

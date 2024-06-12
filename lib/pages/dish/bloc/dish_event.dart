@@ -3,12 +3,12 @@ part of 'dish_bloc.dart';
 abstract class DishEvent extends Equatable {}
 
 class DishFetchEvent extends DishEvent {
-  final String dish;
+  final String dishId;
 
-  DishFetchEvent({required this.dish});
+  DishFetchEvent({required this.dishId});
 
   @override
-  List<Object?> get props => [dish];
+  List<Object?> get props => [dishId];
 }
 
 class IncrementCountDishEvent extends DishEvent {

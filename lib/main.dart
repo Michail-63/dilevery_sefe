@@ -13,8 +13,11 @@ void main() async {
   await Hive.openBox<NewDish>('new_dish_box');
   if (Hive.box<NewDish>('new_dish_box').isEmpty) {
     await Hive.box<NewDish>('new_dish_box').addAll(listDish);
+    // await Hive.box<NewDish>('new_dish_box').;
   }
   // final reviewBox =  await  Hive.openBox<Review>("review_box");
+
+
 
   runApp(const MyApp());
 }

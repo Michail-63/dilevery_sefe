@@ -1,7 +1,5 @@
 import 'package:delivery/data/models/category.dart';
-
 import 'package:delivery/data/models/lists/list_categories.dart';
-import 'package:delivery/data/models/lists/list_new_dishes.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -10,7 +8,7 @@ class RootRepository {
 
   Future<List<NewDish>?> getRecommendedDish() async {
     try {
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 4));
       var list = newDishBox.values
           .where((element) => element.isRecommended == true)
           .toList();
@@ -24,9 +22,10 @@ class RootRepository {
 
   Future<List<NewDish>?> getPopularDish() async {
     try {
-    var list = newDishBox.values
-        .where((element) => element.isPopular == true)
-        .toList();
+      // await Future.delayed(Duration(seconds: 2));
+      var list = newDishBox.values
+          .where((element) => element.isPopular == true)
+          .toList();
 
       return list;
     } catch (e) {
@@ -37,9 +36,10 @@ class RootRepository {
 
   Future<List<NewDish>?> getFavoritesDish() async {
     try {
-    var list = newDishBox.values
-        .where((element) => element.isFavorites == true)
-        .toList();
+      // await Future.delayed(Duration(seconds: 2));
+      var list = newDishBox.values
+          .where((element) => element.isFavorites == true)
+          .toList();
 
       return list;
     } catch (e) {
@@ -50,9 +50,10 @@ class RootRepository {
 
   Future<List<NewDish>?> getTheBestDish() async {
     try {
-    var list = newDishBox.values
-        .where((element) => element.isTheBest == true)
-        .toList();
+      // await Future.delayed(Duration(seconds: 2));
+      var list = newDishBox.values
+          .where((element) => element.isTheBest == true)
+          .toList();
 
       return list;
     } catch (e) {
@@ -61,29 +62,56 @@ class RootRepository {
     }
   }
 
-  Future<NewDish?> getDish(String id) async {
-    await Future.delayed(Duration(seconds: 2));
-    final dish = newDishBox.values.firstWhere((element) => element.id == id);
+
+
+//
+//   Future<NewDish?> refreshCountDish(
+//       id,
+//       count,
+//       ) async {
+//     try {
+//       await Future.delayed(Duration(seconds: 2));
+//       final dish = newDishBox.values.firstWhere((element) => element.id == id);
+//       dish.put('counter', _box.get('counter', defaultValue: 0)!- 1);
+//
+//       return dish;
+//     } catch (e) {
+//       return null;
+//     }
+//   }
+// }
+
+
+
+
+Future<NewDish?> getDish(
+    id,
+    // count,
+  ) async {
     try {
+      await Future.delayed(Duration(seconds: 2));
+      final dish = newDishBox.values.firstWhere((element) => element.id == id);
       return dish;
     } catch (e) {
       return null;
     }
   }
-
-
-
-
-  Future<Category> getCategory(name) async {
-    await Future.delayed(Duration(seconds: 2));
-    return categories.firstWhere((element) => element.title == name);
-  }
-
-  Future<List<Category>> getCategories() async {
-    await Future.delayed(Duration(seconds: 2));
-    return categories;
-  }
 }
+
+
+
+
+//
+//   Future<Category> getCategory(name) async {
+//     await Future.delayed(Duration(seconds: 2));
+//     return categories.firstWhere((element) => element.title == name);
+//   }
+//
+//   Future<List<Category>> getCategories() async {
+//     await Future.delayed(Duration(seconds: 2));
+//     return categories;
+//   }
+// }
 
 //
 // Future<Dish?> getDish(String id) async {

@@ -18,9 +18,7 @@ class BattonAddReviews extends StatelessWidget {
       child: TextButton(
         onPressed: () {
           _showReviewModal(context, (i, s) {
-            context
-                .read<DishBloc>()
-                .add(NewReviewDishEvent(review: s, raiting: i));
+            context.read<DishBloc>().add(NewReviewDishEvent(review: s, raiting: i));
           });
         },
         child: Text("Добавить отзыв", style: theme.bodySmall),
