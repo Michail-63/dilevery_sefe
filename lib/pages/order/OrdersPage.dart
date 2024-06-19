@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class OrderPage extends StatelessWidget {
-  const OrderPage({Key? key}) : super(key: key);
+  const OrderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerPage(),
-      appBar: AppBar(title: Text('Заказы'), actions: [
+      drawer: const DrawerPage(),
+      appBar: AppBar(title: const Text('Заказы'), actions: [
         IconButton(
           icon: const Icon(
             Icons.search,

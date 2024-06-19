@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 class InputTextField extends StatelessWidget {
-  InputTextField({
+  const InputTextField({
     super.key,
     required this.name,
 
@@ -19,16 +19,16 @@ class InputTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-            margin: EdgeInsets.only(left: 20, bottom: 6,top: 20),
+            margin: const EdgeInsets.only(left: 20, bottom: 6,top: 20),
             child: Text(name,style: theme.bodyMedium,)),
         Container(
-            margin: EdgeInsets.only(right: 20, left: 20),
+            margin: const EdgeInsets.only(right: 20, left: 20),
             child: TextField(
 
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 isCollapsed: true,
-                contentPadding: EdgeInsets.all(10),
+                contentPadding: const EdgeInsets.all(10),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(

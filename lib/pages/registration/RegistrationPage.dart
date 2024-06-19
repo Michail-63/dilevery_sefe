@@ -7,18 +7,18 @@ import 'package:delivery/pages/welcome/widget/TransparentBatton.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationPage extends StatelessWidget {
-  const RegistrationPage({Key? key}) : super(key: key);
+  const RegistrationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Регистрация"),
+        title: const Text("Регистрация"),
       ),
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
+          image: const DecorationImage(
             image: AssetImage("assets/images/backgraund_image.png"),
             fit: BoxFit.cover,
           ),
@@ -28,30 +28,30 @@ class RegistrationPage extends StatelessWidget {
           children: [
             ListView(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 InputTextField(name: "Имя"),
                 InputTextField(name: "Фамилия"),
                 InputTextField(name: "E-mail"),
                 PasvordTextField(name: "Пароль"),
-                SizedBox(
+                const SizedBox(
                   height: 70,
                 ),
                 OrangeBatton(
                   name: "Зарегистрироваться",
-                  goToPage: MainPage(),
+                  goToPage: const MainPage(),
                 ),
                 TransparentBatton(
                   name: "Вход",
-                  goToPage: MainPage(),
+                  goToPage: const MainPage(),
                 ),
-                SizedBox(height: 110),
+                const SizedBox(height: 110),
 
               ],
             ),
             Container(
-              margin: EdgeInsets.only(right: 90, left: 90),
+              margin: const EdgeInsets.only(right: 90, left: 90),
               child: TextButton(
                   onPressed: () {},
                   child: Text(

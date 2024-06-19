@@ -3,6 +3,8 @@ import 'package:delivery/pages/drawer/widget/drawer_view.dart';
 import 'package:flutter/material.dart';
 
 class DrawerPage extends StatelessWidget {
+  const DrawerPage({super.key});
+
 
 
   @override

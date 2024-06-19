@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class DishPrice extends StatelessWidget {
   final int price;
 
-  const DishPrice({required this.price});
+  const DishPrice({super.key, required this.price});
 
 
 
   @override
   Widget build(BuildContext context) {
     final price = this.price;
-    final newprice = price ~/ 1.05;
+    final newPrice = price ~/ 1.05;
     final theme = Theme.of(context).textTheme;
     return Row(
       children: [
@@ -19,15 +19,15 @@ class DishPrice extends StatelessWidget {
           children: [
             Row(children: [
               Container(
-                margin: EdgeInsets.only(right: 10, left: 10),
+                margin: const EdgeInsets.only(right: 10, left: 10),
                 child: Text("$price \u20BD", style: theme.displayMedium),
               ),
             ]),
           ],
         ),
         Container(
-          margin: EdgeInsets.only(right: 10, left: 15),
-          child: Text("$newprice \u20BD", style: theme.displayLarge),
+          margin: const EdgeInsets.only(right: 10, left: 15),
+          child: Text("$newPrice \u20BD", style: theme.displayLarge),
         ),
       ],
     );

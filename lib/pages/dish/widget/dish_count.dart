@@ -4,23 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DishCount extends StatelessWidget {
+  final int count;
+
   const DishCount({
     required this.count,
   });
-
-  final int count;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     return Container(
-      margin: EdgeInsets.only(right: 15),
+      margin: const EdgeInsets.only(right: 15),
       child: Column(
         children: [
           Row(
             children: [
               InkWell(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10)),
                 onTap: () {
@@ -33,7 +33,7 @@ class DishCount extends StatelessWidget {
                   height: 45,
                   width: 50,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(10),
                           bottomLeft: Radius.circular(10)),
                       border: Border.all(
@@ -56,12 +56,13 @@ class DishCount extends StatelessWidget {
                 )),
                 child: Center(
                   child: Text(
-                    "$count" ,style: theme.titleLarge,
+                    "$count",
+                    style: theme.titleLarge,
                   ),
                 ),
               ),
               InkWell(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topRight: Radius.circular(10),
                     bottomRight: Radius.circular(10)),
                 onTap: () {
@@ -72,7 +73,7 @@ class DishCount extends StatelessWidget {
                   height: 45,
                   width: 45,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topRight: Radius.circular(10),
                           bottomRight: Radius.circular(10)),
                       border: Border.all(

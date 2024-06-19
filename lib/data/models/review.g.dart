@@ -20,7 +20,7 @@ class ReviewAdapter extends TypeAdapter<Review> {
       dishId: fields[0] as String,
       review: fields[1] as String,
       name: fields[2] as String,
-      raiting: fields[3] as int,
+      rating: fields[3] as int,
       createdAt: fields[4] as DateTime,
     );
   }
@@ -36,7 +36,7 @@ class ReviewAdapter extends TypeAdapter<Review> {
       ..writeByte(2)
       ..write(obj.name)
       ..writeByte(3)
-      ..write(obj.raiting)
+      ..write(obj.rating)
       ..writeByte(4)
       ..write(obj.createdAt);
   }

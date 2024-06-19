@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BattonAddReviews extends StatelessWidget {
+  const BattonAddReviews({super.key});
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
@@ -12,13 +14,15 @@ class BattonAddReviews extends StatelessWidget {
         color: Colors.white10,
         borderRadius: BorderRadius.circular(10),
       ),
-      margin: EdgeInsets.only(right: 10, left: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       height: 50,
       width: 160,
       child: TextButton(
         onPressed: () {
-          _showReviewModal(context, (i, s) {
-            context.read<DishBloc>().add(NewReviewDishEvent(review: s, raiting: i));
+          _showReviewModal(context, (rating, review) {
+            context
+                .read<DishBloc>()
+                .add(ReviewDishEvent(raiting: rating, review: review));
           });
         },
         child: Text("Добавить отзыв", style: theme.bodySmall),
@@ -28,16 +32,17 @@ class BattonAddReviews extends StatelessWidget {
 }
 
 Future<void> _showReviewModal(
-    BuildContext context, Function(int, String) onSend) {
+    BuildContext context, Function(int rating, String review) onSend) {
   return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          insetPadding: EdgeInsets.all(15),
+          insetPadding: const EdgeInsets.all(15),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           child: ReviewModal(
-            onSend: (i, s) {onSend(i, s);
+            onSendReview: (i, s) {
+              onSend(i, s);
               Navigator.of(context).pop();
             },
           ),

@@ -11,7 +11,7 @@ class Review {
   @HiveField(2)
   final String name;
   @HiveField(3)
-  final int raiting;
+  final int rating;
   @HiveField(4)
   final DateTime createdAt;
 
@@ -19,7 +19,7 @@ class Review {
    {required this.dishId,
     required this.review,
     required this.name,
-    required this.raiting,
+    required this.rating,
     required this.createdAt
 
   });

@@ -11,13 +11,11 @@ class Promocod extends StatefulWidget {
 
 class _PromocodWidget extends State<Promocod>{
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
   String _text = '';
   Color _color = color2;
 
-  void Change(){
-    _color = color2;
-  }
+  void Change()=> _color = color2;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +25,7 @@ class _PromocodWidget extends State<Promocod>{
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          margin: EdgeInsets.only(left: 10, right: 20),
+          margin: const EdgeInsets.only(left: 10, right: 20),
           width: 200,
           child: TextField(
 
@@ -58,9 +56,9 @@ class _PromocodWidget extends State<Promocod>{
               ),
               width: 120,
               height: 60,
-              child: Center(child: Text('Применить'))),
+              child: const Center(child: Text('Применить'))),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
       ],

@@ -2,19 +2,19 @@ import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerPage(),
+      drawer: const DrawerPage(),
       appBar: AppBar(
-          title: Text('Профиль')
+          title: const Text('Профиль')
       ),
       body:TextButton(
         onPressed: () {  },
-        child: Text("dsvfsdvsd"),
+        child: const Text("dsvfsdvsd"),
       ),
     );
   }

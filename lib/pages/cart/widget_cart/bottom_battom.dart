@@ -14,7 +14,7 @@ class BottomBattom extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: color2, borderRadius: BorderRadius.circular(8)),
-      margin: EdgeInsets.only(left: 15,right: 15,bottom: 15),
+      margin: const EdgeInsets.only(left: 15,right: 15,bottom: 15),
       height: 55,
       child: ElevatedButton(
         onPressed: (){},

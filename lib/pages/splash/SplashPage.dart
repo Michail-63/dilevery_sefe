@@ -9,32 +9,21 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: this.duration), () {
+    Future.delayed(Duration(seconds: duration), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => this.goToPage));
+          context, MaterialPageRoute(builder: (context) => goToPage));
     });
 
     return Scaffold(
         body: Container(
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/backgraund_image.png"),
-          fit: BoxFit.cover,
-        ),
-        color: color3,
-      ),
-      child: Center(
-          child: Image(
-        image: AssetImage("assets/images/logo.png"),
-      )),
-
-      //
-      //    child:
-      //    Center(child: SvgPicture.asset(IconPath.logo))
-    )
-
-        //
-
+          image: const DecorationImage(
+            image: AssetImage("assets/images/backgraund_image.png"),
+            fit: BoxFit.cover,
+          ),
+          color: color3),
+      child: Image(image: AssetImage("assets/images/logo.png")),
+    ) //
         );
   }
 }

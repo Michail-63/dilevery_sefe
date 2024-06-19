@@ -16,7 +16,7 @@ class BodyCartScreen extends StatelessWidget {
       children: [
         Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Container(
-              margin: EdgeInsets.only(top: 15, left: 15, right: 20),
+              margin: const EdgeInsets.only(top: 15, left: 15, right: 20),
               clipBehavior: Clip.hardEdge,
               height: 100,
               width: 100,
@@ -28,7 +28,7 @@ class BodyCartScreen extends StatelessWidget {
               )),
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Container(
-                margin: EdgeInsets.only(top: 5, right: 20, bottom: 35),
+                margin: const EdgeInsets.only(top: 5, right: 20, bottom: 35),
                 child: Text(
                   "Сет Королевский",
                   style: theme.bodyMedium,
@@ -46,7 +46,7 @@ class BodyCartScreen extends StatelessWidget {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(8),
                             bottomLeft: Radius.circular(8)),
                         border: Border.all(
@@ -82,7 +82,7 @@ class BodyCartScreen extends StatelessWidget {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(8),
                             bottomRight: Radius.circular(8)),
                         border: Border.all(
@@ -101,7 +101,7 @@ class BodyCartScreen extends StatelessWidget {
           ]),
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               Text("1500  \u20BD",
@@ -110,7 +110,7 @@ class BodyCartScreen extends StatelessWidget {
             ],
           ),
         ]),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
       ],

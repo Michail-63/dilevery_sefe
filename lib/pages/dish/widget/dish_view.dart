@@ -6,7 +6,7 @@ class DishView extends StatelessWidget {
   final String title;
   final String text;
 
-  const DishView({
+  const DishView({super.key,
     required this.image,
     required this.title,
     required this.text,
@@ -19,7 +19,7 @@ class DishView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
               height: 250,
               width: double.infinity,
               child: Image.asset(fit: BoxFit.fitWidth, this.image)),

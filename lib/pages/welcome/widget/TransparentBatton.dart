@@ -21,7 +21,7 @@ class TransparentBatton extends StatelessWidget {
         ),
           borderRadius: BorderRadius.circular(15)
       ),
-      margin: EdgeInsets.only(right: 20, left: 20,top: 30),
+      margin: const EdgeInsets.only(right: 20, left: 20,top: 30),
       height: 70,
       width: double.infinity,
       child: TextButton(

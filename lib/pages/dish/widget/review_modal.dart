@@ -9,9 +9,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 class ReviewModal extends StatefulWidget {
   // final formKey = GlobalKey<FormState>();
-  final void Function(int, String) onSend;
+  final void Function(int, String) onSendReview;
 
-   ReviewModal({super.key, required this.onSend});
+   const ReviewModal({super.key, required this.onSendReview});
 
   @override
   State<ReviewModal> createState() => _ReviewModalState();
@@ -21,7 +21,7 @@ class ReviewModal extends StatefulWidget {
 
 class _ReviewModalState extends State<ReviewModal> {
   late String name;
-   int raiting = 0 ;
+   int rating = 0 ;
   late String review;
   late  DateTime createdAt;
 
@@ -45,7 +45,7 @@ class _ReviewModalState extends State<ReviewModal> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
-    return Container(
+    return SizedBox(
       height: 500,
       child: Stack(children: [
         Column(
@@ -56,13 +56,13 @@ class _ReviewModalState extends State<ReviewModal> {
               child: Text('Оставить отзыв', style: theme.headlineSmall),
             ),
             RateStar(
-              raiting: raiting,
-              onClick: (s) {setState(() {raiting = s;});
+              rating: rating,
+              onClick: (s) {setState(() {rating = s;});
               },
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Center(
-              child: Container(
+              child: SizedBox(
                   height: 200,
                   width: 350,
                   child: TextField(
@@ -72,11 +72,11 @@ class _ReviewModalState extends State<ReviewModal> {
                       });
                     },
                     maxLines: 4,
-                    style: TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(15),
+                      contentPadding: const EdgeInsets.all(15),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        borderSide: const BorderSide(color: Colors.grey),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       hintStyle: theme.displaySmall,
@@ -89,14 +89,14 @@ class _ReviewModalState extends State<ReviewModal> {
                 color: color2,
                 borderRadius: BorderRadius.circular(10),
               ),
-              margin: EdgeInsets.only(right: 15, left: 15),
+              margin: const EdgeInsets.only(right: 15, left: 15),
               height: 65,
               width: double.infinity,
               child: TextButton(
                 onPressed: () {
                   // onFormSubmit;
-                  // widget.onSend(star, review);
-                  Navigator.of(context).pop();
+                  widget.onSendReview(rating, review);
+                  // Navigator.of(context).pop();
                 },
                 child: Text("Отправить", style: theme.bodyLarge),
               ),

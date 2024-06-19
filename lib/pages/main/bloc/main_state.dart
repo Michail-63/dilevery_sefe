@@ -42,8 +42,8 @@ class MainState {
       ];
 }
 
-final class MainInitial extends MainState {
-  MainInitial()
+final class MainInitialState extends MainState {
+  MainInitialState()
       : super(
           recommendedDishes: [],
           popularDishes: [],

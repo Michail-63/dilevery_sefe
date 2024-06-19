@@ -8,18 +8,18 @@ import 'package:delivery/pages/welcome/widget/TransparentBatton.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Вход"),
+        title: const Text("Вход"),
       ),
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
+          image: const DecorationImage(
             image: AssetImage("assets/images/backgraund_image.png"),
             fit: BoxFit.cover,
           ),
@@ -27,21 +27,21 @@ class WelcomePage extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
-            InputTextField(name: "E-mail"),
-            PasvordTextField(name: "Пароль"),
-            SizedBox(
+            const InputTextField(name: "E-mail"),
+            const PasvordTextField(name: "Пароль"),
+            const SizedBox(
               height: 70,
             ),
-            OrangeBatton(name: "Войти",goToPage: MainPage(),),
-            TransparentBatton(name: "Регистрация",goToPage:RegistrationPage() ,),
-            SizedBox(
+            OrangeBatton(name: "Войти",goToPage: const MainPage(),),
+            TransparentBatton(name: "Регистрация",goToPage:const RegistrationPage() ,),
+            const SizedBox(
               height: 110
             ),
             Container(
-              margin: EdgeInsets.only(right: 90,left: 90),
+              margin: const EdgeInsets.only(right: 90,left: 90),
               child: TextButton(
                   onPressed: () {},
                   child: Text(

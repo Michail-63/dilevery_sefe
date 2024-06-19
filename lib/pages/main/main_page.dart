@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPage extends StatelessWidget {
-  MainPage({
+  const MainPage({
     super.key,
   });
 
@@ -17,8 +17,8 @@ class MainPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => MainBloc(RootRepository( ))..add(MainFetchEvent()),
       child: Scaffold(
-          drawer: DrawerPage(),
-          appBar: AppBar(title: Text('Главная'), actions: [
+          drawer: const DrawerPage(),
+          appBar: AppBar(title: const Text('Главная'), actions: [
             IconButton(
               icon: const Icon(
                 Icons.search,
@@ -28,7 +28,7 @@ class MainPage extends StatelessWidget {
               },
             ),
           ]),
-          body: BodyMainPage()),
+          body: const BodyMainPage()),
     );
   }
 }

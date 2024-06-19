@@ -18,7 +18,7 @@ class CartPage extends StatelessWidget {
       create: (context) => CartBloc(),
       child: Scaffold(
           drawer: DrawerPage(),
-          appBar: AppBar(title: Text('Корзина'), actions: [
+          appBar: AppBar(title: const Text('Корзина'), actions: [
             IconButton(
               icon: const Icon(
                 Icons.search,
@@ -37,7 +37,7 @@ class CartPage extends StatelessWidget {
                     keepScrollOffset: false,
                   ),
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     BlocBuilder<CartBloc, CartState>(
@@ -45,7 +45,7 @@ class CartPage extends StatelessWidget {
                         return BodyCartScreen(count: state.count,);
                       },
                     ),
-                    Divider(
+                    const Divider(
                       height: 15,
                       color: Colors.white30,
                     ),
@@ -54,7 +54,7 @@ class CartPage extends StatelessWidget {
                         return BodyCartScreen(count: state.count,);
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Promocod(),
@@ -64,13 +64,13 @@ class CartPage extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     child: Text(
                       "Итого",
                       style: theme.bodyLarge
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 185,
                   ),
                   Container(
@@ -85,7 +85,7 @@ class CartPage extends StatelessWidget {
               )
             ],
           ),
-          bottomNavigationBar: BottomBattom()),
+          bottomNavigationBar: const BottomBattom()),
     );
   }
 }

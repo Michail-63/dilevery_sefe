@@ -12,20 +12,24 @@ class DishFetchEvent extends DishEvent {
 }
 
 class IncrementCountDishEvent extends DishEvent {
+  IncrementCountDishEvent() {}
+
   @override
   List<Object?> get props => [];
 }
 
 class DecrementCountDishEvent extends DishEvent {
+  DecrementCountDishEvent() {}
+
   @override
   List<Object?> get props => [];
 }
 
-class NewReviewDishEvent extends DishEvent {
+class ReviewDishEvent extends DishEvent {
   final String review;
   final int raiting;
 
-  NewReviewDishEvent({required this.review, required this.raiting});
+  ReviewDishEvent({required this.review, required this.raiting});
 
   @override
   List<Object?> get props => [review, raiting];

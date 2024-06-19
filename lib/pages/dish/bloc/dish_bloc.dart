@@ -3,7 +3,6 @@ import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';
 import 'package:delivery/data/repositories/root_repository.dart';
 import 'package:equatable/equatable.dart';
-import 'package:hive_flutter/adapters.dart';
 
 part 'dish_event.dart';
 
@@ -13,37 +12,33 @@ class DishBloc extends Bloc<DishEvent, DishState> {
   final RootRepository repository;
 
   DishBloc(this.repository) : super(DishInitialState()) {
+
     on<DishFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
-      final dish = await repository.getDish(event.dishId );
+      final dish = await repository.getDish(event.dishId);
       emit(state.copyWith(isloading: false, dish: dish));
     });
 
-
-    // on<IncrementCountDishEvent>((event, emit) async {
-    //        emit(state.copyWith(count: state.count + 1));
-    // final dish = await repository.getDish(event.dishId );
-    // emit(state.copyWith(isloading: false, dish: dish));
-    //
-    //
-    //
-    //        // _box.put('counter', _box.get('counter', defaultValue: 0)!+ 1);
-    //
-    //   // newDishBox.put('count',state.count);
-    // });
-
-    on<DecrementCountDishEvent>((event, emit) async {
-      // var box = await Hive.openBox('dishBox');
-      emit(state.copyWith(count: state.count - 1));
-      // box.put('counter', box.get('counter',defaultValue: state.count));
+    on<IncrementCountDishEvent>((event, emit) async {
+      // emit(state.copyWith(count: state.count + 1));
+      final updatedDish = await repository.updatedCountDish(state.dish!.id,state.dish!.count+1);
+      emit(state.copyWith(dish: updatedDish));
     });
 
-    on<NewReviewDishEvent>((event, emit) async {
+    on<DecrementCountDishEvent>((event, emit) async {
+      // emit(state.copyWith(count: state.count - 1));
+      final updatedDish = await repository.updatedCountDish(state.dish!.id, state.dish!.count-1,);
+      emit(state.copyWith(dish: updatedDish));
+    });
+
+
+
+    on<ReviewDishEvent>((event, emit) async {
       print('reviews1 = ${state.reviews.length}');
       final Review newReview = Review(
         review: event.review,
         name: 'Галя',
-        raiting: event.raiting,
+        rating: event.raiting,
         createdAt: DateTime.now(),
         dishId: '',
       );

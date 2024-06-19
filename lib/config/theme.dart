@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-Color color1 = Color(0xff24222C);
-Color color2 = Color(0xFFFF6F14);
-Color color3 = Color(0xff1a1a21);
+Color color1 = const Color(0xff24222C);
+Color color2 = const Color(0xFFFF6F14);
+Color color3 = const Color(0xff1a1a21);
 
 final ThemeData lightTheme = ThemeData(
   //
   scaffoldBackgroundColor: color3,
   appBarTheme: AppBarTheme(
-      titleTextStyle: TextStyle(
+      titleTextStyle: const TextStyle(
         color: Colors.white,
         fontSize: 25,
       ),
@@ -23,7 +23,7 @@ final ThemeData lightTheme = ThemeData(
       )),
   //
   //
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     headlineLarge: TextStyle(fontSize: 30, color: Colors.white),
     headlineMedium: TextStyle(fontSize: 25, color: Colors.white),
     headlineSmall: TextStyle(color: Colors.black, fontSize: 25),

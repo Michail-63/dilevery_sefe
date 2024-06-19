@@ -5,7 +5,7 @@ part of 'menu_bloc.dart';
 sealed class MenuState {
   final List<Menu>menuItem;
 
-  MenuState({
+  const MenuState({
     required this.menuItem});
 
 }

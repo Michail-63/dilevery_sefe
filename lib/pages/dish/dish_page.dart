@@ -17,6 +17,6 @@ class DishPage extends StatelessWidget {
     return BlocProvider(
         create: (context) =>
             DishBloc(RootRepository())..add(DishFetchEvent(dishId: dishId)),
-        child: BodyDishPage());
+        child: const BodyDishPage());
   }
 }

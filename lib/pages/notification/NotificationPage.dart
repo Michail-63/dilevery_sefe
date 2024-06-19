@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class NotificationPage extends StatelessWidget {
-  const NotificationPage({Key? key}) : super(key: key);
+  const NotificationPage({super.key});
 
 
 
@@ -16,9 +16,9 @@ class NotificationPage extends StatelessWidget {
     final  theme = Theme.of(context).textTheme;
 
     return Scaffold(
-      drawer: DrawerPage(),
+      drawer: const DrawerPage(),
       appBar: AppBar(
-          title: Text('Уведомления'),
+          title: const Text('Уведомления'),
           actions: [
             IconButton(
               icon: const Icon(

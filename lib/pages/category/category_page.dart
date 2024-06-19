@@ -17,8 +17,8 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double itemHeight = 2;
-    final double itemWidth = 1.3;
+    const double itemHeight = 2;
+    const double itemWidth = 1.3;
     final theme = Theme.of(context).textTheme;
     return Scaffold(
         drawer: DrawerPage(),
@@ -29,7 +29,7 @@ class CategoryPage extends StatelessWidget {
             crossAxisCount: 2,
             children: List.generate(category.length, (index) {
               return Card(
-                margin: EdgeInsetsDirectional.all(6),
+                margin: const EdgeInsetsDirectional.all(6),
                 clipBehavior: Clip.hardEdge,
                 color: color1,
                 child: Container(
@@ -83,7 +83,7 @@ class CategoryPage extends StatelessWidget {
                             print("Count + 1");
                           },
                           child: Container(
-                            padding: EdgeInsetsDirectional.all(10),
+                            padding: const EdgeInsetsDirectional.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: color2,

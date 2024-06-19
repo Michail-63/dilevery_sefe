@@ -8,7 +8,7 @@ part 'main_state.dart';
 class MainBloc extends Bloc<MainEvent, MainState> {
   var repository;
 
-  MainBloc(this.repository) : super(MainInitial()) {
+  MainBloc(this.repository) : super(MainInitialState()) {
     on<MainFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
       final listRecommendedDish = await repository.getRecommendedDish();

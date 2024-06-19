@@ -16,7 +16,7 @@ class OrangeBatton extends StatelessWidget {
     return Container(
             decoration:
           BoxDecoration(color: color2, borderRadius: BorderRadius.circular(15)),
-      margin: EdgeInsets.only(right: 20, left: 20,),
+      margin: const EdgeInsets.only(right: 20, left: 20,),
       height: 70,
       width: double.infinity,
       child: TextButton(

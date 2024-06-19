@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class RateStar extends StatelessWidget {
-  final int raiting;
+  final int rating;
   final void Function(int) onClick;
 
-  RateStar({super.key, required this.raiting, required this.onClick});
+  const RateStar({super.key, required this.rating, required this.onClick});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class RateStar extends StatelessWidget {
               print("star = ${i}");
             },
             icon: SvgPicture.asset(
-              color: raiting < i ? Colors.black26 : color2,
+              color: rating < i ? Colors.black26 : color2,
               IconPath.star2,
               height: 30,
               width: 30,
