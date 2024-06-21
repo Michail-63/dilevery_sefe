@@ -1,72 +1,64 @@
 import 'package:delivery/data/models/review.dart';
+import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
+import 'package:delivery/pages/dish/widget/rate_star__review.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-
-const String reviewsBoxName = "review_box";
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class NewReview extends StatelessWidget {
-  final List<Review> review;
-  const NewReview({super.key, required this.review});
+  final List<Review> reviews;
+
+  const NewReview({
+    super.key,
+    required this.reviews,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: Hive.box<Review>(reviewsBoxName).listenable(),
-      builder: (context, Box<Review> box, _) {
-        if (box.values.isEmpty) {
-          return const Center(
-            child: Text("No review"),
-          );
-        }
-        return ListView.builder(
-          itemCount: box.length,
-          itemBuilder: (context, index) {
-            Review? c = box.getAt(index);
-            // String? relationship = relationships[c?.relationship];
-            return InkWell(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  barrierDismissible: true,
-                  builder: (_) => AlertDialog(
-                    content: Text(
-                      "Do you want to delete ${c?.name}?",
+    return reviews.isEmpty
+        ? Text("no reviews")
+        : Column(
+            children: List.generate(reviews.length, (index) {
+              return InkWell(
+                onLongPress: (){
+                  context.read<DishBloc>().add(DeleteReviewDishEvent(dishId: reviews[index].dishId));
+                },
+                child: Container(
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white10),
+                  child: Container(
+                    padding: EdgeInsets.all(6),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text("${reviews[index].name},  "),
+                                Text(DateFormat('yyyy.yy.yy')
+                                    .format(reviews[index].createdAt)),
+                              ],
+                            ),
+                            RateStarReview(rating: reviews[index].rating)
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(reviews[index].coment),
+                      ],
                     ),
-                    actions: <Widget>[
-                      FloatingActionButton(
-                        child: const Text("No"),
-                        onPressed: () => Navigator.of(context).pop(),
-                      ),
-                      FloatingActionButton(
-                        child: const Text("Yes"),
-                        onPressed: () async {
-                          Navigator.of(context).pop();
-                          await box.deleteAt(index);
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              },
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(c!.name),
-                      Text(c.review),
-                      Text("${c.rating}"),
-                      // Text("Relationship: $relationship"),
-                      // _buildDivider(),
-                    ],
                   ),
                 ),
-              ),
-            );
-          },
-        );
-      },
-    );
+              );
+
+              Text(reviews[index].coment);
+            }),
+          );
   }
 }

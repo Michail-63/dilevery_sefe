@@ -33,7 +33,7 @@ class CartDishRow extends StatelessWidget {
                  context,
                  MaterialPageRoute(
                      builder: (context) =>
-                         DishPage(dishId:item.id)));
+                         DishPage(dishId:item.dishId)));
 
              print('1');
            },

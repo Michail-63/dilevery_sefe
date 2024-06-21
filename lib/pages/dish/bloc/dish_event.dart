@@ -19,18 +19,56 @@ class IncrementCountDishEvent extends DishEvent {
 }
 
 class DecrementCountDishEvent extends DishEvent {
-  DecrementCountDishEvent() {}
+  final int count;
+
+  DecrementCountDishEvent() {required this.count}
+
+  @override
+  List<Object?> get props => [count];
+}
+
+
+class UpdateDishCountEvent extends DishEvent {
+  UpdateDishCountEvent() {}
 
   @override
   List<Object?> get props => [];
 }
 
-class ReviewDishEvent extends DishEvent {
-  final String review;
-  final int raiting;
+class GetReviewDishEvent extends DishEvent {
+  final String dishId;
 
-  ReviewDishEvent({required this.review, required this.raiting});
+  GetReviewDishEvent({
+    required this.dishId,
+  });
 
   @override
-  List<Object?> get props => [review, raiting];
+  List<Object?> get props => [dishId];
+}
+
+class DeleteReviewDishEvent extends DishEvent {
+  final String dishId;
+
+  DeleteReviewDishEvent({
+    required this.dishId,
+  });
+
+  @override
+  List<Object?> get props => [dishId];
+}
+
+
+class AddReviewDishEvent extends DishEvent {
+  final String coment;
+  final String dishId;
+  final int rating;
+
+  AddReviewDishEvent({
+    required this.coment,
+    required this.rating,
+    required this.dishId,
+  });
+
+  @override
+  List<Object?> get props => [coment, rating, dishId];
 }

@@ -1,25 +1,39 @@
-//
-// import 'package:delivery/data/models/review.dart';
-// import 'package:hive_flutter/hive_flutter.dart';
-//
-// class ReviewRepository {
-//   final Box<Review> reviewBox = Hive.box<Review>('review_box');
-//
-//
-//   Future<Review?> addReview(String id) {Hive.box<ProductModel>("product1").add(product);}
-//     // static void addProduct(ProductModel product ){
-//
-//
-//   }
-//
-//   Future<Review?> getReview(String id) async {
-//     // await Future.delayed(Duration(seconds: 2));
-//     try {
-//       final dish = newDishBox.values.firstWhere((element) => element.id == id);
-//       // print('Dish = ${dish.id},${dish.title},  ID = ${id} , count = ${dish.count}');
-//       return dish;
-//     } catch (e) {
-//       return null;
-//     }
-//   }
-// }
+import 'package:delivery/data/models/review.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+class ReviewRepository {
+  final Box<Review> reviewBox = Hive.box<Review>('review_box');
+
+  Future <void> addReview(String dishId,String coment,int rating) async {
+    reviewBox.add(
+        Review(
+      dishId: dishId,
+      coment: coment,
+      name: "Екатерина",
+      rating: rating,
+      createdAt: DateTime.now(),
+    ));
+  }
+
+  Future<List<Review>?> getReviews(String dishId) async {
+    try {
+      final review =
+          reviewBox.values.where((element) => element.dishId == dishId).toList();
+      return review;
+    } catch (e) {
+      return null;
+    }
+  }
+
+
+  Future<List<Review>?> deleteReviews(String dishId) async {
+    try {
+      final reviewIndex = reviewBox.values.toList().indexWhere((e)=>e.dishId==dishId);
+      reviewBox.deleteAt(reviewIndex);
+      final review = reviewBox.values.where((element) => element.dishId == dishId).toList();
+      return review;
+    } catch (e) {
+      return null;
+    }
+  }
+}

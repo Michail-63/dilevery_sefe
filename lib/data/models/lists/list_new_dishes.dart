@@ -3,7 +3,7 @@ import 'package:delivery/data/models/new_dish.dart';
 
 List<NewDish> listDish = [
   NewDish(
-    id: '0',
+    dishId: '0',
     isRecommended: true,
     isFavorites: false,
     isTheBest: false,
@@ -17,7 +17,7 @@ List<NewDish> listDish = [
     image: ImagePass.sushi,
   ),
   NewDish(
-    id: '1',
+    dishId: '1',
     isRecommended: true,
     isFavorites: false,
     isTheBest: false,
@@ -33,7 +33,7 @@ List<NewDish> listDish = [
         'события была приготовлена пицца окрашенная в цвета итальянского флага. ',
   ),
   NewDish(
-      id: '2',
+      dishId: '2',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -46,7 +46,7 @@ List<NewDish> listDish = [
           'Филадельфия, Карелия, Фиdfbdfbdладельфия с тунцом, Калифорния со снежным крабом, '
           'запеченные спайси с лососем, темпура угорь, темпура Филадельфия, запеченные с креветкой'),
   NewDish(
-      id: '3',
+      dishId: '3',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -59,7 +59,7 @@ List<NewDish> listDish = [
           'Филадельфия, Карелия, Филадельфия с тунцом, Калифорния со снежным крабом, '
           'запеченные спайси с лососем, темпура угорь, темпура Филадельфия, запеченные с креветкой'),
   NewDish(
-      id: '4',
+      dishId: '4',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -74,7 +74,7 @@ List<NewDish> listDish = [
           'отведать популярное блюдо бедняков – пиццу и специально для этого '
           'события была приготовлена пицца окрашенная в цвета итальянского флага. '),
   NewDish(
-      id: '5',
+      dishId: '5',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -89,7 +89,7 @@ List<NewDish> listDish = [
           'отведать популярное блюдо бедняков – пиццу и специально для этого '
           'события была приготовлена пицца окрашенная в цвета итальянского флага. '),
   NewDish(
-      id: '6',
+      dishId: '6',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -103,7 +103,7 @@ List<NewDish> listDish = [
           'находка для ценителей итальянской кухни. Паста пропитана сочными и '
           'насыщенными вкусами, которые оставят вас в восторге.'),
   NewDish(
-      id: '7',
+      dishId: '7',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -116,7 +116,7 @@ List<NewDish> listDish = [
           'или морепродуктами, но если очень хочется, я не вижу причин этого '
           'себе не позволить.'),
   NewDish(
-      id: '8',
+      dishId: '8',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -129,7 +129,7 @@ List<NewDish> listDish = [
           'суп на основе креветочного бульона(биск), белая рыба '
           'греческая, КОРНЕПЛОДЫ. кинза. перед подачей добавляется узо.'),
   NewDish(
-      id: '9',
+      dishId: '9',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -143,7 +143,7 @@ List<NewDish> listDish = [
           'Оно должно получиться мягким и эластичным, чтобы без труда можно '
           'было раскатать тонкие лепешки'),
   NewDish(
-      id: '10',
+      dishId: '10',
       isRecommended: false,
       isFavorites: false,
       isTheBest: false,
@@ -157,7 +157,7 @@ List<NewDish> listDish = [
           'находка для ценителей итальянской кухни. Паста пропитана сочными и '
           'насыщенными вкусами, которые оставят вас в восторге.'),
   NewDish(
-      id: '11',
+      dishId: '11',
       isRecommended: true,
       isFavorites: false,
       isTheBest: false,
@@ -170,7 +170,7 @@ List<NewDish> listDish = [
           'или морепродуктами, но если очень хочется, я не вижу причин этого '
           'себе не позволить.'),
   NewDish(
-      id: '12',
+      dishId: '12',
       isRecommended: false,
       isFavorites: false,
       isTheBest: false,
@@ -183,7 +183,7 @@ List<NewDish> listDish = [
           'суп на основе креветочного бульона(биск), белая рыба '
           'греческая, КОРНЕПЛОДЫ. кинза. перед подачей добавляется узо.'),
   NewDish(
-      id: '13',
+      dishId: '13',
       isRecommended: false,
       isFavorites: false,
       isTheBest: false,
@@ -197,7 +197,7 @@ List<NewDish> listDish = [
           'Оно должно получиться мягким и эластичным, чтобы без труда можно '
           'было раскатать тонкие лепешки'),
   NewDish(
-      id: '14',
+      dishId: '14',
       isRecommended: false,
       isFavorites: false,
       isTheBest: false,
@@ -210,7 +210,7 @@ List<NewDish> listDish = [
           'Филадельфия, Карелия, Филадельфия с тунцом, Калифорния со снежным крабом, '
           'запеченные спайси с лососем, темпура угорь, темпура Филадельфия, запеченные с креветкой'),
   NewDish(
-      id: '15',
+      dishId: '15',
       isRecommended: false,
       isFavorites: false,
       isTheBest: false,
@@ -225,7 +225,7 @@ List<NewDish> listDish = [
           'отведать популярное блюдо бедняков – пиццу и специально для этого '
           'события была приготовлена пицца окрашенная в цвета итальянского флага. '),
   NewDish(
-      id: '16',
+      dishId: '16',
       isRecommended: false,
       isFavorites: false,
       isTheBest: false,
@@ -239,7 +239,7 @@ List<NewDish> listDish = [
           'находка для ценителей итальянской кухни. Паста пропитана сочными и '
           'насыщенными вкусами, которые оставят вас в восторге.'),
   NewDish(
-      id: '17',
+      dishId: '17',
       isRecommended: false,
       isFavorites: false,
       isTheBest: true,
@@ -252,7 +252,7 @@ List<NewDish> listDish = [
           'суп на основе креветочного бульона(биск), белая рыба '
           'греческая, КОРНЕПЛОДЫ. кинза. перед подачей добавляется узо.'),
   NewDish(
-      id: '18',
+      dishId: '18',
       isRecommended: false,
       isFavorites: false,
       isTheBest: true,
@@ -266,7 +266,7 @@ List<NewDish> listDish = [
           'Оно должно получиться мягким и эластичным, чтобы без труда можно '
           'было раскатать тонкие лепешки'),
   NewDish(
-      id: '19',
+      dishId: '19',
       isRecommended: false,
       isFavorites: false,
       isTheBest: true,
@@ -279,7 +279,7 @@ List<NewDish> listDish = [
           'Филадельфия, Карелия, Филадельфия с тунцом, Калифорния со снежным крабом, '
           'запеченные спайси с лососем, темпура угорь, темпура Филадельфия, запеченные с креветкой'),
   NewDish(
-      id: '20',
+      dishId: '20',
       isRecommended: false,
       isFavorites: true,
       isTheBest: false,
@@ -294,7 +294,7 @@ List<NewDish> listDish = [
           'отведать популярное блюдо бедняков – пиццу и специально для этого '
           'события была приготовлена пицца окрашенная в цвета итальянского флага. '),
   NewDish(
-      id: '21',
+      dishId: '21',
       isRecommended: false,
       isFavorites: false,
       isTheBest: true,
@@ -307,7 +307,7 @@ List<NewDish> listDish = [
           'суп на основе креветочного бульона(биск), белая рыба '
           'греческая, КОРНЕПЛОДЫ. кинза. перед подачей добавляется узо.'),
   NewDish(
-      id: '22',
+      dishId: '22',
       isRecommended: false,
       isFavorites: true,
       isTheBest: false,
@@ -321,7 +321,7 @@ List<NewDish> listDish = [
           'Оно должно получиться мягким и эластичным, чтобы без труда можно '
           'было раскатать тонкие лепешки'),
   NewDish(
-      id: '23',
+      dishId: '23',
       isRecommended: false,
       isFavorites: true,
       isTheBest: false,
@@ -334,7 +334,7 @@ List<NewDish> listDish = [
           'Филадельфия, Карелия, Филадельфия с тунцом, Калифорния со снежным крабом, '
           'запеченные спайси с лососем, темпура угорь, темпура Филадельфия, запеченные с креветкой'),
   NewDish(
-      id: '24',
+      dishId: '24',
       isRecommended: false,
       isFavorites: true,
       isTheBest: false,
@@ -349,7 +349,7 @@ List<NewDish> listDish = [
           'отведать популярное блюдо бедняков – пиццу и специально для этого '
           'события была приготовлена пицца окрашенная в цвета итальянского флага. '),
   NewDish(
-      id: '25',
+      dishId: '25',
       isRecommended: false,
       isFavorites: true,
       isTheBest: false,
@@ -362,7 +362,7 @@ List<NewDish> listDish = [
           'суп на основе креветочного бульона(биск), белая рыба '
           'греческая, КОРНЕПЛОДЫ. кинза. перед подачей добавляется узо.'),
   NewDish(
-      id: '26',
+      dishId: '26',
       isRecommended: false,
       isFavorites: true,
       isTheBest: false,

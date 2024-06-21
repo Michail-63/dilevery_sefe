@@ -7,7 +7,7 @@ class Review {
   @HiveField(0)
   final String dishId;
   @HiveField(1)
-  final String review;
+  final String coment;
   @HiveField(2)
   final String name;
   @HiveField(3)
@@ -17,7 +17,7 @@ class Review {
 
   Review(
    {required this.dishId,
-    required this.review,
+    required this.coment,
     required this.name,
     required this.rating,
     required this.createdAt

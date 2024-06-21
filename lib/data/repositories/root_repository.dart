@@ -4,12 +4,13 @@ import 'package:delivery/data/models/new_dish.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class RootRepository {
+
   final Box<NewDish> newDishBox = Hive.box<NewDish>('new_dish_box');
 
   Future<NewDish?> getDish(String id) async {
     // await Future.delayed(Duration(seconds: 2));
     try {
-      final dish = newDishBox.values.firstWhere((element) => element.id == id);
+      final dish = newDishBox.values.firstWhere((element) => element.dishId == id);
       // print('Dish = ${dish.id},${dish.title},  ID = ${id} , count = ${dish.count}');
       return dish;
     } catch (e) {
@@ -23,8 +24,8 @@ class RootRepository {
     //   print('DishWalio = ${o.id}');
     // }
     final dishIndex =
-    newDishBox.values.toList().indexWhere((element) => element.id == id);
-    final dish = newDishBox.values.firstWhere((element) => element.id == id);
+    newDishBox.values.toList().indexWhere((element) => element.dishId == id);
+    final dish = newDishBox.values.firstWhere((element) => element.dishId == id);
     // print('Dish = ${dish}');
     final newDish = dish.copyWith(count: count);
     await newDishBox.putAt(dishIndex, newDish);

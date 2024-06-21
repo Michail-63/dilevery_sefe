@@ -40,7 +40,7 @@ class CategoryPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => DishPage(
-                                      dishId: category[index].id,
+                                      dishId: category[index].dishId,
                                     )));
 
                         print('1');

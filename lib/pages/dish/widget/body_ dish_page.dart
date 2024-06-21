@@ -31,38 +31,41 @@ class BodyDishPage extends StatelessWidget {
                     state.dish?.title ?? "",
                   ),
                 ),
-                body: ListView(
-                  children: [
-                    DishView(
-                      title: state.dish?.title ?? "",
-                      image: state.dish?.image ?? "",
-                      text: state.dish?.text ?? "",
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        DishPrice(
-                          price: state.dish?.price ?? 0,
-                        ),
-                        DishCount(count: state.dish?.count ?? 0),
-                      ],
-                    ),
-                    const SizedBox(height: 15),
-                    const BattonAddToCart(),
-                    const SizedBox(height: 15),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ReviewStatistics(),
-                        BattonAddReviews(),
-                      ],
-                    ),
-                    const NewReview(review:,),
-
-
-                  ],
+                body: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      DishView(
+                        title: state.dish?.title ?? "",
+                        image: state.dish?.image ?? "",
+                        text: state.dish?.text ?? "",
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          DishPrice(
+                            price: state.dish?.price ?? 0,
+                          ),
+                          DishCount(count: state.dish?.count ?? 0),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      const BattonAddToCart(),
+                      const SizedBox(height: 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const ReviewStatistics(),
+                          BattonAddReviews(
+                            dishId: state.dish?.dishId ?? "",
+                          ),
+                        ],
+                      ),
+                      NewReview(reviews: state.reviews)
+                    ],
+                  ),
                 ),
               );
       },

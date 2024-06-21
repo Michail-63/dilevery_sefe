@@ -5,7 +5,7 @@ part 'new_dish.g.dart';
 @HiveType(typeId: 2)
 class NewDish {
   @HiveField(0)
-  final String id;
+  final String dishId;
   @HiveField(1)
   final bool isRecommended;
   @HiveField(2)
@@ -26,7 +26,7 @@ class NewDish {
   final String text;
 
   const NewDish({
-    required this.id,
+    required this.dishId,
     required this.isRecommended,
     required this.isFavorites,
     required this.isTheBest,
@@ -39,7 +39,7 @@ class NewDish {
   });
 
   NewDish copyWith({
-    String? id,
+    String? dishId,
     bool? isRecommended,
     bool? isFavorites,
     bool? isTheBest,
@@ -51,7 +51,7 @@ class NewDish {
     String? text,
   }) {
     return NewDish(
-      id: id ?? this.id,
+      dishId: dishId ?? this.dishId,
       isRecommended: isRecommended ?? this.isRecommended,
       isFavorites: isFavorites ?? this.isFavorites,
       isTheBest: isTheBest ?? this.isTheBest,
@@ -63,19 +63,5 @@ class NewDish {
       text: text ?? this.text,
     );
   }
-//
-// @override
-// List<Object?> get props =>
-//     [
-//       id,
-//       isRecommended,
-//       isFavorites,
-//       isTheBest,
-//       isPopular,
-//       title,
-//       price,
-//       count,
-//       image,
-//       text,
-//     ];
+
 }

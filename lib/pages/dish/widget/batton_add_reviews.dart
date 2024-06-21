@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BattonAddReviews extends StatelessWidget {
-  const BattonAddReviews({super.key});
+  final String dishId;
+
+  const BattonAddReviews({super.key, required this.dishId});
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +21,10 @@ class BattonAddReviews extends StatelessWidget {
       width: 160,
       child: TextButton(
         onPressed: () {
-          _showReviewModal(context, (rating, review) {
+          _showReviewModal(context, (rating, coment) {
             context
                 .read<DishBloc>()
-                .add(ReviewDishEvent(raiting: rating, review: review));
+                .add(AddReviewDishEvent(rating: rating, coment: coment,dishId:dishId ));
           });
         },
         child: Text("Добавить отзыв", style: theme.bodySmall),
@@ -32,7 +34,7 @@ class BattonAddReviews extends StatelessWidget {
 }
 
 Future<void> _showReviewModal(
-    BuildContext context, Function(int rating, String review) onSend) {
+    BuildContext context, Function(int rating, String coment) onSend) {
   return showDialog<void>(
       context: context,
       builder: (BuildContext context) {

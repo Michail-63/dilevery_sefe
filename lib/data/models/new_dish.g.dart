@@ -17,7 +17,7 @@ class NewDishAdapter extends TypeAdapter<NewDish> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return NewDish(
-      id: fields[0] as String,
+      dishId: fields[0] as String,
       isRecommended: fields[1] as bool,
       isFavorites: fields[2] as bool,
       isTheBest: fields[3] as bool,
@@ -35,7 +35,7 @@ class NewDishAdapter extends TypeAdapter<NewDish> {
     writer
       ..writeByte(10)
       ..writeByte(0)
-      ..write(obj.id)
+      ..write(obj.dishId)
       ..writeByte(1)
       ..write(obj.isRecommended)
       ..writeByte(2)
