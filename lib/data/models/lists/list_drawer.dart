@@ -24,7 +24,7 @@ final List<DrawerMenuData> menuDrawer = [
   DrawerMenuData(
       title: 'Карзина',
       icon: IconPath.cart,
-      dst: CartPage()),
+      dst: CartPage(listDish: [],)),
   DrawerMenuData(
       title: 'Профиль',
       icon: IconPath.user,

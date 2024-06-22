@@ -13,24 +13,19 @@ class DishFetchEvent extends DishEvent {
 
 class IncrementCountDishEvent extends DishEvent {
   IncrementCountDishEvent() {}
-
   @override
   List<Object?> get props => [];
 }
 
 class DecrementCountDishEvent extends DishEvent {
-  final int count;
-
-  DecrementCountDishEvent() {required this.count}
-
+  DecrementCountDishEvent() {}
   @override
-  List<Object?> get props => [count];
+  List<Object?> get props => [];
 }
 
 
-class UpdateDishCountEvent extends DishEvent {
-  UpdateDishCountEvent() {}
-
+class AddDishToCartEvent extends DishEvent {
+  AddDishToCartEvent() {}
   @override
   List<Object?> get props => [];
 }

@@ -1,11 +1,10 @@
-
 import 'package:delivery/config/theme.dart';
+import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BattonAddToCart extends StatelessWidget {
   const BattonAddToCart({super.key});
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,8 @@ class BattonAddToCart extends StatelessWidget {
       width: double.infinity,
       child: TextButton(
         onPressed: () {
-          print("e");
+          context.read<DishBloc>().add(AddDishToCartEvent());
+
         },
         child: Text("Добавить в корзину", style: theme.bodyLarge),
       ),

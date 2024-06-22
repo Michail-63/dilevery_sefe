@@ -1,7 +1,7 @@
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';
 import 'package:delivery/data/repositories/review_repository.dart';
-import 'package:delivery/data/repositories/root_repository.dart';
+import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +11,7 @@ part 'dish_state.dart';
 
 class DishBloc extends Bloc<DishEvent, DishState> {
   final ReviewRepository reviewRepository;
-  final RootRepository dishRepository;
+  final DishRepository dishRepository;
 
   DishBloc(
     this.dishRepository,
@@ -21,14 +21,18 @@ class DishBloc extends Bloc<DishEvent, DishState> {
       emit(state.copyWith(isloading: true));
       final reviews = await reviewRepository.getReviews(event.dishId);
       final dish = await dishRepository.getDish(event.dishId);
-      emit(state.copyWith(isloading: false, dish: dish, reviews: reviews));
+      emit(state.copyWith(
+        isloading: false,
+        dish: dish,
+        reviews: reviews,
+      ));
     });
 
     on<IncrementCountDishEvent>((event, emit) async {
-      // emit(state.copyWith(count: state.count + 1));
-      final updatedDish = await dishRepository.updatedCountDish(
-          state.dish!.dishId, state.dish!.count + 1);
-      emit(state.copyWith(dish: updatedDish));
+      emit(state.copyWith(count: state.count + 1));
+      // final updatedDish = await dishRepository.updatedCountDish(
+      //     state.dish!.dishId, state.dish!.count + 1);
+      // emit(state.copyWith(dish: updatedDish));
     });
 
     on<DecrementCountDishEvent>((event, emit) async {
@@ -40,15 +44,14 @@ class DishBloc extends Bloc<DishEvent, DishState> {
       // emit(state.copyWith(dish: updatedDish));
     });
 
-    on<UpdateDishCountEvent>((event, emit) async {
+    on<AddDishToCartEvent>((event, emit) async {
       final updatedDish = await dishRepository.updatedCountDish(
         state.dish!.dishId,
-        state.dish!.count,
+        state.count,
+        // state.dish!.count + 1,
       );
       emit(state.copyWith(dish: updatedDish));
     });
-
-
 
     on<AddReviewDishEvent>((event, emit) async {
       await reviewRepository.addReview(

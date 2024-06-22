@@ -3,7 +3,7 @@ import 'package:delivery/data/models/lists/list_categories.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-class RootRepository {
+class DishRepository {
 
   final Box<NewDish> newDishBox = Hive.box<NewDish>('new_dish_box');
 
@@ -33,6 +33,17 @@ class RootRepository {
   }
 
 
+  Future<List<NewDish>?> getDishesToCart() async {
+    try {
+           final listDish = newDishBox.values
+          .where((element) => element.count >= 1)
+          .toList();
+      return listDish;
+    } catch (e) {
+      print('Error = ${e}');
+      return null;
+    }
+  }
 
 
   Future<List<NewDish>?> getRecommendedDish() async {

@@ -5,7 +5,7 @@ class MainState {
   final List<NewDish> popularDishes;
   final List<NewDish> favoritesDishes;
   final List<NewDish> theBestDishes;
-
+  final NewDish? dish;
   final bool isloading;
 
   MainState({
@@ -14,6 +14,8 @@ class MainState {
     required this.theBestDishes,
     required this.favoritesDishes,
     required this.isloading,
+    required this.dish,
+
   });
 
   MainState copyWith({
@@ -22,8 +24,10 @@ class MainState {
     final List<NewDish>? favoritesDishes,
     final List<NewDish>? theBestDishes,
     bool? isloading,
+    NewDish? dish,
   }) {
     return MainState(
+      dish: dish ?? this.dish,
       recommendedDishes: recommendedDishes ?? this.recommendedDishes,
       popularDishes: popularDishes ?? this.popularDishes,
       favoritesDishes: favoritesDishes ?? this.favoritesDishes,
@@ -33,7 +37,9 @@ class MainState {
   }
 
   @override
-  List<Object?> get props => [
+  List<Object?> get props =>
+      [
+        dish,
         recommendedDishes,
         popularDishes,
         theBestDishes,
@@ -45,10 +51,11 @@ class MainState {
 final class MainInitialState extends MainState {
   MainInitialState()
       : super(
-          recommendedDishes: [],
-          popularDishes: [],
-          favoritesDishes: [],
-          theBestDishes: [],
-          isloading: false,
-        );
+    recommendedDishes: [],
+    popularDishes: [],
+    favoritesDishes: [],
+    theBestDishes: [],
+    isloading: false,
+    dish: null,
+  );
 }

@@ -1,4 +1,5 @@
 import 'package:delivery/data/models/new_dish.dart';
+import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'main_event.dart';
@@ -6,15 +7,17 @@ part 'main_event.dart';
 part 'main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
-  var repository;
+  final DishRepository dishRepository;
 
-  MainBloc(this.repository) : super(MainInitialState()) {
+
+  MainBloc(this.dishRepository) : super(MainInitialState()) {
+
     on<MainFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
-      final listRecommendedDish = await repository.getRecommendedDish();
-      final listFavoritesDish = await repository.getFavoritesDish();
-      final listTheBestDish = await repository.getTheBestDish();
-      final listPopularDish = await repository.getPopularDish();
+      final listRecommendedDish = await dishRepository.getRecommendedDish();
+      final listFavoritesDish = await dishRepository.getFavoritesDish();
+      final listTheBestDish = await dishRepository.getTheBestDish();
+      final listPopularDish = await dishRepository.getPopularDish();
 
       emit(state.copyWith(
         recommendedDishes: listRecommendedDish,
@@ -24,5 +27,14 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         isloading: false,
       ));
     });
+
+    on<AddToCartEvent>((event, emit) async {
+      final updatedDish = await dishRepository.updatedCountDish(
+        state.dish!.dishId,
+        state.dish!.count+1,
+      );
+      emit(state.copyWith(dish: updatedDish));
+    });
+
   }
 }

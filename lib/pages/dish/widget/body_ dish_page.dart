@@ -47,9 +47,12 @@ class BodyDishPage extends StatelessWidget {
                           DishPrice(
                             price: state.dish?.price ?? 0,
                           ),
-                          DishCount(count: state.dish?.count ?? 0),
+                          DishCount(count: state.count
+                          // state.dish?.count ?? 0,
+                          ),
                         ],
                       ),
+                      Text('${state.dish?.count?? 0}'),
                       const SizedBox(height: 15),
                       const BattonAddToCart(),
                       const SizedBox(height: 15),
