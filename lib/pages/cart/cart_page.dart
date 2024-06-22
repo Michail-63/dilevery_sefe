@@ -1,4 +1,7 @@
 import 'package:delivery/data/models/new_dish.dart';
+import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:delivery/pages/cart/bloc/cart_bloc.dart';
+import 'package:delivery/pages/cart/widget_cart/body_cart_page.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:flutter/material.dart';
@@ -7,62 +10,38 @@ import 'widget_cart/bottom_battom.dart';
 import 'widget_cart/promocod.dart';
 
 class CartPage extends StatelessWidget {
-  final List<NewDish> listDish;
 
   const CartPage({
     super.key,
-    required this.listDish,
+
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
-    return Scaffold(
-        drawer: DrawerPage(),
-        appBar: AppBar(title: const Text('Корзина'), actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.search,
+    final theme = Theme
+        .of(context)
+        .textTheme;
+    return BlocProvider(
+      create: (context) => CartBloc(DishRepository( ))..add(CartFetchEvent()),
+      child: Scaffold(
+          drawer: DrawerPage(),
+          appBar: AppBar(title: const Text('Корзина'), actions: [
+            IconButton(
+              icon: const Icon(
+                Icons.search,
+              ),
+              onPressed: () {
+                print("ON TAP 1");
+                // handle the press
+              },
             ),
-            onPressed: () {
-              print("ON TAP 1");
-              // handle the press
-            },
-          ),
-        ]),
-        body: Column(
-          children: [
-            Column(
-              children: List.generate(listDish.length, (index) {
-                return InkWell(
-                  onLongPress: () {
-                    context.read<DishBloc>().add(
-                        DeleteReviewDishEvent(dishId: listDish[index].dishId));
-                  },
-                  child: Text(listDish[index].title)
-                );
-              }),
-            ),
-            Promocod(),
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.all(20),
-                  child: Text("Итого", style: theme.bodyLarge),
-                ),
-                const SizedBox(
-                  width: 185,
-                ),
-                Container(
-                  child: Text("2540 \u20BD", style: theme.titleLarge),
-                ),
-              ],
-            )
-          ],
-        ),
-        bottomNavigationBar: const BottomBattom());
+          ]),
+          body: BodyCartPage(),
+          bottomNavigationBar: const BottomBattom()),
+    );
   }
 }
+
 
 // BlocBuilder<CartBloc, CartState>(
 //   builder: (context, state) {
