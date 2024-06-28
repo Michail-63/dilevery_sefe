@@ -51,7 +51,6 @@ class DishRepository {
         .indexWhere((element) => element.dishId == id);
     final dish =
     newDishBox.values.firstWhere((element) => element.dishId == id);
-
     final newDish = dish.copyWith(count: dish.count - 1);
     await newDishBox.putAt(dishIndex, newDish);
     return newDish;

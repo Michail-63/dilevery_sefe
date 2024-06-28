@@ -4,11 +4,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 class ReviewRepository {
   final Box<Review> reviewBox = Hive.box<Review>('review_box');
 
-  Future <void> addReview(String dishId,String coment,int rating) async {
+  Future <void> addReview(String dishId,String comment,int rating) async {
     reviewBox.add(
         Review(
       dishId: dishId,
-      coment: coment,
+      comment: comment,
       name: "Екатерина",
       rating: rating,
       createdAt: DateTime.now(),
@@ -24,7 +24,6 @@ class ReviewRepository {
       return null;
     }
   }
-
 
   Future<List<Review>?> deleteReviews(String dishId) async {
     try {

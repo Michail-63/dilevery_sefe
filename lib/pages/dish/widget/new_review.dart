@@ -50,14 +50,14 @@ class NewReview extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
-                        Text(reviews[index].coment),
+                        Text(reviews[index].comment),
                       ],
                     ),
                   ),
                 ),
               );
 
-              Text(reviews[index].coment);
+              Text(reviews[index].comment);
             }),
           );
   }
