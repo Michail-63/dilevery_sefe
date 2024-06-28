@@ -22,7 +22,7 @@ final List<DrawerMenuData> menuDrawer = [
   //     icon: IconPath.home,
   //     dst: CategoryPage(selectedCategory: null,)),
   DrawerMenuData(
-      title: 'Карзина',
+      title: 'Корзина',
       icon: IconPath.cart,
       dst: CartPage()),
   DrawerMenuData(
