@@ -13,30 +13,20 @@ class ListDishToCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Column(
-          children: List.generate(dishesToCArt.length, (index) {
-            return Column(
-              children: [
-                InkWell(
-                    onLongPress: () {
-                      // context.read<DishBloc>().add(
-                      //     DeleteReviewDishEvent(
-                      //         dishId: listDish[index].dishId));
-                    },
-                    child: BodyDishToCart(dish: dishesToCArt[index])),
-                if (index < dishesToCArt.length - 1)
-                  Divider(
-                    height: 15,
-                    color: Colors.white12,
-                  ),
-                if (index == dishesToCArt.length - 1) Promocod(),
-              ],
-            );
-          }),
-        ),
-      ],
+    return Column(
+      children: List.generate(dishesToCArt.length, (index) {
+        return Column(
+          children: [
+            BodyDishToCart(dish: dishesToCArt[index]),
+            if (index < dishesToCArt.length - 1)
+              Divider(
+                height: 15,
+                color: Colors.white12,
+              ),
+            if (index == dishesToCArt.length - 1) Promocod(),
+          ],
+        );
+      }),
     );
   }
 }

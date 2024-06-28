@@ -14,35 +14,15 @@ class BodyCartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        final theme = Theme.of(context).textTheme;
         final int dishCount = state.dishesToCArt.length;
         return dishCount < 4
-            ? Stack(
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ListDishToCart(
                     dishesToCArt: state.dishesToCArt,
                   ),
-                  Positioned(
-                      bottom: 0,
-                      child: Container(
-                        padding: EdgeInsets.all(15),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Итого", style: theme.bodyLarge),
-                            // Spacer(),
-                            // SizedBox(height: 50,width: 200,),
-                            Text("${state.totalPrice} \u20BD",
-                                style: theme.titleLarge)
-                          ],
-                        ),
-                      )
-
-                      // TotalPrice(
-                      //   totalPrice: state.totalPrice,
-                      // ),
-                      )
+                  TotalPrice(totalPrice: state.totalPrice)
                 ],
               )
             : ListDishToCartCustom(

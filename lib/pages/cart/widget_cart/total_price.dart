@@ -17,7 +17,6 @@ class TotalPrice extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text("Итого", style: theme.bodyLarge),
-          // SizedBox(height: 50,width: 200,),
           Text("$totalPrice \u20BD", style: theme.titleLarge),
         ],
       ),
