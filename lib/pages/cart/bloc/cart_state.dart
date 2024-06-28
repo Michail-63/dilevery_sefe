@@ -1,38 +1,42 @@
 part of 'cart_bloc.dart';
 
-class CartState {
+class CartState extends Equatable {
   final List<NewDish> dishesToCArt;
-  final int count;
-  final NewDish? dish;
   final String promo;
 
+  int get totalPrice {
+    int total = 0;
+    for (int i = 0; i < dishesToCArt.length; i++) {
+      // print('Item = ${dishesToCArt[i].price}');
+      final sum = dishesToCArt[i].count * dishesToCArt[i].price;
+      total = total + sum;
+    }
+    return total;
+  }
+
   CartState({
-    required this.count,
     required this.dishesToCArt,
     required this.promo,
-    required this.dish,
   });
 
   CartState copyWith({
-    int? count,
     String? promo,
     List<NewDish>? dishesToCArt,
-    NewDish? dish,
   }) {
     return CartState(
-      count: count ?? this.count,
       promo: promo ?? this.promo,
-      dish: dish ?? this.dish,
       dishesToCArt: dishesToCArt ?? this.dishesToCArt,
     );
   }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [promo, dishesToCArt];
 }
 
 final class CartInitialState extends CartState {
   CartInitialState()
       : super(
-          dish: null,
-          count: 0,
           promo: "",
           dishesToCArt: [],
         );

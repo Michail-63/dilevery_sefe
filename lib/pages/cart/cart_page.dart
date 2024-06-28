@@ -10,62 +10,49 @@ import 'widget_cart/bottom_battom.dart';
 import 'widget_cart/promocod.dart';
 
 class CartPage extends StatelessWidget {
-
   const CartPage({
     super.key,
-
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme
-        .of(context)
-        .textTheme;
+
     return BlocProvider(
-      create: (context) => CartBloc(DishRepository( ))..add(CartFetchEvent()),
-      child: Scaffold(
+        create: (context) => CartBloc(DishRepository())..add(CartFetchEvent()),
+        child: Scaffold(
           drawer: DrawerPage(),
           appBar: AppBar(title: const Text('Корзина'), actions: [
             IconButton(
               icon: const Icon(
                 Icons.search,
               ),
-              onPressed: () {
-                print("ON TAP 1");
-                // handle the press
-              },
+              onPressed: () {},
             ),
           ]),
           body: BodyCartPage(),
-          bottomNavigationBar: const BottomBattom()),
-    );
+          bottomNavigationBar: BottomBattom(),
+        ));
   }
 }
-
-
-// BlocBuilder<CartBloc, CartState>(
-//   builder: (context, state) {
-//     return BodyCartScreen(count: state.count,);
-//   },
-// ),
-
 //
-// [
-// const SizedBox(
-// height: 20,
-// ),
-// BlocBuilder<CartBloc, CartState>(
-// builder: (context, state) {
-// return BodyCartScreen(count: state.count,);
-// },
-// ),
-// const Divider(
-// height: 15,
-// color: Colors.white30,
-// ),
-//
-// const SizedBox(
-// height: 10,
-// ),
-//
+
+// SizedBox(height: 15,),
+// Promocod(),
+// Column(
+// children: [
+// // Row(
+// //   children: [
+// //     Container(
+// //       margin: const EdgeInsets.all(20),
+// //       child: Text("Итого", style: theme.bodyLarge),
+// //     ),
+// //     const SizedBox(
+// //       width: 185,
+// //     ),
+// //     Container(
+// //       child: Text("2540 \u20BD", style: theme.titleLarge),
+// //     ),
+// //   ],
+// // ),
+// BottomBattom()
 // ],

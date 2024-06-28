@@ -4,13 +4,14 @@ import 'package:delivery/data/models/new_dish.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DishRepository {
-
   final Box<NewDish> newDishBox = Hive.box<NewDish>('new_dish_box');
+
 
   Future<NewDish?> getDish(String id) async {
     // await Future.delayed(Duration(seconds: 2));
     try {
-      final dish = newDishBox.values.firstWhere((element) => element.dishId == id);
+      final dish =
+          newDishBox.values.firstWhere((element) => element.dishId == id);
       // print('Dish = ${dish.id},${dish.title},  ID = ${id} , count = ${dish.count}');
       return dish;
     } catch (e) {
@@ -19,32 +20,53 @@ class DishRepository {
   }
 
   Future<NewDish> updatedCountDish(String id, int count) async {
-    // print('refreshCountDish = $id');
-    // for (var o in newDishBox.values) {
-    //   print('DishWalio = ${o.id}');
-    // }
-    final dishIndex =
-    newDishBox.values.toList().indexWhere((element) => element.dishId == id);
-    final dish = newDishBox.values.firstWhere((element) => element.dishId == id);
-    // print('Dish = ${dish}');
-    final newDish = dish.copyWith(count: count);
+     final dishIndex = newDishBox.values
+        .toList()
+        .indexWhere((element) => element.dishId == id);
+    final dish =
+        newDishBox.values.firstWhere((element) => element.dishId == id);
+      final newDish = dish.copyWith(count: count);
     await newDishBox.putAt(dishIndex, newDish);
     return newDish;
   }
 
 
+
+  Future<NewDish> AddDishToCart(String id) async {
+    final dishIndex = newDishBox.values
+        .toList()
+        .indexWhere((element) => element.dishId == id);
+    final dish =
+        newDishBox.values.firstWhere((element) => element.dishId == id);
+
+    final newDish = dish.copyWith(count: dish.count + 1);
+    await newDishBox.putAt(dishIndex, newDish);
+    return newDish;
+  }
+
+
+  Future<NewDish> DeleteDishToCart(String id) async {
+    final dishIndex = newDishBox.values
+        .toList()
+        .indexWhere((element) => element.dishId == id);
+    final dish =
+    newDishBox.values.firstWhere((element) => element.dishId == id);
+
+    final newDish = dish.copyWith(count: dish.count - 1);
+    await newDishBox.putAt(dishIndex, newDish);
+    return newDish;
+  }
+
   Future<List<NewDish>?> getDishesToCart() async {
     try {
-           final listDish = newDishBox.values
-          .where((element) => element.count >= 1)
-          .toList();
+      final listDish =
+          newDishBox.values.where((element) => element.count >= 1).toList();
       return listDish;
     } catch (e) {
       print('Error = ${e}');
       return null;
     }
   }
-
 
   Future<List<NewDish>?> getRecommendedDish() async {
     try {

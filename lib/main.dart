@@ -4,6 +4,7 @@ import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';
 import 'package:delivery/pages/main/main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
@@ -12,8 +13,10 @@ void main() async {
   Hive.registerAdapter(ReviewAdapter());
   await Hive.openBox<NewDish>('new_dish_box');
   await Hive.openBox<Review>('review_box');
+  // await Hive.box<NewDish>('new_dish_box').clear();
   if (Hive.box<NewDish>('new_dish_box').isEmpty) {
-    await Hive.box<NewDish>('new_dish_box').addAll(listDish);
+  await Hive.box<NewDish>('new_dish_box').addAll(listDish);
+
   }
 
   runApp(const MyApp());

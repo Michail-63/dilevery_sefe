@@ -1,5 +1,6 @@
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'main_event.dart';
@@ -9,9 +10,7 @@ part 'main_state.dart';
 class MainBloc extends Bloc<MainEvent, MainState> {
   final DishRepository dishRepository;
 
-
   MainBloc(this.dishRepository) : super(MainInitialState()) {
-
     on<MainFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
       final listRecommendedDish = await dishRepository.getRecommendedDish();
@@ -28,13 +27,8 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       ));
     });
 
-    on<AddToCartEvent>((event, emit) async {
-      final updatedDish = await dishRepository.updatedCountDish(
-        state.dish!.dishId,
-        state.dish!.count+1,
-      );
-      emit(state.copyWith(dish: updatedDish));
+    on<AddToCartMainEvent>((event, emit) async {
+      await dishRepository.AddDishToCart(event.dishId);
     });
-
   }
 }

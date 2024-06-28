@@ -24,10 +24,7 @@ class DishCount extends StatelessWidget {
                     topLeft: Radius.circular(10),
                     bottomLeft: Radius.circular(10)),
                 onTap: () {
-                  if (count >= 1) {
                     context.read<DishBloc>().add(DecrementCountDishEvent());
-                  }
-                  print('count = $count');
                 },
                 child: Container(
                   height: 45,
@@ -67,7 +64,6 @@ class DishCount extends StatelessWidget {
                     bottomRight: Radius.circular(10)),
                 onTap: () {
                   context.read<DishBloc>().add(IncrementCountDishEvent());
-                  print('count = $count');
                 },
                 child: Container(
                   height: 45,

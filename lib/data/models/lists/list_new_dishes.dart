@@ -12,7 +12,7 @@ List<NewDish> listDish = [
         'Филадельфия, Карелия, Филадельфия с тунцом, Калифорния со снежным крабом, '
         'запеченные спайси с лососем, темпура угорь, темпура Филадельфия, запеченные с креветкой',
     title: "Сет Королевский",
-    price: 1280,
+    price: 599,
     count: 0,
     image: ImagePass.sushi,
   ),
@@ -39,7 +39,7 @@ List<NewDish> listDish = [
       isTheBest: false,
       isPopular: false,
       title: "Сет Королевский",
-      price: 12,
+      price: 1999,
       image: ImagePass.sushi,
       count: 0,
       text:
@@ -135,7 +135,7 @@ List<NewDish> listDish = [
       isTheBest: false,
       isPopular: false,
       title: "Итальянская Питцца",
-      price: 1399,
+      price: 1200,
       image: ImagePass.piza2,
       count: 0,
       text: 'Главная особенность итальянской пиццы - тонкое тесто.'
@@ -189,7 +189,7 @@ List<NewDish> listDish = [
       isTheBest: false,
       isPopular: true,
       title: "Итальянская Питцца",
-      price: 1399,
+      price: 999,
       image: ImagePass.piza2,
       count: 0,
       text: 'Главная особенность итальянской пиццы - тонкое тесто.'
@@ -258,7 +258,7 @@ List<NewDish> listDish = [
       isTheBest: true,
       isPopular: false,
       title: "Итальянская Питцца",
-      price: 1399,
+      price: 1000,
       image: ImagePass.piza2,
       count: 0,
       text: 'Главная особенность итальянской пиццы - тонкое тесто.'
@@ -313,7 +313,7 @@ List<NewDish> listDish = [
       isTheBest: false,
       isPopular: false,
       title: "Итальянская Питцца",
-      price: 1399,
+      price: 1390,
       image: ImagePass.piza2,
       count: 0,
       text: 'Главная особенность итальянской пиццы - тонкое тесто.'
@@ -368,7 +368,7 @@ List<NewDish> listDish = [
       isTheBest: false,
       isPopular: false,
       title: "Итальянская Питцца",
-      price: 1399,
+      price: 650,
       image: ImagePass.piza2,
       count: 0,
       text: 'Главная особенность итальянской пиццы - тонкое тесто.'

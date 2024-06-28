@@ -1,6 +1,6 @@
 part of 'dish_bloc.dart';
 
-class DishState {
+class DishState extends Equatable {
   final bool isloading;
   final List<Review> reviews;
   final NewDish? dish;

@@ -36,7 +36,9 @@ class DishBloc extends Bloc<DishEvent, DishState> {
     });
 
     on<DecrementCountDishEvent>((event, emit) async {
-      emit(state.copyWith(count: state.count - 1));
+      if (state.count >= 1) {
+        emit(state.copyWith(count: state.count - 1));
+      }
       // final updatedDish = await dishRepository.updatedCountDish(
       //   state.dish!.dishId,
       //   state.dish!.count - 1,
