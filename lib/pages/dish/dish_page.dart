@@ -1,3 +1,4 @@
+import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/data/repositories/review_repository.dart';
 import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
@@ -17,7 +18,7 @@ class DishPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) =>
-            DishBloc(DishRepository(),ReviewRepository())..add(DishFetchEvent(dishId: dishId)),
+            DishBloc(DishRepository(),ReviewRepository(),DishToCartRepository())..add(DishFetchEvent(dishId: dishId)),
         child:  BodyDishPage());
   }
 }
