@@ -8,7 +8,7 @@ part of 'dish_to_cart.dart';
 
 class DishToCartAdapter extends TypeAdapter<DishToCart> {
   @override
-  final int typeId = 1;
+  final int typeId = 3;
 
   @override
   DishToCart read(BinaryReader reader) {

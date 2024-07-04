@@ -2,7 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 part 'dish_to_cart.g.dart';
 
-@HiveType(typeId: 1)
+@HiveType(typeId: 3)
 class DishToCart {
   @HiveField(0)
   final String dishId;
@@ -13,4 +13,18 @@ class DishToCart {
     required this.dishId,
     required this.count,
   });
+
+  DishToCart copyWith({
+    String? dishId,
+    int? count,
+  }) {
+    return DishToCart(
+      dishId: dishId ?? this.dishId,
+      count: count ?? this.count,
+    );
+  }
+
 }
+
+
+

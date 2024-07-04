@@ -15,7 +15,7 @@ void main() async {
 
   await Hive.openBox<NewDish>('new_dish_box');
   await Hive.openBox<Review>('review_box');
-  await Hive.openBox<DishToCart>('count_box');
+  await Hive.openBox('count_box');
   // await Hive.box<NewDish>('new_dish_box').clear();
   if (Hive.box<NewDish>('new_dish_box').isEmpty) {
   await Hive.box<NewDish>('new_dish_box').addAll(listDish);

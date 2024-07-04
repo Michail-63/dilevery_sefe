@@ -1,5 +1,6 @@
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';
+import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/data/repositories/review_repository.dart';
 import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:equatable/equatable.dart';
@@ -12,10 +13,12 @@ part 'dish_state.dart';
 class DishBloc extends Bloc<DishEvent, DishState> {
   final ReviewRepository reviewRepository;
   final DishRepository dishRepository;
+  final DishToCartRepository dishToCartRepository;
 
   DishBloc(
     this.dishRepository,
     this.reviewRepository,
+    this.dishToCartRepository,
   ) : super(DishInitialState()) {
     on<DishFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
@@ -50,7 +53,6 @@ class DishBloc extends Bloc<DishEvent, DishState> {
       final updatedDish = await dishRepository.updatedCountDish(
         state.dish!.dishId,
         state.count,
-        // state.dish!.count + 1,
       );
       emit(state.copyWith(dish: updatedDish));
     });

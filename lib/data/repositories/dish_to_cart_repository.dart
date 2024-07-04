@@ -1,35 +1,27 @@
 import 'package:delivery/data/models/dish_to_cart.dart';
+import 'package:flutter/animation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DishToCartRepository {
-  final Box<DishToCart> countBox = Hive.box<DishToCart>('count_box');
+  final Box countBox = Hive.box('count_box');
 
-  Future <void> addCount(String dishId,int count) async {
-    countBox.add(
-        DishToCart(
-          dishId: dishId,
-          count: count,
-        ));
+  Future<void> AddCountToDish(String dishId) async {
+    var currentCount = countBox.get(dishId) ?? 0;
+    await countBox.put(dishId, currentCount +1);
+    print('currentCount= ${currentCount+1}');
+    print('MapDish.lenght= ${countBox.length}');
   }
 
-  Future<List<DishToCart>?> getListDishesToCart(String dishId) async {
-    try {
-      final listDishes =
-      countBox.values.where((element) => element.dishId == dishId).toList();
-      return listDishes;
-    } catch (e) {
-      return null;
-    }
-  }
 
-  Future<List<DishToCart>?> deleteDish(String dishId) async {
-    try {
-      final dishIndex = countBox.values.toList().indexWhere((e)=>e.dishId==dishId);
-      countBox.deleteAt(dishIndex);
-      final dish = countBox.values.where((element) => element.dishId == dishId).toList();
-      return dish;
-    } catch (e) {
-      return null;
-    }
-  }
+
+
+
+
+
+
+
+
+
+
+
 }

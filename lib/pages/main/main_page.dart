@@ -1,4 +1,5 @@
 import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
 import 'package:delivery/pages/main/widget/body_main_page.dart';
@@ -15,7 +16,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MainBloc(DishRepository( ))..add(MainFetchEvent()),
+      create: (context) => MainBloc(DishRepository(),DishToCartRepository())..add(MainFetchEvent()),
       child: Scaffold(
           drawer: const DrawerPage(),
           appBar: AppBar(title: const Text('Главная'), actions: [
@@ -28,7 +29,7 @@ class MainPage extends StatelessWidget {
               },
             ),
           ]),
-          body: const BodyMainPage()),
+          body: BodyMainPage()),
     );
   }
 }
