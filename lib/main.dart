@@ -11,7 +11,7 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(NewDishAdapter());
   Hive.registerAdapter(ReviewAdapter());
-  Hive.registerAdapter(DishToCartAdapter());
+  Hive.registerAdapter(CountDishToCartAdapter());
 
   await Hive.openBox<NewDish>('new_dish_box');
   await Hive.openBox<Review>('review_box');
