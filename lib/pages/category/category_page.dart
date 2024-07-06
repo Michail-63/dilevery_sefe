@@ -2,6 +2,7 @@ import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/pages/category/bloc/category_bloc.dart';
 import 'package:delivery/pages/category/widget/category_add_dish_to_cart.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
@@ -25,11 +26,12 @@ class CategoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     const double itemHeight = 2;
     const double itemWidth = 1.3;
-    final theme = Theme
-        .of(context)
-        .textTheme;
+    final theme = Theme.of(context).textTheme;
     return BlocProvider(
-      create: (context) => CategoryBloc(DishRepository()),
+      create: (context) => CategoryBloc(
+        DishRepository(),
+        DishToCartRepository(),
+      ),
       child: CategoryView(
           name: name,
           itemWidth: itemWidth,
@@ -64,8 +66,8 @@ class CategoryView extends StatelessWidget {
         body: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, childAspectRatio: (itemWidth / itemHeight)),
-          itemBuilder: ( context, index) {
-            return   Card(
+          itemBuilder: (context, index) {
+            return Card(
               margin: const EdgeInsetsDirectional.all(6),
               clipBehavior: Clip.hardEdge,
               color: color1,
@@ -77,8 +79,7 @@ class CategoryView extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    DishPage(
+                                builder: (context) => DishPage(
                                       dishId: category[index].dishId,
                                     )));
                       },
@@ -94,7 +95,8 @@ class CategoryView extends StatelessWidget {
                           Row(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(left: 15.0, top: 10),
+                                padding:
+                                    const EdgeInsets.only(left: 15.0, top: 10),
                                 child: Text(
                                   "${category[index].price} \u20BD ",
                                   style: theme.titleMedium,
@@ -104,8 +106,8 @@ class CategoryView extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 15.0),
-                            child:
-                            Text(category[index].title, style: theme.bodyMedium),
+                            child: Text(category[index].title,
+                                style: theme.bodyMedium),
                           ),
                         ],
                       ),

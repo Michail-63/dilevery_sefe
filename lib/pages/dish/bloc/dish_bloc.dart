@@ -50,11 +50,12 @@ class DishBloc extends Bloc<DishEvent, DishState> {
     });
 
     on<AddDishToCartEvent>((event, emit) async {
-      final updatedDish = await dishRepository.updatedCountDish(
+      // final updatedDish =
+      await dishToCartRepository.updatedCountDish(
         state.dish!.dishId,
         state.count,
       );
-      emit(state.copyWith(dish: updatedDish));
+      // emit(state.copyWith(dish: updatedDish));
     });
 
     on<AddReviewDishEvent>((event, emit) async {

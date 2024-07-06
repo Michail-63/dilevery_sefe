@@ -52,7 +52,7 @@ class BodyDishPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Text('${state.dish?.count?? 0}'),
+                      // Text('${state.dish?.count?? 0}'),
                       const SizedBox(height: 15),
                       const BattonAddToCart(),
                       const SizedBox(height: 15),

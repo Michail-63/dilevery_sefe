@@ -1,5 +1,5 @@
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/models/dish_to_cart.dart';
+import 'package:delivery/data/models/count_dish_to_cart.dart';
 import 'package:delivery/data/models/lists/list_new_dishes.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';

@@ -1,5 +1,6 @@
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/pages/cart/bloc/cart_bloc.dart';
 import 'package:delivery/pages/cart/widget_cart/body_cart_page.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
@@ -18,7 +19,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return BlocProvider(
-        create: (context) => CartBloc(DishRepository())..add(CartFetchEvent()),
+        create: (context) => CartBloc(DishRepository(),DishToCartRepository())..add(CartFetchEvent( )),
         child: Scaffold(
           drawer: DrawerPage(),
           appBar: AppBar(title: const Text('Корзина'), actions: [

@@ -12,8 +12,10 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   final DishRepository dishRepository;
   final DishToCartRepository dishToCartRepository;
 
-  MainBloc(this.dishRepository, this.dishToCartRepository)
-      : super(MainInitialState()) {
+  MainBloc(
+    this.dishRepository,
+    this.dishToCartRepository,
+  ) : super(MainInitialState()) {
     on<MainFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
       final listRecommendedDish = await dishRepository.getRecommendedDish();

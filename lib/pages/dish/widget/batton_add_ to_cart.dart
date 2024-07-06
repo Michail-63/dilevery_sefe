@@ -20,6 +20,7 @@ class BattonAddToCart extends StatelessWidget {
       child: TextButton(
         onPressed: () {
           context.read<DishBloc>().add(AddDishToCartEvent());
+          Navigator.of(context).pop();
 
         },
         child: Text("Добавить в корзину", style: theme.bodyLarge),

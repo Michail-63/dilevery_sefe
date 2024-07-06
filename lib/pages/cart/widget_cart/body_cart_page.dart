@@ -14,29 +14,31 @@ class BodyCartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
-        final int dishCount = state.dishesToCArt.length;
-        return dishCount == 0
-            ? Center(child: Text('Ваша корзина пуста'))
-            : dishCount < 4
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          ListDishToCart(dishesToCArt: state.dishesToCArt),
-                          Promocod(),
-                        ],
-                      ),
-                      TotalPrice(totalPrice: state.totalPrice)
-                    ],
-                  )
-                : ListView(
-                    children: [
-                      ListDishToCart(dishesToCArt: state.dishesToCArt),
-                      Promocod(),
-                      TotalPrice(totalPrice: state.totalPrice)
-                    ],
-                  );
+        // final int dishCount = state.countDishToCart.length;
+        return Text('${state.countDishToCart.length}');
+
+          // dishCount == 0
+          //   ? Center(child: Text('Ваша корзина пуста'))
+          //   : dishCount < 4
+          //       ? Column(
+          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //           children: [
+          //             Column(
+          //               children: [
+          //                 ListDishToCart(dishesToCArt: state.dishesToCart),
+          //                 Promocod(),
+          //               ],
+          //             ),
+          //             TotalPrice(totalPrice: 2)
+          //           ],
+          //         )
+          //       : ListView(
+          //           children: [
+          //             ListDishToCart(dishesToCArt: state.dishesToCart),
+          //             Promocod(),
+          //             TotalPrice(totalPrice: 2)
+          //           ],
+          //         );
         // ListDishToCartCustom(
         //         dishesToCArt: state.dishesToCArt,
         //         totalPrice: state.totalPrice,
