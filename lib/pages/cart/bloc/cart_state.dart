@@ -20,22 +20,25 @@ class CartState extends Equatable {
     required this.dishesToCart,
     required this.promo,
   });
-  //
-  // CartState copyWith({
-  //   String? promo,
-  //   List<NewDish>? dishesToCart,
-  //   List countDishToCart? countDishToCart,
-  // }) {
-  //   return CartState(
-  //     promo: promo ?? this.promo,
-  //     countDishToCart: countDishToCart ?? this.countDishToCart,
-  //     dishesToCart: dishesToCart ?? this.dishesToCart,
-  //   );
-  // }
+
+  CartState copyWith({
+    String? promo,
+    List<NewDish>? dishesToCart,
+    List<CountDishToCart>? countDishToCart,
+  }) {
+    return CartState(
+      promo: promo ?? this.promo,
+      countDishToCart: countDishToCart ?? this.countDishToCart,
+      dishesToCart: dishesToCart ?? this.dishesToCart,
+    );
+  }
 
   @override
-  // TODO: implement props
-  List<Object?> get props => [promo, dishesToCart, countDishToCart];
+  List<Object?> get props => [
+        promo,
+        dishesToCart,
+        countDishToCart,
+      ];
 }
 
 final class CartInitialState extends CartState {

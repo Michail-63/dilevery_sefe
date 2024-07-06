@@ -9,7 +9,6 @@ class DishToCartRepository {
   final Box countBox = Hive.box('count_box');
   final List<CountDishToCart> listDisd = [];
 
-
   Future<void> AddCountToDish(String dishId) async {
     var currentCount = countBox.get(dishId) ?? 0;
     final dishToCart = await countBox.put(dishId, currentCount + 1);
@@ -39,9 +38,10 @@ class DishToCartRepository {
 
          countBox.toMap().entries.forEach((e){
         if(e.value >= 0) listDisd.add(CountDishToCart(dishId: e.key, count: e.value));
+        print('countBox.key = ${e.key} :countBox.value = ${e.value} ');
+
       });
       final listDishToCart = listDisd;
-      print('listDish.lenght = ${listDisd.length}');
       print('listDishToCart.lenght = ${listDishToCart.length}');
       return listDishToCart;
     }  catch (e) {

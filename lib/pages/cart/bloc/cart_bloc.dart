@@ -19,10 +19,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     this.dishToCartRepository,
   ) : super(CartInitialState()) {
     on<CartFetchEvent>((event, emit) async {
-       await dishToCartRepository.getCountDish();
-       await dishRepository.getBogyDishesToCart();
-
-
+      final listCountDish = await dishToCartRepository.getCountDish();
+      emit(state.copyWith(
+        countDishToCart: listCountDish,
+      ));
+      // await dishRepository.getBogyDishesToCart();
     });
 
     on<IncrementCartEvent>((event, emit) async {
@@ -35,8 +36,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       await dishToCartRepository.DeleteCountToDish(event.dishId);
       await dishToCartRepository.getCountDish();
       await dishRepository.getBogyDishesToCart();
-
-
     });
   }
 }
