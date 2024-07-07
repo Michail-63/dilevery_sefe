@@ -1,13 +1,15 @@
 import 'package:delivery/data/models/count_dish_to_cart.dart';
+import 'package:delivery/data/models/dish_to_cart.dart';
+import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:flutter/animation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-
-
-
 class DishToCartRepository {
   final Box countBox = Hive.box('count_box');
-  final List<CountDishToCart> listDisd = [];
+  final List<DishToCart> modelDishToCart = [];
+  final DishRepository dishRepository;
+
+  DishToCartRepository({required this.dishRepository});
 
   Future<void> AddCountToDish(String dishId) async {
     var currentCount = countBox.get(dishId) ?? 0;
@@ -33,18 +35,26 @@ class DishToCartRepository {
     return updatedCount;
   }
 
-  Future<List<CountDishToCart>?> getCountDish() async {
+  Future<List<DishToCart>?> getDishToCArt() async {
     try {
+      countBox.toMap().entries.forEach((e) async {
+        if (e.value >= 0) {
+          final dish = await dishRepository.getBogyDishesToCart(e.key);
+          // countDish.add(CountDishToCart(dishId: e.key, count: e.value));
+          modelDishToCart.add(DishToCart(
+              dishId: e.key,
+              count: e.value,
+              title: dish.title,
+              price: dish.price,
+              image: dish.image));
 
-         countBox.toMap().entries.forEach((e){
-        if(e.value >= 0) listDisd.add(CountDishToCart(dishId: e.key, count: e.value));
-        print('countBox.key = ${e.key} :countBox.value = ${e.value} ');
-
+        print('key: ${e.key}  value: ${e.value}  title: ${dish.title}  price: ${dish.price} ');
+        }
       });
-      final listDishToCart = listDisd;
+      final listDishToCart = modelDishToCart;
       print('listDishToCart.lenght = ${listDishToCart.length}');
       return listDishToCart;
-    }  catch (e) {
+    } catch (e) {
       return null;
     }
   }

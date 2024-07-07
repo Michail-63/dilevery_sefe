@@ -11,12 +11,12 @@ class MainPage extends StatelessWidget {
     super.key,
   });
 
-
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MainBloc(DishRepository(),DishToCartRepository())..add(MainFetchEvent()),
+      create: (context) => MainBloc(DishRepository(),
+          DishToCartRepository(dishRepository: DishRepository()))
+        ..add(MainFetchEvent()),
       child: Scaffold(
           drawer: const DrawerPage(),
           appBar: AppBar(title: const Text('Главная'), actions: [

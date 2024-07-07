@@ -1,5 +1,6 @@
 
 import 'package:delivery/config/theme.dart';
+import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/pages/cart/bloc/cart_bloc.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class CountDishToCart extends StatelessWidget {
     required this.dish,
   });
 
-  final NewDish dish;
+  final DishToCart dish;
 
   @override
   Widget build(BuildContext context) {

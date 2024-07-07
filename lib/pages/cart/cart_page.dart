@@ -19,7 +19,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return BlocProvider(
-        create: (context) => CartBloc(DishRepository(),DishToCartRepository())..add(CartFetchEvent( )),
+        create: (context) => CartBloc(DishRepository(),DishToCartRepository(dishRepository: DishRepository()))..add(CartFetchEvent( )),
         child: Scaffold(
           drawer: DrawerPage(),
           appBar: AppBar(title: const Text('Корзина'), actions: [

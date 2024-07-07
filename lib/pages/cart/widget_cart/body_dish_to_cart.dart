@@ -1,12 +1,13 @@
 import 'dart:ui';
 import 'package:delivery/config/theme.dart';
+import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/pages/cart/widget_cart/count_dish_to_cart.dart';
 import 'package:delivery/pages/dish/dish_page.dart';
 import 'package:flutter/material.dart';
 
 class BodyDishToCart extends StatelessWidget {
-  final NewDish dish;
+  final DishToCart dish;
 
   const BodyDishToCart({super.key, required this.dish});
 

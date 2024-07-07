@@ -1,43 +1,37 @@
 part of 'cart_bloc.dart';
 
 class CartState extends Equatable {
-  final List<CountDishToCart> countDishToCart;
-  final List<NewDish> dishesToCart;
+  final List<DishToCart> listDishToCart;
   final String promo;
-
-  // int get totalPrice {
-  //   int total = 0;
-  //   for (int i = 0; i < dishesToCArt.length; i++) {
-  //     // print('Item = ${dishesToCArt[i].price}');
-  //     final sum = dishesToCArt[i].count * dishesToCArt[i].price;
-  //     total = total + sum;
-  //   }
-  //   return total;
-  // }
+  int get totalPrice {
+    int total = 0;
+    for (int i = 0; i < listDishToCart.length; i++) {
+      // print('Item = ${dishesToCArt[i].price}');
+      final sum = listDishToCart[i].count * listDishToCart[i].price;
+      total = total + sum;
+    }
+    return total;
+  }
 
   CartState({
-    required this.countDishToCart,
-    required this.dishesToCart,
+    required this.listDishToCart,
     required this.promo,
   });
 
   CartState copyWith({
     String? promo,
-    List<NewDish>? dishesToCart,
-    List<CountDishToCart>? countDishToCart,
+    List<DishToCart>? listDishToCart,
   }) {
     return CartState(
       promo: promo ?? this.promo,
-      countDishToCart: countDishToCart ?? this.countDishToCart,
-      dishesToCart: dishesToCart ?? this.dishesToCart,
+      listDishToCart: listDishToCart ?? this.listDishToCart,
     );
   }
 
   @override
   List<Object?> get props => [
         promo,
-        dishesToCart,
-        countDishToCart,
+        listDishToCart,
       ];
 }
 
@@ -45,7 +39,6 @@ final class CartInitialState extends CartState {
   CartInitialState()
       : super(
           promo: "",
-          dishesToCart: [],
-          countDishToCart: [],
+          listDishToCart: [],
         );
 }

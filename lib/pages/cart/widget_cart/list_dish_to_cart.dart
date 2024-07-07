@@ -1,3 +1,4 @@
+import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/pages/cart/widget_cart/body_dish_to_cart.dart';
 import 'package:delivery/pages/cart/widget_cart/promocod.dart';
@@ -9,7 +10,7 @@ class ListDishToCart extends StatelessWidget {
     required this.dishesToCArt,
   });
 
-  final List<NewDish> dishesToCArt;
+  final List<DishToCart> dishesToCArt;
 
   @override
   Widget build(BuildContext context) {

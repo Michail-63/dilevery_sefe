@@ -30,7 +30,7 @@ class CategoryPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => CategoryBloc(
         DishRepository(),
-        DishToCartRepository(),
+        DishToCartRepository(dishRepository: DishRepository()),
       ),
       child: CategoryView(
           name: name,
