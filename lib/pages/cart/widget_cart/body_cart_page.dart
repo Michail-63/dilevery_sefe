@@ -20,7 +20,7 @@ class BodyCartPage extends StatelessWidget {
         return StreamBuilder<CountDishToCart>(
           stream: null,
           builder: (BuildContext context,
-              AsyncSnapshot<CountDishToCart> snapshot) {
+               snapshot) {
             return ViewCartPage(
               dishCount: dishCount,
               totalPrice: state.totalPrice,
