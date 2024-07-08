@@ -9,7 +9,7 @@ part of 'count_dish_to_cart.dart';
 class CountDishToCartAdapter extends TypeAdapter<CountDishToCart> {
   @override
   final int typeId = 3;
-
+  // final streamController = StreamController<CountDishToCart>();
   @override
   CountDishToCart read(BinaryReader reader) {
     final numOfFields = reader.readByte();

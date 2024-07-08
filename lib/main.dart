@@ -20,6 +20,7 @@ void main() async {
   if (Hive.box<NewDish>('new_dish_box').isEmpty) {
   await Hive.box<NewDish>('new_dish_box').addAll(listDish);
 
+
   }
 
   runApp(const MyApp());

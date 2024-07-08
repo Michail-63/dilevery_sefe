@@ -1,3 +1,5 @@
+import 'package:delivery/data/models/count_dish_to_cart.dart';
+import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/pages/cart/bloc/cart_bloc.dart';
 import 'package:delivery/pages/cart/widget_cart/list_dish_to_cart.dart';
 import 'package:delivery/pages/cart/widget_cart/promocod.dart';
@@ -15,37 +17,59 @@ class BodyCartPage extends StatelessWidget {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         final int dishCount = state.listDishToCart.length;
-        return
-            // Text('${state.listDishToCart.length}');
+        return StreamBuilder<CountDishToCart>(
+          stream: null,
+          builder: (BuildContext context,
+              AsyncSnapshot<CountDishToCart> snapshot) {
+            return ViewCartPage(
+              dishCount: dishCount,
+              totalPrice: state.totalPrice,
+              dishesToCArt: state.listDishToCart,
+            );
 
-            dishCount == 0
-                ? Center(child: Text('Ваша корзина пуста'))
-                : dishCount < 4
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [
-                              ListDishToCart(
-                                  dishesToCArt: state.listDishToCart),
-                              Promocod(),
-                            ],
-                          ),
-                          TotalPrice(totalPrice: state.totalPrice)
-                        ],
-                      )
-                    : ListView(
-                        children: [
-                          ListDishToCart(dishesToCArt: state.listDishToCart),
-                          Promocod(),
-                          TotalPrice(totalPrice: state.totalPrice)
-                        ],
-                      );
-        // ListDishToCartCustom(
-        //         dishesToCArt: state.dishesToCArt,
-        //         totalPrice: state.totalPrice,
-        //       );
+          },
+
+        );
       },
+    );
+  }
+}
+
+class ViewCartPage extends StatelessWidget {
+  final int dishCount;
+  final int totalPrice;
+  final List<DishToCart> dishesToCArt;
+
+  const ViewCartPage({
+    super.key,
+    required this.dishCount,
+    required this.totalPrice,
+    required this.dishesToCArt,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return dishCount == 0
+        ? Center(child: Text('Ваша корзина пуста'))
+        : dishCount < 4
+        ? Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          children: [
+            ListDishToCart(dishesToCArt: dishesToCArt),
+            Promocod(),
+          ],
+        ),
+        TotalPrice(totalPrice: totalPrice)
+      ],
+    )
+        : ListView(
+      children: [
+        ListDishToCart(dishesToCArt: dishesToCArt),
+        Promocod(),
+        TotalPrice(totalPrice: totalPrice)
+      ],
     );
   }
 }

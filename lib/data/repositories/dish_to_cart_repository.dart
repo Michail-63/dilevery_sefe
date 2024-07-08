@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:delivery/data/models/count_dish_to_cart.dart';
 import 'package:delivery/data/models/dish_to_cart.dart';
+import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:flutter/animation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -36,6 +39,7 @@ class DishToCartRepository {
   }
 
   Future<List<DishToCart>?> getDishToCArt() async {
+    // final streamController = StreamController<DishToCart>();
     try {
       countBox.toMap().entries.forEach((e) async {
         if (e.value >= 0) {
@@ -47,12 +51,16 @@ class DishToCartRepository {
               title: dish.title,
               price: dish.price,
               image: dish.image));
-
-        print('key: ${e.key}  value: ${e.value}  title: ${dish.title}  price: ${dish.price} ');
+          print(
+              'key: ${e.key}  value: ${e.value}  title: ${dish.title}  price: ${dish.price} ');
         }
       });
       final listDishToCart = modelDishToCart;
+      // streamController.add(listDishToCart as DishToCart);
       print('listDishToCart.lenght = ${listDishToCart.length}');
+      // streamController.stream.listen((event) {
+      //   print(event);
+      // });
       return listDishToCart;
     } catch (e) {
       return null;
