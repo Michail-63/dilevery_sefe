@@ -38,7 +38,7 @@ class DishToCartRepository {
     return updatedCount;
   }
 
-  Future<Stream<List<DishToCart>?>> getDishToCArt() async {
+  Future<List<DishToCart>?> getDishToCArt() async {
     // final streamController = StreamController<DishToCart>();
     try {
       countBox.toMap().entries.forEach((e) async {
