@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:delivery/config/theme.dart';
 import 'package:delivery/data/models/count_dish_to_cart.dart';
+import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/data/models/lists/list_new_dishes.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';
@@ -8,6 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
+
+  // StreamController<List<DishToCart>> myStreamController =
+  //     StreamController<List<DishToCart>>();
+  // Stream mySteram = myStreamController.stream;
+
   await Hive.initFlutter();
   Hive.registerAdapter(NewDishAdapter());
   Hive.registerAdapter(ReviewAdapter());
@@ -18,9 +26,7 @@ void main() async {
   await Hive.openBox('count_box');
   // await Hive.box<NewDish>('new_dish_box').clear();
   if (Hive.box<NewDish>('new_dish_box').isEmpty) {
-  await Hive.box<NewDish>('new_dish_box').addAll(listDish);
-
-
+    await Hive.box<NewDish>('new_dish_box').addAll(listDish);
   }
 
   runApp(const MyApp());

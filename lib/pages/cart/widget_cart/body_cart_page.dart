@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:delivery/data/models/count_dish_to_cart.dart';
 import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/pages/cart/bloc/cart_bloc.dart';
@@ -8,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BodyCartPage extends StatelessWidget {
-  const BodyCartPage({
+  BodyCartPage({
     super.key,
   });
 
@@ -18,17 +20,17 @@ class BodyCartPage extends StatelessWidget {
       builder: (context, state) {
         final int dishCount = state.listDishToCart.length;
         return StreamBuilder<CountDishToCart>(
-          stream: null,
-          builder: (BuildContext context,
-               snapshot) {
+          stream:null,
+
+          // getDishToCArtSteam(),
+
+          builder: (context, snapshot) {
             return ViewCartPage(
               dishCount: dishCount,
               totalPrice: state.totalPrice,
               dishesToCArt: state.listDishToCart,
             );
-
           },
-
         );
       },
     );
@@ -52,24 +54,24 @@ class ViewCartPage extends StatelessWidget {
     return dishCount == 0
         ? Center(child: Text('Ваша корзина пуста'))
         : dishCount < 4
-        ? Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          children: [
-            ListDishToCart(dishesToCArt: dishesToCArt),
-            Promocod(),
-          ],
-        ),
-        TotalPrice(totalPrice: totalPrice)
-      ],
-    )
-        : ListView(
-      children: [
-        ListDishToCart(dishesToCArt: dishesToCArt),
-        Promocod(),
-        TotalPrice(totalPrice: totalPrice)
-      ],
-    );
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      ListDishToCart(dishesToCArt: dishesToCArt),
+                      Promocod(),
+                    ],
+                  ),
+                  TotalPrice(totalPrice: totalPrice)
+                ],
+              )
+            : ListView(
+                children: [
+                  ListDishToCart(dishesToCArt: dishesToCArt),
+                  Promocod(),
+                  TotalPrice(totalPrice: totalPrice)
+                ],
+              );
   }
 }

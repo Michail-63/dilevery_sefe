@@ -20,6 +20,7 @@ class DishBloc extends Bloc<DishEvent, DishState> {
     this.reviewRepository,
     this.dishToCartRepository,
   ) : super(DishInitialState()) {
+
     on<DishFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
       final reviews = await reviewRepository.getReviews(event.dishId);

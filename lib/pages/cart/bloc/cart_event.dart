@@ -5,7 +5,6 @@ sealed class CartEvent extends Equatable {}
 
 class CartFetchEvent extends CartEvent {
   @override
-  // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
 }
 
@@ -25,4 +24,13 @@ class DecrementCartEvent extends CartEvent {
 
   @override
   List<Object?> get props => [dishId];
+}
+
+class UpdateDishToCartEvent extends CartEvent {
+final List<DishToCart> listDishTocart;
+
+
+  UpdateDishToCartEvent({required this.listDishTocart});
+  @override
+  List<Object?> get props => [listDishTocart];
 }

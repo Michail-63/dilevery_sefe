@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
+import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/pages/dish/dish_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
@@ -32,7 +35,7 @@ class CartDishRow extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => DishPage(dishId: item.dishId)));
-                         },
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

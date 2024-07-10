@@ -3,6 +3,7 @@ part of 'cart_bloc.dart';
 class CartState extends Equatable {
   final List<DishToCart> listDishToCart;
   final String promo;
+
   int get totalPrice {
     int total = 0;
     for (int i = 0; i < listDishToCart.length; i++) {

@@ -1,10 +1,6 @@
 import 'dart:async';
-
-import 'package:delivery/data/models/count_dish_to_cart.dart';
 import 'package:delivery/data/models/dish_to_cart.dart';
-import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/repositories/dish_repository.dart';
-import 'package:flutter/animation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DishToCartRepository {
@@ -13,6 +9,50 @@ class DishToCartRepository {
   final DishRepository dishRepository;
 
   DishToCartRepository({required this.dishRepository});
+
+  Stream<List<DishToCart>> countStream() {
+    return countBox.watch().map((e) => modelDishToCart);
+  }
+
+  Future<List<DishToCart>?> getDishToCArt() async {
+    countBox.toMap().entries.forEach((e) async {
+      if (e.value >= 0) {
+        final dish = await dishRepository.getBogyDishesToCart(e.key);
+        // countDish.add(CountDishToCart(dishId: e.key, count: e.value));
+        modelDishToCart.add(DishToCart(
+            dishId: e.key,
+            count: e.value,
+            title: dish.title,
+            price: dish.price,
+            image: dish.image));
+        print(
+            'key: ${e.key}  value: ${e.value}  title: ${dish.title}  price: ${dish.price} ');
+      }
+    });
+    final listDishToCart = modelDishToCart;
+    print('listDishToCart.lenght = ${listDishToCart.length}');
+    return listDishToCart;
+  }
+
+  // Stream<List<DishToCart>> getDishToCArtSteam() async* {
+  //   countBox.toMap().entries.forEach((e) async {
+  //     if (e.value >= 0) {
+  //       final dish = await dishRepository.getBogyDishesToCart(e.key);
+  //       // countDish.add(CountDishToCart(dishId: e.key, count: e.value));
+  //       modelDishToCart.add(DishToCart(
+  //           dishId: e.key,
+  //           count: e.value,
+  //           title: dish.title,
+  //           price: dish.price,
+  //           image: dish.image));
+  //       print(
+  //           'key: ${e.key}  value: ${e.value}  title: ${dish.title}  price: ${dish.price} ');
+  //     }
+  //   });
+  //   final listDishToCart = modelDishToCart;
+  //   print('listDishToCart.lenght = ${listDishToCart.length}');
+  //   yield listDishToCart;
+  // }
 
   Future<void> AddCountToDish(String dishId) async {
     var currentCount = countBox.get(dishId) ?? 0;
@@ -38,33 +78,7 @@ class DishToCartRepository {
     return updatedCount;
   }
 
-  Future<List<DishToCart>?> getDishToCArt() async {
-    try {
-      countBox.toMap().entries.forEach((e) async {
-        if (e.value >= 0) {
-          final dish = await dishRepository.getBogyDishesToCart(e.key);
-          // countDish.add(CountDishToCart(dishId: e.key, count: e.value));
-          modelDishToCart.add(DishToCart(
-              dishId: e.key,
-              count: e.value,
-              title: dish.title,
-              price: dish.price,
-              image: dish.image));
-          print(
-              'key: ${e.key}  value: ${e.value}  title: ${dish.title}  price: ${dish.price} ');
-        }
-      });
-      final listDishToCart = modelDishToCart;
-      // streamController.add(listDishToCart as DishToCart);
-      print('listDishToCart.lenght = ${listDishToCart.length}');
-      // streamController.stream.listen((event) {
-      //   print(event);
-      // });
-      return listDishToCart;
-    } catch (e) {
-      return null;
-    }
-  }
+
 
 // values.cast<DishToCart>().toList();
 
