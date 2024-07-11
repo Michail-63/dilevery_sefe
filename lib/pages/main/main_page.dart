@@ -1,3 +1,4 @@
+import 'package:delivery/data/repositories/api_repository.dart';
 import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
@@ -25,7 +26,7 @@ class MainPage extends StatelessWidget {
                 Icons.search,
               ),
               onPressed: () {
-                print("jjfasf");
+                ApiRepository().getDishList();
               },
             ),
           ]),
