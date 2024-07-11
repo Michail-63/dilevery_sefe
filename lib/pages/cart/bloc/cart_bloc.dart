@@ -16,30 +16,27 @@ part 'cart_state.dart';
 class CartBloc extends Bloc<CartEvent, CartState> {
   final DishRepository dishRepository;
   final DishToCartRepository dishToCartRepository;
-  StreamSubscription<List<DishToCart>>? _subscription;
+  StreamSubscription<List<DishToCart>?>? _subscription  = null ;
 
   CartBloc(
     this.dishRepository,
     this.dishToCartRepository,
   ) : super(CartInitialState()) {
+    
     on<UpdateDishToCartEvent>((event, emit) {
       emit(state.copyWith(listDishToCart: event.listDishTocart));
     });
 
     on<IncrementCartEvent>((event, emit) async {
       await dishToCartRepository.AddCountToDish(event.dishId);
-      final listCountDish = await dishToCartRepository.getDishToCArt();
-      emit(state.copyWith(
-        listDishToCart: listCountDish,
-      ));
+      // final listCountDish = await dishToCartRepository.getDishToCArt();
+      // emit(state.copyWith(
+      //   listDishToCart: listCountDish,
+      // ));
     });
 
     on<DecrementCartEvent>((event, emit) async {
-      await dishToCartRepository.DeleteCountToDish(event.dishId);
-      final listCountDish = await dishToCartRepository.getDishToCArt();
-      emit(state.copyWith(
-        listDishToCart: listCountDish,
-      ));
+      await dishToCartRepository.DecrementCountToDish(event.dishId);
     });
 
     on<CartFetchEvent>((event, emit) async {
@@ -49,8 +46,9 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       ));
     });
 
-    _subscription = dishToCartRepository.countStream().listen((event) {
-      add(UpdateDishToCartEvent(listDishTocart: []));
+    _subscription = dishToCartRepository.countStream().listen((list) {
+      print('subscription : $list');
+      add(UpdateDishToCartEvent(listDishTocart: list ?? []));
     });
   }
 
