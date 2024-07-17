@@ -17,43 +17,6 @@ class DishRepository {
     // }
   }
 
-  //
-  // Future<NewDish> updatedCountDish(String id, int count) async {
-  //   final dishIndex = newDishBox.values
-  //       .toList()
-  //       .indexWhere((element) => element.dishId == id);
-  //   final dish =
-  //   newDishBox.values.firstWhere((element) => element.dishId == id);
-  //   final newDish = dish.copyWith(count: count);
-  //   await newDishBox.putAt(dishIndex, newDish);
-  //   return newDish;
-
-
-  //
-  //
-  // Future<NewDish> AddDishToCart(String id) async {
-  //   final dishIndex = newDishBox.values
-  //       .toList()
-  //       .indexWhere((element) => element.dishId == id);
-  //   final dish =
-  //       newDishBox.values.firstWhere((element) => element.dishId == id);
-  //
-  //   final newDish = dish.copyWith(count: dish.count + 1);
-  //   await newDishBox.putAt(dishIndex, newDish);
-  //   return newDish;
-  // }
-  //
-  //
-  // Future<NewDish> DeleteDishToCart(String id) async {
-  //   final dishIndex = newDishBox.values
-  //       .toList()
-  //       .indexWhere((element) => element.dishId == id);
-  //   final dish =
-  //   newDishBox.values.firstWhere((element) => element.dishId == id);
-  //   final newDish = dish.copyWith(count: dish.count - 1);
-  //   await newDishBox.putAt(dishIndex, newDish);
-  //   return newDish;
-  // }
 
   Future<NewDish> getBogyDishesToCart(String dishId) async {
     final dish =
@@ -153,3 +116,41 @@ class DishRepository {
 // }
 //
 
+
+//
+// Future<NewDish> updatedCountDish(String id, int count) async {
+//   final dishIndex = newDishBox.values
+//       .toList()
+//       .indexWhere((element) => element.dishId == id);
+//   final dish =
+//   newDishBox.values.firstWhere((element) => element.dishId == id);
+//   final newDish = dish.copyWith(count: count);
+//   await newDishBox.putAt(dishIndex, newDish);
+//   return newDish;
+
+
+//
+//
+// Future<NewDish> AddDishToCart(String id) async {
+//   final dishIndex = newDishBox.values
+//       .toList()
+//       .indexWhere((element) => element.dishId == id);
+//   final dish =
+//       newDishBox.values.firstWhere((element) => element.dishId == id);
+//
+//   final newDish = dish.copyWith(count: dish.count + 1);
+//   await newDishBox.putAt(dishIndex, newDish);
+//   return newDish;
+// }
+//
+//
+// Future<NewDish> DeleteDishToCart(String id) async {
+//   final dishIndex = newDishBox.values
+//       .toList()
+//       .indexWhere((element) => element.dishId == id);
+//   final dish =
+//   newDishBox.values.firstWhere((element) => element.dishId == id);
+//   final newDish = dish.copyWith(count: dish.count - 1);
+//   await newDishBox.putAt(dishIndex, newDish);
+//   return newDish;
+// }

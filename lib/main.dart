@@ -6,16 +6,17 @@ import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/data/models/lists/list_new_dishes.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';
+import 'package:delivery/data/repositories/abstract_dish_repository.dart';
+import 'package:delivery/data/repositories/api_repository.dart';
 import 'package:delivery/pages/main/main_page.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
 
-  // StreamController<List<DishToCart>> myStreamController =
-  //     StreamController<List<DishToCart>>();
-  // Stream mySteram = myStreamController.stream;
-
+GetIt.I.registerLazySingleton<AbstractDishRepository>(() => ApiRepository(dio: Dio()));
   await Hive.initFlutter();
   Hive.registerAdapter(NewDishAdapter());
   Hive.registerAdapter(ReviewAdapter());
