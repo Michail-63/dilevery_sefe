@@ -1,8 +1,8 @@
-import 'package:delivery/data/models/new_dish.dart';
+import 'package:delivery/data/models/dish_model.dart';
 import 'package:delivery/data/models/review.dart';
+import 'package:delivery/data/repositories/api_repository.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/data/repositories/review_repository.dart';
-import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,23 +12,27 @@ part 'dish_state.dart';
 
 class DishBloc extends Bloc<DishEvent, DishState> {
   final ReviewRepository reviewRepository;
-  final DishRepository dishRepository;
+  // final DishRepository dishRepository;
   final DishToCartRepository dishToCartRepository;
+  final ApiRepository apiRepository;
 
   DishBloc(
-    this.dishRepository,
+    // this.dishRepository,
     this.reviewRepository,
     this.dishToCartRepository,
+      this.apiRepository,
   ) : super(DishInitialState()) {
 
     on<DishFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
       final reviews = await reviewRepository.getReviews(event.dishId);
-      final dish = await dishRepository.getDish(event.dishId);
+      // final dish = await dishRepository.getDish(event.dishId);
+      final dish = await apiRepository.getDish(event.dishId);
+
       emit(state.copyWith(
         isloading: false,
-        dish: dish,
         reviews: reviews,
+        dish: dish,
       ));
     });
 
@@ -53,7 +57,7 @@ class DishBloc extends Bloc<DishEvent, DishState> {
     on<AddDishToCartEvent>((event, emit) async {
       // final updatedDish =
       await dishToCartRepository.updatedCountDish(
-        state.dish!.dishId,
+        state.dish!.id,
         state.count,
       );
       // emit(state.copyWith(dish: updatedDish));

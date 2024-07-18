@@ -2,94 +2,96 @@ import 'package:delivery/data/models/new_dish.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DishRepository {
-  final Box<NewDish> newDishBox = Hive.box<NewDish>('new_dish_box');
+  final Box<DishMod> newDishBox = Hive.box<DishMod>('new_dish_box');
+  //
+  // Future<DishMod> getBogyDishesToCart(String dishId) async {
+  //   final dish =
+  //       newDishBox.values.firstWhere((element) => element.dishId == dishId);
+  //   return dish;
+  // }
 
 
-  Future<NewDish?> getDish(String id) async {
-    // await Future.delayed(Duration(seconds: 2));
-    // try {
-    final dish =
-    newDishBox.values.firstWhere((element) => element.dishId == id);
-    // print('Dish = ${dish.id},${dish.title},  ID = ${id} , count = ${dish.count}');
-    return dish;
-    // } catch (e) {
-    //   return null;
-    // }
-  }
 
+  Future<List<DishMod>?> getRecommendedDish() async {
+    try {
+      // await Future.delayed(Duration(seconds: 4));
+      final listDish = newDishBox.values
+          .where((element) => element.isRecommended == true)
+          .toList();
 
-  Future<NewDish> getBogyDishesToCart(String dishId) async {
-    final dish =
-    newDishBox.values.firstWhere((element) => element.dishId == dishId);
-    return dish;
-  }
-    //
-    //   try {
-    //     final listDish =
-    //         newDishBox.values.where((element) => element.count >= 1).toList();
-    //     return listDish;
-    //   } catch (e) {
-    //     print('Error = ${e}');
-    //     return null;
-    //   }
-    // }
-
-    Future<List<NewDish>?> getRecommendedDish() async {
-      try {
-        // await Future.delayed(Duration(seconds: 4));
-        final listDish = newDishBox.values
-            .where((element) => element.isRecommended == true)
-            .toList();
-
-        return listDish;
-      } catch (e) {
-        print('Error = ${e}');
-        return null;
-      }
-    }
-
-    Future<List<NewDish>?> getPopularDish() async {
-      try {
-        // await Future.delayed(Duration(seconds: 2));
-        final listDish = newDishBox.values
-            .where((element) => element.isPopular == true)
-            .toList();
-
-        return listDish;
-      } catch (e) {
-        print('Error = ${e}');
-        return null;
-      }
-    }
-
-    Future<List<NewDish>?> getFavoritesDish() async {
-      try {
-        // await Future.delayed(Duration(seconds: 2));
-        final listDish = newDishBox.values
-            .where((element) => element.isFavorites == true)
-            .toList();
-
-        return listDish;
-      } catch (e) {
-        print('Error = ${e}');
-        return null;
-      }
-    }
-
-    Future<List<NewDish>?> getTheBestDish() async {
-      try {
-        // await Future.delayed(Duration(seconds: 2));
-        final listDish = newDishBox.values
-            .where((element) => element.isTheBest == true)
-            .toList();
-
-        return listDish;
-      } catch (e) {
-        print('Error = ${e}');
-        return null;
-      }
+      return listDish;
+    } catch (e) {
+      print('Error = ${e}');
+      return null;
     }
   }
+
+  Future<List<DishMod>?> getPopularDish() async {
+    try {
+      // await Future.delayed(Duration(seconds: 2));
+      final listDish = newDishBox.values
+          .where((element) => element.isPopular == true)
+          .toList();
+
+      return listDish;
+    } catch (e) {
+      print('Error = ${e}');
+      return null;
+    }
+  }
+
+  Future<List<DishMod>?> getFavoritesDish() async {
+    try {
+      // await Future.delayed(Duration(seconds: 2));
+      final listDish = newDishBox.values
+          .where((element) => element.isFavorites == true)
+          .toList();
+
+      return listDish;
+    } catch (e) {
+      print('Error = ${e}');
+      return null;
+    }
+  }
+
+  Future<List<DishMod>?> getTheBestDish() async {
+    try {
+      // await Future.delayed(Duration(seconds: 2));
+      final listDish = newDishBox.values
+          .where((element) => element.isTheBest == true)
+          .toList();
+
+      return listDish;
+    } catch (e) {
+      print('Error = ${e}');
+      return null;
+    }
+  }
+}
+
+//
+//   try {
+//     final listDish =
+//         newDishBox.values.where((element) => element.count >= 1).toList();
+//     return listDish;
+//   } catch (e) {
+//     print('Error = ${e}');
+//     return null;
+//   }
+// }
+
+
+// Future<NewDish?> getDish(String id) async {
+//   // await Future.delayed(Duration(seconds: 2));
+//   // try {
+//   final dish =
+//   newDishBox.values.firstWhere((element) => element.dishId == id);
+//   // print('Dish = ${dish.id},${dish.title},  ID = ${id} , count = ${dish.count}');
+//   return dish;
+//   // } catch (e) {
+//   //   return null;
+//   // }
+// }
 
 //
 //   Future<Category> getCategory(name) async {
@@ -116,7 +118,6 @@ class DishRepository {
 // }
 //
 
-
 //
 // Future<NewDish> updatedCountDish(String id, int count) async {
 //   final dishIndex = newDishBox.values
@@ -127,7 +128,6 @@ class DishRepository {
 //   final newDish = dish.copyWith(count: count);
 //   await newDishBox.putAt(dishIndex, newDish);
 //   return newDish;
-
 
 //
 //

@@ -7,12 +7,12 @@ part 'count_dish_to_cart.g.dart';
 @HiveType(typeId: 3)
 class CountDishToCart {
   @HiveField(0)
-  final String dishId;
+  final String id;
   @HiveField(1)
   final int count;
 
   CountDishToCart({
-    required this.dishId,
+    required this.id,
     required this.count,
   });
 
@@ -21,7 +21,7 @@ class CountDishToCart {
     int? count,
   }) {
     return CountDishToCart(
-      dishId: dishId ?? this.dishId,
+      id: dishId ?? this.id,
       count: count ?? this.count,
     );
   }

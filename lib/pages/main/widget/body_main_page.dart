@@ -45,13 +45,13 @@ class BodyMainPage extends StatelessWidget {
                   // CaregoryRowView(
                   //   category: state.favoritesDishes,
                   // ),
-                  // NameCategory(
-                  //   name: 'Популярное',
-                  //   category: state.popularDishes,
-                  // ),
-                  // CaregoryRowView(
-                  //   category: state.popularDishes,
-                  // ),
+                  NameCategory(
+                    name: 'Популярное',
+                    category: state.popularDishes,
+                  ),
+                  CaregoryRowView(
+                    category: state.popularDishes,
+                  ),
                 ],
               );
       },

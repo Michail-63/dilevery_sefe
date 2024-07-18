@@ -28,19 +28,19 @@ class BodyDishPage extends StatelessWidget {
             : Scaffold(
                 appBar: AppBar(
                   title: Text(
-                    state.dish?.title ?? "",
-                  ),
-                ),
-                body: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      DishView(
-                        title: state.dish?.title ?? "",
-                        image: state.dish?.image ?? "",
-                        text: state.dish?.text ?? "",
-                      ),
-                      Row(
+                    state.dish?.name ?? "",
+                 ),
+               ),
+               body: SingleChildScrollView(
+                 child: Column(
+                   mainAxisSize: MainAxisSize.min,
+                   children: [
+                     DishView(
+                       title: state.dish?.name ?? "",
+                       image: state.dish?.image ?? "",
+                       text: state.dish?.description ?? "",
+                     ),
+                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -62,7 +62,7 @@ class BodyDishPage extends StatelessWidget {
                         children: [
                           const ReviewStatistics(),
                           BattonAddReviews(
-                            dishId: state.dish?.dishId ?? "",
+                            dishId: state.dish?.id ?? "",
                           ),
                         ],
                       ),

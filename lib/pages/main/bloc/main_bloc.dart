@@ -11,13 +11,13 @@ part 'main_event.dart';
 part 'main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
-  final DishRepository dishRepository;
+  // final DishRepository dishRepository;
   final DishToCartRepository dishToCartRepository;
   final ApiRepository apiRepository;
 
 
   MainBloc(
-    this.dishRepository,
+    // this.dishRepository,
     this.dishToCartRepository,
     this.apiRepository,
 
@@ -26,15 +26,16 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       emit(state.copyWith(isloading: true));
 
       await apiRepository. getDishList();
-      final listRecommendedDish = await apiRepository.getRecommendedDishModal();
+      final listRecommendedDish = await apiRepository.getCategoryPizzaDishModal();
 
-      // final listFavoritesDish = await dishRepository.getFavoritesDish();
+      final listPopularDish = await apiRepository.getCategoryDishModal();
+      // final listFavoritesDish = apiRepository.getCategoryDishModal();
       // final listTheBestDish = await dishRepository.getTheBestDish();
       // final listPopularDish = await dishRepository.getPopularDish();
 
       emit(state.copyWith(
         recommendedDishes: listRecommendedDish,
-        // popularDishes: listPopularDish,
+        popularDishes: listPopularDish,
         // favoritesDishes: listFavoritesDish,
         // theBestDishes: listTheBestDish,
         isloading: false,

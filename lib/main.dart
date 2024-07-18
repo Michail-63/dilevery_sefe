@@ -17,22 +17,21 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   await Hive.initFlutter();
-  Hive.registerAdapter(NewDishAdapter());
+  // Hive.registerAdapter(NewDishAdapter());
   Hive.registerAdapter(DishModelAdapter());
-
   Hive.registerAdapter(ReviewAdapter());
   Hive.registerAdapter(CountDishToCartAdapter());
-  const dishBoxName = "dish_box";
 
-  await Hive.openBox<NewDish>('new_dish_box');
-  final dishBox = await Hive.openBox<DishModel>(dishBoxName);
+  // await Hive.openBox<DishModal>('new_dish_box');
+  await Hive.openBox<DishModel>("dish_box");
 
   await Hive.openBox<Review>('review_box');
   await Hive.openBox('count_box');
+
   // await Hive.box<NewDish>('new_dish_box').clear();
-  if (Hive.box<NewDish>('new_dish_box').isEmpty) {
-    await Hive.box<NewDish>('new_dish_box').addAll(listDish);
-  }
+  // if (Hive.box<DishModal>('new_dish_box').isEmpty) {
+  //   await Hive.box<DishModal>('new_dish_box').addAll(listDish);
+  // }
   // GetIt.I.registerLazySingleton<AbstractDishRepository>(() => ApiRepository(
   //       dio: Dio(),
   //       dishBox: dishBox,

@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/data/models/dish.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +8,8 @@ class DishView extends StatelessWidget {
   final String title;
   final String text;
 
-  const DishView({super.key,
+  const DishView({
+    super.key,
     required this.image,
     required this.title,
     required this.text,
@@ -22,7 +25,14 @@ class DishView extends StatelessWidget {
           SizedBox(
               height: 250,
               width: double.infinity,
-              child: Image.asset(fit: BoxFit.fitWidth, this.image)),
+              child: CachedNetworkImage(
+                fit: BoxFit.fitWidth,
+                imageUrl: this.image,
+                placeholder: (context, url) =>
+                    Image.asset(fit: BoxFit.fitWidth, ImagePass.sushi),
+                errorWidget: (context, url, error) =>
+                    Image.asset(fit: BoxFit.fitWidth, ImagePass.sushi),
+              )),
           Container(
             margin: EdgeInsets.only(top: 10, right: 20, bottom: 10, left: 10),
             child: Text(this.title, style: theme.headlineLarge),

@@ -1,35 +1,59 @@
 import 'dart:async';
 import 'package:delivery/data/models/dish_to_cart.dart';
+import 'package:delivery/data/repositories/api_repository.dart';
 import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DishToCartRepository {
   final Box countBox = Hive.box('count_box');
-  final DishRepository dishRepository;
+  // final DishRepository dishRepository;
+  final ApiRepository apiRepository;
 
-  DishToCartRepository({required this.dishRepository});
+  DishToCartRepository({
+    // required this.dishRepository,
+    required this.apiRepository,
+  });
 
   Stream<List<DishToCart>?> countStream() {
     return countBox.watch().asyncMap((e) => getDishToCArt());
   }
+  //
+  // Future<List<DishToCart>?> getDishToCArt() async {
+  //   List<DishToCart> list = [];
+  //   countBox.toMap().entries.forEach((e) async {
+  //     if (e.value > 0) {
+  //       final dish = await dishRepository.getBogyDishesToCart(e.key);
+  //       list.add(DishToCart(
+  //           id: e.key,
+  //           count: e.value,
+  //           name: dish.title,
+  //           price: dish.price,
+  //           image: dish.image));
+  //       print(
+  //           'key: ${e.key} value: ${e.value} title: ${dish.title} price: ${dish.price} ');
+  //     }
+  //   });
+  //   return list;
+  // }
 
   Future<List<DishToCart>?> getDishToCArt() async {
     List<DishToCart> list = [];
     countBox.toMap().entries.forEach((e) async {
       if (e.value > 0) {
-        final dish = await dishRepository.getBogyDishesToCart(e.key);
+        final dish = await apiRepository.getBogyDishesToCart(e.key);
         list.add(DishToCart(
-            dishId: e.key,
+            id: e.key,
             count: e.value,
-            title: dish.title,
+            name: dish.name,
             price: dish.price,
             image: dish.image));
-        print(
-            'key: ${e.key} value: ${e.value} title: ${dish.title} price: ${dish.price} ');
+        // print(
+        //     'key: ${e.key} value: ${e.value} title: ${dish.name} price: ${dish.price} ');
       }
     });
     return list;
   }
+
 
   Future<void> AddCountToDish(String dishId) async {
     var currentCount = countBox.get(dishId) ?? 0;

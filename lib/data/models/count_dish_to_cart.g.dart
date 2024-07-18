@@ -17,7 +17,7 @@ class CountDishToCartAdapter extends TypeAdapter<CountDishToCart> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return CountDishToCart(
-      dishId: fields[0] as String,
+      id: fields[0] as String,
       count: fields[1] as int,
     );
   }
@@ -27,7 +27,7 @@ class CountDishToCartAdapter extends TypeAdapter<CountDishToCart> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.dishId)
+      ..write(obj.id)
       ..writeByte(1)
       ..write(obj.count);
   }

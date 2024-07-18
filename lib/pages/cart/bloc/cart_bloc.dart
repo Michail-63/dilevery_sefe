@@ -14,12 +14,12 @@ part 'cart_event.dart';
 part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
-  final DishRepository dishRepository;
+  // final DishRepository dishRepository;
   final DishToCartRepository dishToCartRepository;
   StreamSubscription<List<DishToCart>?>? _subscription  = null ;
 
   CartBloc(
-    this.dishRepository,
+    // this.dishRepository,
     this.dishToCartRepository,
   ) : super(CartInitialState()) {
     

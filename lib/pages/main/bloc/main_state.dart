@@ -2,14 +2,14 @@ part of 'main_bloc.dart';
 
 class MainState extends Equatable {
   final List<DishModel> recommendedDishes;
-  // final List<NewDish> popularDishes;
+  final List<DishModel> popularDishes;
   // final List<NewDish> favoritesDishes;
   // final List<NewDish> theBestDishes;
   final bool isloading;
 
   MainState({
     required this.recommendedDishes,
-    // required this.popularDishes,
+    required this.popularDishes,
     // required this.theBestDishes,
     // required this.favoritesDishes,
     required this.isloading,
@@ -18,7 +18,7 @@ class MainState extends Equatable {
 
   MainState copyWith({
     final List<DishModel>? recommendedDishes,
-    // final List<NewDish>? popularDishes,
+    final List<DishModel>? popularDishes,
     // final List<NewDish>? favoritesDishes,
     // final List<NewDish>? theBestDishes,
     bool? isloading,
@@ -26,7 +26,7 @@ class MainState extends Equatable {
   }) {
     return MainState(
       recommendedDishes: recommendedDishes ?? this.recommendedDishes,
-      // popularDishes: popularDishes ?? this.popularDishes,
+      popularDishes: popularDishes ?? this.popularDishes,
       // favoritesDishes: favoritesDishes ?? this.favoritesDishes,
       // theBestDishes: theBestDishes ?? this.theBestDishes,
       isloading: isloading ?? this.isloading,
@@ -38,7 +38,7 @@ class MainState extends Equatable {
       [
 
         recommendedDishes,
-        // popularDishes,
+        popularDishes,
         // theBestDishes,
         // favoritesDishes,
         isloading,
@@ -49,7 +49,7 @@ final class MainInitialState extends MainState {
   MainInitialState()
       : super(
     recommendedDishes: [],
-    // popularDishes: [],
+    popularDishes: [],
     // favoritesDishes: [],
     // theBestDishes: [],
     isloading: false,

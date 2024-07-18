@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 part 'new_dish.g.dart';
 
 @HiveType(typeId: 2)
-class NewDish {
+class DishMod {
   @HiveField(0)
   final String dishId;
   @HiveField(1)
@@ -25,7 +25,7 @@ class NewDish {
   @HiveField(9)
   final String text;
 
-  const NewDish({
+  const DishMod({
     required this.dishId,
     required this.isRecommended,
     required this.isFavorites,
@@ -38,7 +38,7 @@ class NewDish {
     required this.count,
   });
 
-  NewDish copyWith({
+  DishMod copyWith({
     String? dishId,
     bool? isRecommended,
     bool? isFavorites,
@@ -50,7 +50,7 @@ class NewDish {
     String? image,
     String? text,
   }) {
-    return NewDish(
+    return DishMod(
       dishId: dishId ?? this.dishId,
       isRecommended: isRecommended ?? this.isRecommended,
       isFavorites: isFavorites ?? this.isFavorites,

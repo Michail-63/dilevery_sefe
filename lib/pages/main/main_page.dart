@@ -1,16 +1,10 @@
-import 'package:delivery/data/models/dish_model.dart';
-import 'package:delivery/data/models/lists/list_new_dishes.dart';
-import 'package:delivery/data/repositories/abstract_dish_repository.dart';
 import 'package:delivery/data/repositories/api_repository.dart';
-import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
 import 'package:delivery/pages/main/widget/body_main_page.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({
@@ -20,9 +14,8 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MainBloc(DishRepository(),
-          DishToCartRepository(dishRepository: DishRepository()),ApiRepository())
-
+      create: (context) => MainBloc(
+          DishToCartRepository(apiRepository: ApiRepository()), ApiRepository())
         ..add(MainFetchEvent()),
       child: Scaffold(
           drawer: const DrawerPage(),
@@ -33,7 +26,6 @@ class MainPage extends StatelessWidget {
               ),
               onPressed: () {
                 // GetIt.I<AbstractDishRepository>().getDishList();
-
               },
             ),
           ]),

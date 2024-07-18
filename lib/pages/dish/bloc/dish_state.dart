@@ -3,7 +3,7 @@ part of 'dish_bloc.dart';
 class DishState extends Equatable {
   final bool isloading;
   final List<Review> reviews;
-  final NewDish? dish;
+  final DishModel? dish;
   final int count;
 
   DishState({
@@ -16,7 +16,7 @@ class DishState extends Equatable {
   DishState copyWith({
     List<Review>? reviews,
     bool? isloading,
-    NewDish? dish,
+    DishModel? dish,
     int? count,
   }) {
     return DishState(

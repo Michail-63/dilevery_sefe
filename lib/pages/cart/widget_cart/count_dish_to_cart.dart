@@ -21,7 +21,7 @@ class CountDishToCart extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            context.read<CartBloc>().add(DecrementCartEvent(dish.dishId));
+            context.read<CartBloc>().add(DecrementCartEvent(dish.id));
             print("count = ${dish.count}");
           },
           child: Container(
@@ -58,7 +58,7 @@ class CountDishToCart extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
-            context.read<CartBloc>().add(IncrementCartEvent(dish.dishId));
+            context.read<CartBloc>().add(IncrementCartEvent(dish.id));
             print("count = ${dish.count}");
           },
           child: Container(

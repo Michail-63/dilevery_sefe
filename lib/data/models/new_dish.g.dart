@@ -6,17 +6,17 @@ part of 'new_dish.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class NewDishAdapter extends TypeAdapter<NewDish> {
+class NewDishAdapter extends TypeAdapter<DishMod> {
   @override
   final int typeId = 2;
 
   @override
-  NewDish read(BinaryReader reader) {
+  DishMod read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return NewDish(
+    return DishMod(
       dishId: fields[0] as String,
       isRecommended: fields[1] as bool,
       isFavorites: fields[2] as bool,
@@ -31,7 +31,7 @@ class NewDishAdapter extends TypeAdapter<NewDish> {
   }
 
   @override
-  void write(BinaryWriter writer, NewDish obj) {
+  void write(BinaryWriter writer, DishMod obj) {
     writer
       ..writeByte(10)
       ..writeByte(0)
