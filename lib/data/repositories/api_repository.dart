@@ -5,15 +5,32 @@ import 'package:delivery/data/models/lists/list_new_dishes.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/repositories/abstract_dish_repository.dart';
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 
 class ApiRepository implements AbstractDishRepository {
   final Dio dio;
+  final Box<DishModel> dishBox;
 
-  ApiRepository({required this.dio});
+  ApiRepository({
+    required this.dio,
+    required this.dishBox,
+  });
 
   @override
   Future<List<DishModel>> getDishList() async {
-    // List<DishModel> listDish=[];
+    var listDishModel = <DishModel>[];
+    try {
+      List<DishModel> listDishModel = await _fetchDishModelList();
+      final dishMap = {for (var e in listDishModel) e.name: e};
+      await dishBox.putAll(dishMap);
+    } catch (e) {
+      return dishBox.values.toList();
+    }
+
+    return listDishModel;
+  }
+
+  Future<List<DishModel>> _fetchDishModelList() async {
     var headers = {
       'If-Modified-Since': '0',
       'Content-Type': 'application/json'
@@ -24,26 +41,15 @@ class ApiRepository implements AbstractDishRepository {
           method: 'GET',
           headers: headers,
         ));
-    if (response.statusCode == 200) {
-      Iterable dishList = response.data;
-      final listDishModel = List<DishModel>.from(
-          dishList.map((DishModelJson) => DishModel.fromJson(DishModelJson)));
-      print('listDishModel: ${listDishModel.length}');
-      for (int i = 0; i < listDishModel.length; i++) {
-        print('listDishModel.name: ${listDishModel[i].description}');
-      }
-      return listDishModel;
-    } else {
-      throw Exception("An error occurred on fetching users data!");
+
+    Iterable dishList = response.data;
+    final listDishModel = List<DishModel>.from(
+        dishList.map((DishModelJson) => DishModel.fromJson(DishModelJson)));
+
+    for (int i = 0; i < listDishModel.length; i++) {
+      print(
+          'listDishModel.id: ${listDishModel[i].id}, image:${listDishModel[i].image} ');
     }
+    return listDishModel;
   }
-
-//
-// List<dynamic> list = response.data;
-// print('listDish: ${list.length}');
-// print('response: ${response.data.length}');
-
-// listDish = list.forEach((e) => DishModel());
-//
-// }
 }

@@ -20,18 +20,31 @@ DishModel _$DishModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DishModel {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   String? get description => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get image => throw _privateConstructorUsedError;
+  @HiveField(4)
   int get price => throw _privateConstructorUsedError;
+  @HiveField(5)
   String? get oldPrice => throw _privateConstructorUsedError;
+  @HiveField(6)
   int get rating => throw _privateConstructorUsedError;
+  @HiveField(7)
   int get likes => throw _privateConstructorUsedError;
+  @HiveField(8)
   String get category => throw _privateConstructorUsedError;
+  @HiveField(9)
   int get commentsCount => throw _privateConstructorUsedError;
+  @HiveField(10)
   bool get active => throw _privateConstructorUsedError;
+  @HiveField(11)
   int get createdAt => throw _privateConstructorUsedError;
+  @HiveField(12)
   int get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this DishModel to a JSON map.
@@ -50,19 +63,19 @@ abstract class $DishModelCopyWith<$Res> {
       _$DishModelCopyWithImpl<$Res, DishModel>;
   @useResult
   $Res call(
-      {String id,
-      String name,
-      String? description,
-      String image,
-      int price,
-      String? oldPrice,
-      int rating,
-      int likes,
-      String category,
-      int commentsCount,
-      bool active,
-      int createdAt,
-      int updatedAt});
+      {@HiveField(0) String id,
+      @HiveField(1) String name,
+      @HiveField(2) String? description,
+      @HiveField(3) String image,
+      @HiveField(4) int price,
+      @HiveField(5) String? oldPrice,
+      @HiveField(6) int rating,
+      @HiveField(7) int likes,
+      @HiveField(8) String category,
+      @HiveField(9) int commentsCount,
+      @HiveField(10) bool active,
+      @HiveField(11) int createdAt,
+      @HiveField(12) int updatedAt});
 }
 
 /// @nodoc
@@ -160,19 +173,19 @@ abstract class _$$DishModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String name,
-      String? description,
-      String image,
-      int price,
-      String? oldPrice,
-      int rating,
-      int likes,
-      String category,
-      int commentsCount,
-      bool active,
-      int createdAt,
-      int updatedAt});
+      {@HiveField(0) String id,
+      @HiveField(1) String name,
+      @HiveField(2) String? description,
+      @HiveField(3) String image,
+      @HiveField(4) int price,
+      @HiveField(5) String? oldPrice,
+      @HiveField(6) int rating,
+      @HiveField(7) int likes,
+      @HiveField(8) String category,
+      @HiveField(9) int commentsCount,
+      @HiveField(10) bool active,
+      @HiveField(11) int createdAt,
+      @HiveField(12) int updatedAt});
 }
 
 /// @nodoc
@@ -261,50 +274,64 @@ class __$$DishModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 5, adapterName: 'DishModelAdapter')
 class _$DishModelImpl implements _DishModel {
   const _$DishModelImpl(
-      {required this.id,
-      required this.name,
-      required this.description,
-      required this.image,
-      required this.price,
-      required this.oldPrice,
-      required this.rating,
-      required this.likes,
-      required this.category,
-      required this.commentsCount,
-      required this.active,
-      required this.createdAt,
-      required this.updatedAt});
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.name,
+      @HiveField(2) required this.description,
+      @HiveField(3) required this.image,
+      @HiveField(4) required this.price,
+      @HiveField(5) required this.oldPrice,
+      @HiveField(6) required this.rating,
+      @HiveField(7) required this.likes,
+      @HiveField(8) required this.category,
+      @HiveField(9) required this.commentsCount,
+      @HiveField(10) required this.active,
+      @HiveField(11) required this.createdAt,
+      @HiveField(12) required this.updatedAt});
 
   factory _$DishModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$DishModelImplFromJson(json);
 
   @override
+  @HiveField(0)
   final String id;
   @override
+  @HiveField(1)
   final String name;
   @override
+  @HiveField(2)
   final String? description;
   @override
+  @HiveField(3)
   final String image;
   @override
+  @HiveField(4)
   final int price;
   @override
+  @HiveField(5)
   final String? oldPrice;
   @override
+  @HiveField(6)
   final int rating;
   @override
+  @HiveField(7)
   final int likes;
   @override
+  @HiveField(8)
   final String category;
   @override
+  @HiveField(9)
   final int commentsCount;
   @override
+  @HiveField(10)
   final bool active;
   @override
+  @HiveField(11)
   final int createdAt;
   @override
+  @HiveField(12)
   final int updatedAt;
 
   @override
@@ -374,48 +401,61 @@ class _$DishModelImpl implements _DishModel {
 
 abstract class _DishModel implements DishModel {
   const factory _DishModel(
-      {required final String id,
-      required final String name,
-      required final String? description,
-      required final String image,
-      required final int price,
-      required final String? oldPrice,
-      required final int rating,
-      required final int likes,
-      required final String category,
-      required final int commentsCount,
-      required final bool active,
-      required final int createdAt,
-      required final int updatedAt}) = _$DishModelImpl;
+      {@HiveField(0) required final String id,
+      @HiveField(1) required final String name,
+      @HiveField(2) required final String? description,
+      @HiveField(3) required final String image,
+      @HiveField(4) required final int price,
+      @HiveField(5) required final String? oldPrice,
+      @HiveField(6) required final int rating,
+      @HiveField(7) required final int likes,
+      @HiveField(8) required final String category,
+      @HiveField(9) required final int commentsCount,
+      @HiveField(10) required final bool active,
+      @HiveField(11) required final int createdAt,
+      @HiveField(12) required final int updatedAt}) = _$DishModelImpl;
 
   factory _DishModel.fromJson(Map<String, dynamic> json) =
       _$DishModelImpl.fromJson;
 
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   String? get description;
   @override
+  @HiveField(3)
   String get image;
   @override
+  @HiveField(4)
   int get price;
   @override
+  @HiveField(5)
   String? get oldPrice;
   @override
+  @HiveField(6)
   int get rating;
   @override
+  @HiveField(7)
   int get likes;
   @override
+  @HiveField(8)
   String get category;
   @override
+  @HiveField(9)
   int get commentsCount;
   @override
+  @HiveField(10)
   bool get active;
   @override
+  @HiveField(11)
   int get createdAt;
   @override
+  @HiveField(12)
   int get updatedAt;
 
   /// Create a copy of DishModel

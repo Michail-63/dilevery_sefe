@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:delivery/data/models/count_dish_to_cart.dart';
 import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/data/models/new_dish.dart';
-import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';

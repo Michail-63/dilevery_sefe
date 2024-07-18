@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:delivery/data/models/dish_to_cart.dart';
-import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DishToCartRepository {

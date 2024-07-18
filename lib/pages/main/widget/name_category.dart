@@ -1,10 +1,11 @@
+import 'package:delivery/data/models/dish_model.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/pages/category/category_page.dart';
 import 'package:flutter/material.dart';
 
 class NameCategory extends StatelessWidget {
   final String name;
-  final List<NewDish> category;
+  final List<DishModel> category;
 
 
   const NameCategory({

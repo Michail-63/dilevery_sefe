@@ -1,9 +1,8 @@
 import 'dart:async';
-
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
-import 'package:delivery/data/models/dish_to_cart.dart';
-import 'package:delivery/data/models/new_dish.dart';
+import 'package:delivery/data/models/dish_model.dart';
+
 import 'package:delivery/pages/dish/dish_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CartDishRow extends StatelessWidget {
-  final NewDish item;
+  final DishModel item;
 
   const CartDishRow({
     super.key,
@@ -34,7 +33,7 @@ class CartDishRow extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => DishPage(dishId: item.dishId)));
+                      builder: (context) => DishPage(dishId: item.id)));
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +57,7 @@ class CartDishRow extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0),
-                  child: Text(item.title, style: theme.bodyMedium),
+                  child: Text(item.name, style: theme.bodyMedium),
                 ),
               ],
             ),
@@ -69,7 +68,7 @@ class CartDishRow extends StatelessWidget {
             child: InkWell(
                 borderRadius: BorderRadius.circular(20),
                 onTap: () {
-                  context.read<MainBloc>().add(AddToCartMainEvent(item.dishId));
+                  context.read<MainBloc>().add(AddToCartMainEvent(item.id));
                 },
                 child: Container(
                   padding: EdgeInsetsDirectional.all(10),

@@ -31,27 +31,27 @@ class BodyMainPage extends StatelessWidget {
                   CaregoryRowView(
                     category: state.recommendedDishes,
                   ),
-                  NameCategory(
-                    name: 'Лучшее',
-                    category: state.theBestDishes,
-                  ),
-                  CaregoryRowView(
-                    category: state.theBestDishes,
-                  ),
-                  NameCategory(
-                    name: 'Избранное',
-                    category: state.favoritesDishes,
-                  ),
-                  CaregoryRowView(
-                    category: state.favoritesDishes,
-                  ),
-                  NameCategory(
-                    name: 'Популярное',
-                    category: state.popularDishes,
-                  ),
-                  CaregoryRowView(
-                    category: state.popularDishes,
-                  ),
+                  // NameCategory(
+                  //   name: 'Лучшее',
+                  //   category: state.theBestDishes,
+                  // ),
+                  // CaregoryRowView(
+                  //   category: state.theBestDishes,
+                  // ),
+                  // NameCategory(
+                  //   name: 'Избранное',
+                  //   category: state.favoritesDishes,
+                  // ),
+                  // CaregoryRowView(
+                  //   category: state.favoritesDishes,
+                  // ),
+                  // NameCategory(
+                  //   name: 'Популярное',
+                  //   category: state.popularDishes,
+                  // ),
+                  // CaregoryRowView(
+                  //   category: state.popularDishes,
+                  // ),
                 ],
               );
       },

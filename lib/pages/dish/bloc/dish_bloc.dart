@@ -2,7 +2,7 @@ import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/models/review.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/data/repositories/review_repository.dart';
-import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
