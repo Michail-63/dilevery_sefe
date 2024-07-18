@@ -3,6 +3,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 abstract class AbstractDishRepository{
   Future<List<DishModel>> getDishList();
+  // Future<List<DishModel>> getRecommendedDishModal();
+
 
 
 }

@@ -1,6 +1,5 @@
 import 'package:delivery/data/models/dish_model.dart';
-import 'package:delivery/data/models/new_dish.dart';
-import 'package:delivery/data/repositories/abstract_dish_repository.dart';
+import 'package:delivery/data/repositories/api_repository.dart';
 import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:equatable/equatable.dart';
@@ -14,16 +13,20 @@ part 'main_state.dart';
 class MainBloc extends Bloc<MainEvent, MainState> {
   final DishRepository dishRepository;
   final DishToCartRepository dishToCartRepository;
+  final ApiRepository apiRepository;
+
 
   MainBloc(
     this.dishRepository,
     this.dishToCartRepository,
+    this.apiRepository,
+
   ) : super(MainInitialState()) {
     on<MainFetchEvent>((event, emit) async {
       emit(state.copyWith(isloading: true));
-      final listRecommendedDish = await  GetIt.I<AbstractDishRepository>().getDishList();
 
-      // final listRecommendedDish = await dishRepository.getRecommendedDish();
+      await apiRepository. getDishList();
+      final listRecommendedDish = await apiRepository.getRecommendedDishModal();
 
       // final listFavoritesDish = await dishRepository.getFavoritesDish();
       // final listTheBestDish = await dishRepository.getTheBestDish();

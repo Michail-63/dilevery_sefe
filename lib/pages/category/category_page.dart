@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
 import 'package:delivery/data/models/dish_model.dart';
@@ -25,20 +26,13 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double itemHeight = 2;
-    const double itemWidth = 1.3;
     final theme = Theme.of(context).textTheme;
     return BlocProvider(
       create: (context) => CategoryBloc(
         DishRepository(),
         DishToCartRepository(dishRepository: DishRepository()),
       ),
-      child: CategoryView(
-          name: name,
-          itemWidth: itemWidth,
-          itemHeight: itemHeight,
-          category: category,
-          theme: theme),
+      child: CategoryView(name: name, category: category, theme: theme),
     );
   }
 }
@@ -47,20 +41,19 @@ class CategoryView extends StatelessWidget {
   const CategoryView({
     super.key,
     required this.name,
-    required this.itemWidth,
-    required this.itemHeight,
     required this.category,
     required this.theme,
   });
 
   final String name;
-  final double itemWidth;
-  final double itemHeight;
+
   final List<DishModel> category;
   final TextTheme theme;
 
   @override
   Widget build(BuildContext context) {
+    const double itemHeight = 2;
+    const double itemWidth = 1.2;
     return Scaffold(
         drawer: DrawerPage(),
         appBar: AppBar(title: Text('$name')),
@@ -87,12 +80,31 @@ class CategoryView extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            width: 195,
-                            height: 195,
-                            fit: BoxFit.cover,
-                            category[index].image,
+                          CachedNetworkImage(
+                            width: 190,
+                            height: 190,
+                            fit: BoxFit.fitWidth,
+                            imageUrl: category[index].image,
+                            placeholder: (context, url) => Image.asset(
+                                width: 190,
+                                height: 190,
+                                fit: BoxFit.fitWidth,
+                                ImagePass.sushi),
+                            errorWidget: (context, url, error) => Image.asset(
+                                width: 190,
+                                height: 190,
+                                fit: BoxFit.fitWidth,
+                                ImagePass.sushi),
                           ),
+                          //
+                          // Image.asset(
+                          //   width: 195,
+                          //   height: 195,
+                          //   fit: BoxFit.cover,
+                          //   category[index].image,
+                          // ),
+                          //
+
                           Row(
                             children: [
                               Padding(
@@ -117,7 +129,7 @@ class CategoryView extends StatelessWidget {
                 ),
                 Positioned(
                   right: 10,
-                  bottom: 90,
+                  bottom: 120,
                   child: CategoryAddDishToCart(dishId: category[index].id),
                 ),
               ]),

@@ -21,7 +21,8 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => MainBloc(DishRepository(),
-          DishToCartRepository(dishRepository: DishRepository()))
+          DishToCartRepository(dishRepository: DishRepository()),ApiRepository())
+
         ..add(MainFetchEvent()),
       child: Scaffold(
           drawer: const DrawerPage(),
@@ -31,7 +32,7 @@ class MainPage extends StatelessWidget {
                 Icons.search,
               ),
               onPressed: () {
-                GetIt.I<AbstractDishRepository>().getDishList();
+                // GetIt.I<AbstractDishRepository>().getDishList();
 
               },
             ),

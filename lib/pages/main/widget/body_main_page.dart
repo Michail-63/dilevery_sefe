@@ -25,7 +25,7 @@ class BodyMainPage extends StatelessWidget {
                 children: [
                   Logotyp(),
                   NameCategory(
-                    name: 'Рекомендуемое',
+                    name: 'Пицца',
                     category: state.recommendedDishes,
                   ),
                   CaregoryRowView(

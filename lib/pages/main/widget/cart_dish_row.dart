@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:delivery/config/icon_path.dart';
 import 'package:delivery/config/theme.dart';
 import 'package:delivery/data/models/dish_model.dart';
@@ -26,7 +27,7 @@ class CartDishRow extends StatelessWidget {
       color: color1,
       child: Container(
         width: 190,
-        height: 290,
+        height: 320,
         child: Stack(children: [
           InkWell(
             onTap: () {
@@ -38,12 +39,30 @@ class CartDishRow extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(
+                CachedNetworkImage(
                   width: 190,
                   height: 190,
                   fit: BoxFit.fitWidth,
-                  item.image,
+                  imageUrl: item.image,
+                  placeholder: (context, url) => Image.asset(
+                      width: 190,
+                      height: 190,
+                      fit: BoxFit.fitWidth,
+                      ImagePass.sushi),
+                  errorWidget: (context, url, error) => Image.asset(
+                      width: 190,
+                      height: 190,
+                      fit: BoxFit.fitWidth,
+                      ImagePass.sushi),
                 ),
+                //
+                // FadeInImage.assetNetwork(
+                // width: 190,
+                //     height: 190,
+                //     fit: BoxFit.fitWidth,
+                //     placeholder: ImagePass.sushi,
+                //     image: item.image),
+
                 Row(
                   children: [
                     Padding(
@@ -64,7 +83,7 @@ class CartDishRow extends StatelessWidget {
           ),
           Positioned(
             right: 10,
-            bottom: 80,
+            bottom: 110,
             child: InkWell(
                 borderRadius: BorderRadius.circular(20),
                 onTap: () {

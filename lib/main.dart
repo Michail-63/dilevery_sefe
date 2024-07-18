@@ -33,10 +33,10 @@ void main() async {
   if (Hive.box<NewDish>('new_dish_box').isEmpty) {
     await Hive.box<NewDish>('new_dish_box').addAll(listDish);
   }
-  GetIt.I.registerLazySingleton<AbstractDishRepository>(() => ApiRepository(
-        dio: Dio(),
-        dishBox: dishBox,
-      ));
+  // GetIt.I.registerLazySingleton<AbstractDishRepository>(() => ApiRepository(
+  //       dio: Dio(),
+  //       dishBox: dishBox,
+  //     ));
 
   runApp(const MyApp());
 }
