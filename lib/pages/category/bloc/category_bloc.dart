@@ -8,12 +8,10 @@ part 'category_event.dart';
 part 'category_state.dart';
 
 class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
-  final DishRepository dishRepository;
   final DishToCartRepository dishToCartRepository;
 
   CategoryBloc(
-    this.dishRepository,
-      this.dishToCartRepository,
+    this.dishToCartRepository,
   ) : super(CategoryInitial()) {
     on<CategoryEvent>((event, emit) {});
 

@@ -24,13 +24,13 @@ class BodyMainPage extends StatelessWidget {
             : ListView(
                 children: [
                   Logotyp(),
-                  NameCategory(
-                    name: 'Пицца',
-                    category: state.recommendedDishes,
-                  ),
-                  CaregoryRowView(
-                    category: state.recommendedDishes,
-                  ),
+                  // NameCategory(
+                  //   name: 'Пицца',
+                  //   category: state.recommendedDishes,
+                  // ),
+                  // CaregoryRowView(
+                  //   category: state.recommendedDishes,
+                  // ),
                   // NameCategory(
                   //   name: 'Лучшее',
                   //   category: state.theBestDishes,
@@ -38,20 +38,20 @@ class BodyMainPage extends StatelessWidget {
                   // CaregoryRowView(
                   //   category: state.theBestDishes,
                   // ),
-                  // NameCategory(
-                  //   name: 'Избранное',
-                  //   category: state.favoritesDishes,
-                  // ),
-                  // CaregoryRowView(
-                  //   category: state.favoritesDishes,
-                  // ),
                   NameCategory(
-                    name: 'Популярное',
-                    category: state.popularDishes,
+                    name: 'Избранное',
+                    category: state.favoritesDishes,
                   ),
                   CaregoryRowView(
-                    category: state.popularDishes,
+                    category: state.favoritesDishes,
                   ),
+                  // NameCategory(
+                  //   name: 'Популярное',
+                  //   category: state.popularDishes,
+                  // ),
+                  // CaregoryRowView(
+                  //   category: state.popularDishes,
+                  // ),
                 ],
               );
       },

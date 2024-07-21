@@ -1,17 +1,17 @@
 import 'dart:async';
 import 'package:delivery/data/models/dish_to_cart.dart';
 import 'package:delivery/data/repositories/api_repository.dart';
+import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DishToCartRepository {
   final Box countBox = Hive.box('count_box');
-  // final DishRepository dishRepository;
-  final ApiRepository apiRepository;
+  final DishRepository dishRepository;
 
   DishToCartRepository({
-    // required this.dishRepository,
-    required this.apiRepository,
+    required this.dishRepository,
+
   });
 
   Stream<List<DishToCart>?> countStream() {
@@ -40,7 +40,7 @@ class DishToCartRepository {
     List<DishToCart> list = [];
     countBox.toMap().entries.forEach((e) async {
       if (e.value > 0) {
-        final dish = await apiRepository.getBogyDishesToCart(e.key);
+        final dish = await dishRepository.getBogyDishesToCart(e.key);
         list.add(DishToCart(
             id: e.key,
             count: e.value,

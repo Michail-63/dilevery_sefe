@@ -4,6 +4,7 @@ import 'package:delivery/config/theme.dart';
 import 'package:delivery/data/models/dish_model.dart';
 import 'package:delivery/data/models/new_dish.dart';
 import 'package:delivery/data/repositories/api_repository.dart';
+import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/pages/category/bloc/category_bloc.dart';
@@ -30,8 +31,8 @@ class CategoryPage extends StatelessWidget {
     final theme = Theme.of(context).textTheme;
     return BlocProvider(
       create: (context) => CategoryBloc(
-        DishRepository(),
-        DishToCartRepository(apiRepository: ApiRepository()),
+
+        DishToCartRepository(dishRepository: DishRepository()),
       ),
       child: CategoryView(name: name, category: category, theme: theme),
     );

@@ -1,4 +1,5 @@
 import 'package:delivery/data/repositories/api_repository.dart';
+import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/main/bloc/main_bloc.dart';
@@ -15,7 +16,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => MainBloc(
-          DishToCartRepository(apiRepository: ApiRepository()), ApiRepository())
+          DishToCartRepository(dishRepository: DishRepository()), ApiRepository())
         ..add(MainFetchEvent()),
       child: Scaffold(
           drawer: const DrawerPage(),

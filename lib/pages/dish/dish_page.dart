@@ -1,7 +1,7 @@
 import 'package:delivery/data/repositories/api_repository.dart';
+import 'package:delivery/data/repositories/dish_repository.dart';
 import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/data/repositories/review_repository.dart';
-import 'package:delivery/data/repositories/new_ dish_repository.dart';
 import 'package:delivery/pages/dish/bloc/dish_bloc.dart';
 import 'package:delivery/pages/dish/widget/body_ dish_page.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class DishPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) =>
-            DishBloc(ReviewRepository(),DishToCartRepository(apiRepository: ApiRepository()),ApiRepository())..add(DishFetchEvent(dishId: dishId)),
+            DishBloc(ReviewRepository(),DishToCartRepository(dishRepository: DishRepository()),ApiRepository())..add(DishFetchEvent(dishId: dishId)),
         child:  BodyDishPage());
   }
 }

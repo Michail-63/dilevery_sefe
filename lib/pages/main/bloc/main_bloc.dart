@@ -26,17 +26,17 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       emit(state.copyWith(isloading: true));
 
       await apiRepository. getDishList();
-      final listRecommendedDish = await apiRepository.getCategoryPizzaDishModal();
-
-      final listPopularDish = await apiRepository.getCategoryDishModal();
-      // final listFavoritesDish = apiRepository.getCategoryDishModal();
+      // final listRecommendedDish = await dishRepository.getCategoryPizzaDishModal();
+      //
+      // final listPopularDish = await apiRepository.getCategoryDishModal();
+      final listFavoritesDish = await apiRepository.getFavoriteDish();
       // final listTheBestDish = await dishRepository.getTheBestDish();
       // final listPopularDish = await dishRepository.getPopularDish();
 
       emit(state.copyWith(
-        recommendedDishes: listRecommendedDish,
-        popularDishes: listPopularDish,
-        // favoritesDishes: listFavoritesDish,
+        // recommendedDishes: listRecommendedDish,
+        // popularDishes: listPopularDish,
+        favoritesDishes: listFavoritesDish,
         // theBestDishes: listTheBestDish,
         isloading: false,
       ));
