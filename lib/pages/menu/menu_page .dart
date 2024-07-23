@@ -1,3 +1,5 @@
+import 'package:delivery/data/repositories/dish_repository.dart';
+import 'package:delivery/data/repositories/dish_to_cart_repository.dart';
 import 'package:delivery/pages/drawer/drawer_page.dart';
 import 'package:delivery/pages/menu/bloc/menu_bloc.dart';
 import 'package:delivery/pages/menu/widget/menu_selection.dart';
@@ -10,26 +12,25 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MenuBloc(),
-      child: Scaffold(
-        drawer: DrawerPage(),
-        appBar: AppBar(title: Text('Меню'), actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.search,
-            ),
-            onPressed: () {
-              print("ON TAP 1");
-              // handle the press
-            },
-          ),
-        ]),
-        body: BlocBuilder<MenuBloc, MenuState>(
-          builder: (context, state) {
-            return MenuSelection(menu: state.menuItem,);
-          },
-        ),
-      ),
-    );
+        create: (context)
+    =>
+    MenuBloc(DishToCartRepository(dishRepository: DishRepository()),
+        DishRepository())
+      ..add(MenuFetchEvent()),
+        child: Scaffold(
+            drawer: DrawerPage(),
+            appBar: AppBar(title: Text('Меню'), actions: [
+              IconButton(
+                icon: const Icon(
+                  Icons.search,
+                ),
+                onPressed: () {
+                  print("ON TAP 1");
+                  // handle the press
+                },
+              ),
+            ]),
+            body: MenuSelection()),
+      );
   }
 }

@@ -1,16 +1,19 @@
 import 'package:delivery/config/theme.dart';
+import 'package:delivery/data/models/dish_model.dart';
 import 'package:delivery/data/models/menu.dart';
+import 'package:delivery/pages/menu/widget/menu_category_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class GridItem extends StatelessWidget {
-  const GridItem({
+class MenuItem extends StatelessWidget {
+  const MenuItem({
     super.key,
     required this.item,
+    required this.category,
   });
 
-
   final Menu item;
+  final List<DishModel> category;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +24,19 @@ class GridItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         onTap: () {
           Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => item.dst),
-          );
+              context,
+              MaterialPageRoute(
+                  builder: (context) => MenuCategoryPage(
+                        title: item.title,
+                        category: category,
+                      )));
+
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => item.dst),
+          //
+
+          // );
         },
         child: Container(
           decoration: BoxDecoration(
@@ -43,9 +56,8 @@ class GridItem extends StatelessWidget {
               ),
               Text(
                 item.title,
-                  textAlign: TextAlign.center,
-                  style: theme.titleSmall,
-
+                textAlign: TextAlign.center,
+                style: theme.titleSmall,
               ),
             ],
           ),

@@ -16,6 +16,7 @@ class MainState extends Equatable {
 
   });
 
+
   MainState copyWith({
     final List<DishModel>? recommendedDishes,
     final List<DishModel>? popularDishes,

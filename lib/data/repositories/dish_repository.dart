@@ -29,6 +29,24 @@ class DishRepository {
     }
   }
 
+  Future<List<DishModel>?> getCategoryMenuDishModal() async {
+    final String categoryId = '654dfb40e6d2d0003ccb8a8d';
+    try {
+      // await Future.delayed(Duration(seconds: 4));
+      final listDish = dishBox.values
+          .where((element) => element.category == categoryId)
+          .toList();
+
+      // print('listDish.lenght: ${listDish.length}');
+      return listDish;
+    } catch (e) {
+      print('Error = ${e}');
+      return null;
+    }
+  }
+
+
+
   Future<List<DishModel>?> getCategoryDishModal() async {
     final String categoryId = '654dfb40e6d2d0003ccb8a8f';
     try {
@@ -46,8 +64,16 @@ class DishRepository {
   }
 
 
-
-
-
+  Future<DishModel?> getDish(String id) async {
+    final dish =
+    dishBox.values.firstWhere((element) => element.id == id);
+    return dish;
 
   }
+
+
+
+
+
+
+}
