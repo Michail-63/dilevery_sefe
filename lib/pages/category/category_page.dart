@@ -28,13 +28,13 @@ class CategoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
+
     return BlocProvider(
       create: (context) => CategoryBloc(
 
         DishToCartRepository(dishRepository: DishRepository()),
       ),
-      child: CategoryView(name: name, category: category, theme: theme),
+      child: CategoryView(name: name, category: category),
     );
   }
 }
@@ -44,18 +44,19 @@ class CategoryView extends StatelessWidget {
     super.key,
     required this.name,
     required this.category,
-    required this.theme,
+
   });
 
   final String name;
 
   final List<DishModel> category;
-  final TextTheme theme;
+
 
   @override
   Widget build(BuildContext context) {
     const double itemHeight = 2;
     const double itemWidth = 1.2;
+    final theme = Theme.of(context).textTheme;
     return Scaffold(
         drawer: DrawerPage(),
         appBar: AppBar(title: Text('$name')),

@@ -13,26 +13,26 @@ late final ApiRepository apiRepository;
 
 final List<Menu> menu = [
   Menu(
-      title: 'Акции', icon: IconPath.star),
+      title: 'Акции', icon: IconPath.star, categoryId: '0'),
   Menu(
-      title: 'Напитки', icon: IconPath.napitki),
+      title: 'Напитки', icon: IconPath.napitki, categoryId: '1'),
   Menu(
-      title: 'Соусы', icon: IconPath.soup),
+      title: 'Соусы', icon: IconPath.soup, categoryId: '2'),
   Menu(
-      title: 'Закуски', icon: IconPath.zakyski),
+      title: 'Закуски', icon: IconPath.zakyski, categoryId: '3'),
   Menu(
-      title: 'Десерты', icon: IconPath.deserty),
+      title: 'Десерты', icon: IconPath.deserty, categoryId: '4'),
   Menu(
-      title: 'Салаты', icon: IconPath.salaty),
+      title: 'Салаты', icon: IconPath.salaty, categoryId: '5'),
   Menu(
-      title: 'Пельмени', icon: IconPath.pelmeni),
+      title: 'Пельмени', icon: IconPath.pelmeni, categoryId: '6'),
   Menu(
-      title: 'Паста', icon: IconPath.pasta),
+      title: 'Паста', icon: IconPath.pasta, categoryId: '7'),
   Menu(
-      title: 'Гарниры', icon: IconPath.garniry),
+      title: 'Гарниры', icon: IconPath.garniry, categoryId: '8'),
   Menu(
       title: 'Основное блюдо',
-      icon: IconPath.osnovnoe_bludo,
+      icon: IconPath.osnovnoe_bludo, categoryId: '9'
       ),
 
 

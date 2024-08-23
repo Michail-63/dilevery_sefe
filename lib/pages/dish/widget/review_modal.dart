@@ -26,21 +26,6 @@ class _ReviewModalState extends State<ReviewModal> {
   late  DateTime createdAt;
 
 
-  // void onFormSubmit() {
-  //   if (widget.formKey.currentState!.validate()) {
-  //     Box<Review> reviewBox = Hive.box<Review>(reviewsBoxName);
-  //     reviewBox.add(Review(
-  //       dishId: '',
-  //       name:'',
-  //       review:'',
-  //       raiting:0,
-  //       createdAt: DateTime.now(),
-  //
-  //     ));
-  //     Navigator.of(context).pop();
-  //   }
-  // }
-
 
   @override
   Widget build(BuildContext context) {

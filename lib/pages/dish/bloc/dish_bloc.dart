@@ -32,7 +32,7 @@ class DishBloc extends Bloc<DishEvent, DishState> {
       ));
     });
 
-    on<IncrementCountDishEvent>((event, emit) async {
+    on<IncrementCountDishEvent>((event, emit) {
       emit(state.copyWith(count: state.count + 1));
       // final updatedDish = await dishRepository.updatedCountDish(
       //     state.dish!.dishId, state.dish!.count + 1);

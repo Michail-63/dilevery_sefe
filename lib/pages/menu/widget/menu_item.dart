@@ -1,19 +1,21 @@
 import 'package:delivery/config/theme.dart';
 import 'package:delivery/data/models/dish_model.dart';
 import 'package:delivery/data/models/menu.dart';
+import 'package:delivery/pages/menu/bloc/menu_bloc.dart';
 import 'package:delivery/pages/menu/widget/menu_category_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MenuItem extends StatelessWidget {
   const MenuItem({
     super.key,
     required this.item,
-    required this.category,
+    // required this.category,
   });
 
   final Menu item;
-  final List<DishModel> category;
+  // final List<DishModel> category;
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +25,20 @@ class MenuItem extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => MenuCategoryPage(
-                        title: item.title,
-                        category: category,
-                      )));
-
+          //
+          // context
+          //     .read<MenuBloc>()
+          //     .add(SelectMenuEvent(item.title));
+          //
           // Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //         builder: (context) => MenuCategoryPage(
+          //               title: item.title,
+          //               // category: add(MenuFetchEvent(),
+          //             )));
+          //
+          // // Navigator.push(
           //   context,
           //   MaterialPageRoute(builder: (context) => item.dst),
           //

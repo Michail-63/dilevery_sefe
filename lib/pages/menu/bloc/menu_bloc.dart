@@ -19,10 +19,11 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
     this.dishToCartRepository,
     this.dishRepository,
   ) : super(MenuInitial()) {
+
     on<MenuEvent>((event, emit) async{
+
       final listCategoryDish = await dishRepository.getCategoryMenuDishModal();
       print('listCategoryDish: ${listCategoryDish?.length}');
-
 
       emit(state.copyWith(
         categoryDishes: listCategoryDish,

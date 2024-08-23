@@ -15,6 +15,17 @@ class MenuFetchEvent extends MenuEvent {
   // List<Object?> get props => [categoryId];
 }
 
+
+class SelectMenuEvent extends MenuEvent {
+  final String categoryId;
+
+  SelectMenuEvent(this.categoryId);
+
+  @override
+  List<Object?> get props => [categoryId];
+}
+
+
 class AddToCartMenuEvent extends MenuEvent {
   final String dishId;
 

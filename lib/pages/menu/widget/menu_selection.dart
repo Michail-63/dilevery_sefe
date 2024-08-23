@@ -20,7 +20,7 @@ class MenuSelection extends StatelessWidget {
             crossAxisCount: 3,
             children: [
               for (var item in state.menuItem)
-                MenuItem(item: item, category: state.categoryDishes),
+                MenuItem(item: item),
             ],
           );
         }

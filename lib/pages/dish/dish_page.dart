@@ -18,8 +18,9 @@ class DishPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) =>
-            DishBloc(DishRepository(),ReviewRepository(),DishToCartRepository(dishRepository: DishRepository()))..add(DishFetchEvent(dishId: dishId)),
-        child:  BodyDishPage());
+        create: (context) => DishBloc(DishRepository(), ReviewRepository(),
+            DishToCartRepository(dishRepository: DishRepository()))
+          ..add(DishFetchEvent(dishId: dishId)),
+        child: BodyDishPage());
   }
 }
